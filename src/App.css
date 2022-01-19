@@ -1,15 +1,48 @@
 .main {
+  background-image: url(https://images.unsplash.com/photo-1562155618-e1a8bc2eb04f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3291&q=80);
+  background-size: cover;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.card {
+/* .card {
   width: 400px;
   height: 400px;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   border-radius: 15px;
-  background-color: bisque;
+  background: linear-gradient(113deg, #42d3, #c37fe4, #14a369);
+  background-size: 180% 180%;
+  animation: gradient-animation 9s ease infinite;
   text-align: center;
+} */
+
+.card-title {
+  text-align: center;
+  color: aliceblue;
+}
+
+.card-text {
+  text-align: center;
+  color: aliceblue;
+}
+
+.city {
+  font-size: 20px;
+}
+.temp {
+  font-size: 50px;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
