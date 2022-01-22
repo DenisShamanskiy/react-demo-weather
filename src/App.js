@@ -1,13 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import WeatherCard from "./components/WeatherCard";
+import WeatherAlert from "./components/AlertWeather/AlertWeather";
+import InputGroup1 from "./components/InputGroup";
+import CardWeather from "./components/CardWeather/CardWeather";
 import Loader from "./components/Loader";
+import Search from "./components/Search/Search";
 
 function App() {
   const [latitude, setLatitude] = useState(59.89444);
   const [longitude, setLongitude] = useState(30.26417);
-  const [data, setData] = useState([]);
+  const [dataWeather, setDataWeather] = useState([]);
 
   function getWeatherCity(city) {
     console.log(city);
@@ -16,7 +19,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((result) => {
-        setData(result);
+        setDataWeather(result);
         console.log(result);
       });
   }
@@ -38,7 +41,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((result) => {
-        setData(result);
+        setDataWeather(result);
       });
   }
 
@@ -49,14 +52,15 @@ function App() {
 
   return (
     <div className="main">
-      <button onClick={() => getGeolocation()}>Получить геолокацию</button>
-      <button onClick={() => getWeatherGeolocation()}>#2</button>
-
-      {typeof data.main != "undefined" ? (
-        <WeatherCard data={data} search={getWeatherCity} />
+      <WeatherAlert />
+      <Search search={getWeatherCity} />
+      {typeof dataWeather.main != "undefined" ? (
+        <CardWeather dataWeather={dataWeather} search={getWeatherCity} />
       ) : (
         <Loader />
       )}
+      <button onClick={() => getGeolocation()}>Получить геолокацию</button>
+      <button onClick={() => getWeatherGeolocation()}>#2</button>
     </div>
   );
 }

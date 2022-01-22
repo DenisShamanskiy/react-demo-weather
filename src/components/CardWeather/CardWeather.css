@@ -1,0 +1,31 @@
+.card {
+  width: 18rem;
+  /* height: 18rem; */
+  /* background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)); */
+  background-image: var(--bs-gradient);
+  border-radius: 15px;
+  text-align: center;
+  border: none;
+}
+.card-body-user {
+  padding: 1rem 1rem 2rem 1rem;
+}
+
+.card-userstyle {
+  width: "20rem";
+  height: "20rem";
+  border-radius: "15px";
+}
+
+.card-img-top-size {
+  width: 50px;
+  height: 50px;
+}
+
+.card-title {
+  font-size: larger;
+}
+
+.card-text-user {
+  font-size: 3rem;
+}
