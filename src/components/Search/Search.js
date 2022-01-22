@@ -13,11 +13,11 @@ export default function Search({ search }) {
 
   return (
     <div className="search">
-      <div className="input-group mb-3 input-group-sm ">
+      <div className="input-group mb-3 input-group-sm">
         <input
           type="text"
           className="form-control"
-          placeholder="Город"
+          placeholder="В каком городе?"
           aria-label="city"
           aria-describedby="button-addon2"
           onChange={handleChange}

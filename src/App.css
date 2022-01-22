@@ -2,10 +2,10 @@
   /* background-image: url(https://images.unsplash.com/photo-1562155618-e1a8bc2eb04f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3291&q=80); */
 
   height: 100vh;
-  background: linear-gradient(160deg, #ffffff, #cccccc, #808080);
+  /* background: linear-gradient(160deg, #ffffff, #cccccc, #808080);
   background-size: 180% 180%;
   animation: gradient-animation 6s ease infinite;
-  background-size: cover;
+  background-size: cover; */
 
   display: flex;
   flex-direction: column;
@@ -13,27 +13,9 @@
   align-items: center;
 }
 
-/* .card {
-  width: 400px;
-  height: 400px;
-  border: 1px solid red;
-  border-radius: 15px;
-  background: linear-gradient(113deg, #42d3, #c37fe4, #14a369);
-  background-size: 180% 180%;
-  animation: gradient-animation 9s ease infinite;
-  text-align: center;
-} */
-
-/* .card-title {
-  text-align: center;
-  color: aliceblue;
-} */
-
-/* .card-text {
-  text-align: center;
-  color: aliceblue;
-} */
-
+.h1-user {
+  margin: 1rem;
+}
 .city {
   font-size: 20px;
 }
