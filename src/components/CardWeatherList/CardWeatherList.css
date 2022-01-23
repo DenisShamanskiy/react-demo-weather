@@ -1,0 +1,65 @@
+.card-list {
+  width: 90%;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 0.25rem 1rem;
+  /* height: 250px; */
+  background-color: rgb(199, 199, 199);
+  border-radius: 1rem;
+}
+
+.card-header {
+  display: flex;
+  padding-bottom: 0.5rem;
+  align-items: center;
+
+  border-bottom: 1px solid var(--bs-gray);
+}
+
+.card-header-icon {
+  background-image: url(../../images/svg/calendar.svg);
+}
+
+.card-header-title {
+  margin: 0;
+  padding: 0;
+  font-size: var(--f-s-n-normal);
+}
+
+.card-list-group {
+  margin: 0;
+  padding: 0;
+}
+
+.card-list-group-item {
+  height: 2.5rem;
+  display: grid;
+  grid-template-columns: 40px 40px 1fr 40px;
+  grid-template-rows: 40px;
+  gap: 5px;
+  align-items: center;
+  border-bottom: 1px solid var(--bs-gray);
+}
+
+.card-list-group-item:last-child {
+  border: none;
+}
+
+.card-list-group-item-day {
+  margin: 0;
+  padding: 0 1rem 0 0;
+}
+
+.card-list-group-item-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: auto;
+}
+
+.card-list-group-item-description {
+  margin: auto;
+  font-size: var(--f-s-n-small);
+}
+
+.card-list-group-item-temp {
+  margin: 0 0 0 auto;
+}

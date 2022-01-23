@@ -7,30 +7,27 @@ export default function Search({ search }) {
   function handleChange(event) {
     setCity(event.target.value);
   }
-  function handleSubmit() {
+  function handleSubmit(event) {
+    event.preventDefault();
     search(city);
   }
 
   return (
-    <div className="search">
-      <div className="input-group mb-3 input-group-sm">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="В каком городе?"
-          aria-label="city"
-          aria-describedby="button-addon2"
-          onChange={handleChange}
-        />
-        <button
-          className="btn btn-outline-secondary"
-          type="button"
-          id="button-addon2"
-          onClick={handleSubmit}
-        >
-          Найти
-        </button>
-      </div>
-    </div>
+    <form className="search">
+      <input
+        type="text"
+        className="search-input"
+        placeholder="В каком городе?"
+        aria-label="city"
+        aria-describedby="button-addon2"
+        onChange={handleChange}
+      />
+      <button
+        className="search-button"
+        type="submit"
+        id="button-addon2"
+        onClick={handleSubmit}
+      ></button>
+    </form>
   );
 }

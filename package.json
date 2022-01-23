@@ -22,6 +22,18 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://denisshamanskiy.github.io/react-demo-weather.git"
+  },
+  "author": "Denis Shamanskiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://denisshamanskiy.github.io/react-demo-weather/issues"
+  },
+  "homepage": "https://denisshamanskiy.github.io/react-demo-weather/",
+  
+
   "eslintConfig": {
     "extends": [
       "react-app",

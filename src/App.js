@@ -3,9 +3,10 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 //import WeatherAlert from "./components/AlertWeather/AlertWeather";
 import CardWeather from "./components/CardWeather/CardWeather";
-import ListCardWeather from "./components/ListCardWeather/ListCardWeather";
+import CardWeatherList from "./components/CardWeatherList/CardWeatherList";
 import Loader from "./components/Loader";
 import Search from "./components/Search/Search";
+import CardWeatherInfo from "./components/CardWeatherInfo/CardWeatherInfo";
 
 function App() {
   const [latitude, setLatitude] = useState(59.89444);
@@ -72,18 +73,23 @@ function App() {
 
   return (
     <div className="main">
-      <h1 className="fs-1 h1-user">Погода</h1>
-      <Search search={getWeatherCity} />
       {typeof dataWeather.main != "undefined" ? (
         <CardWeather dataWeather={dataWeather} search={getWeatherCity} />
       ) : (
         <Loader />
       )}
+      <Search search={getWeatherCity} />
       {typeof data5DayWeather.list != "undefined" ? (
-        <ListCardWeather dataWeather={data5DayWeather} />
+        <CardWeatherList dataWeather={data5DayWeather} />
       ) : (
         <Loader />
       )}
+      {typeof dataWeather.main != "undefined" ? (
+        <CardWeatherInfo dataWeather={dataWeather} />
+      ) : (
+        <Loader />
+      )}
+
       <button onClick={() => getGeolocation()}>Получить геолокацию</button>
       <button onClick={() => getWeatherGeolocation()}>#2</button>
     </div>

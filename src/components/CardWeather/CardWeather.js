@@ -12,13 +12,13 @@ export default function CardWeather({ dataWeather }) {
   const { icon, description } = data;
 
   return (
-    <div className="card text-white bg-primary mb-3">
-      <img
+    <div className="card-user">
+      {/* <img
         src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-        className="card-img-top card-img-top-size"
+        className="card-icon-weather"
         alt="Иконка погоды"
-      />
-      <div className="card-body card-body-user">
+      /> */}
+      <div className="card-body-user">
         <h5 className="card-title card-title-user">{city}</h5>
         <p className="card-text card-text-user">{Math.round(temp)}°</p>
         <p className="card-text">{description}</p>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import "./ListCardWeather.css";
+import "./CardWeatherList.css";
 
-export default function ListCardWeather({ dataWeather }) {
+export default function CardWeatherList({ dataWeather }) {
   //console.log(dataWeather);
 
   const { list } = dataWeather;
@@ -11,7 +11,7 @@ export default function ListCardWeather({ dataWeather }) {
   const result = list.filter((item) => item.dt_txt.includes("15:00:00"));
   //console.log(result);
   const [first, second, third, fourth, fifth] = result;
-  console.log(first, second, third, fourth, fifth);
+  // console.log(first, second, third, fourth, fifth);
 
   function formateDate(arr) {
     const arrDay = [];
@@ -36,33 +36,35 @@ export default function ListCardWeather({ dataWeather }) {
     return arrDay;
   }
   const dayWeek = formateDate(result);
-  console.log(formateDate(dayWeek));
+  // console.log(formateDate(dayWeek));
 
   useEffect(() => {
     formateDate(list);
   }, [list]);
 
   return (
-    <div className="card">
-      <div className="card-header">Прогноз на 5 дней</div>
+    <div className="card-list">
+      <div className="card-header">
+        <span className="svg-icon card-header-icon"></span>
+        <h3 className="card-header-title">Прогноз на 5 дней</h3>
+      </div>
 
-      <ul className="list-group list-group-flush flex">
+      <ul className="card-list-group">
         {result.map(function (item, index) {
           return (
-            <li
-              key={index}
-              className="list-group-item list-group-item-user grid"
-            >
-              <p className="list-text-user">{dayWeek[index]}</p>
+            <li key={index} className="card-list-group-item">
+              <p className="card-list-group-item-day">{dayWeek[index]}</p>
               <img
                 src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-                className="card-img-top list-size"
+                className="card-list-group-item-icon"
                 alt="Иконка погоды"
               />
-              <p className="list-text-user text-size g-col-4">
+              <p className="card-list-group-item-description">
                 {item.weather[0].description}
               </p>
-              <p className="list-text-user">{Math.round(item.main.temp)}°</p>
+              <p className="card-list-group-item-temp">
+                {Math.round(item.main.temp)}°
+              </p>
             </li>
           );
         })}
