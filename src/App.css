@@ -2,9 +2,6 @@
   /* background-image: url(https://images.unsplash.com/photo-1562155618-e1a8bc2eb04f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3291&q=80); */
 
   height: 100vh;
-  background: linear-gradient(45deg, #1d3e35, #56bdce, #898ed6);
-  background-size: 180% 180%;
-  animation: gradient-animation 6s ease infinite;
 
   display: flex;
   flex-direction: column;
@@ -26,16 +23,4 @@
   margin-right: 0.5rem;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }

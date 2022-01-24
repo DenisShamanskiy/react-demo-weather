@@ -5,13 +5,8 @@ export default function CardWeatherList({ dataWeather }) {
   //console.log(dataWeather);
 
   const { list } = dataWeather;
-  //console.log(list);
-  // const arrDay = [];
 
   const result = list.filter((item) => item.dt_txt.includes("15:00:00"));
-  //console.log(result);
-  const [first, second, third, fourth, fifth] = result;
-  // console.log(first, second, third, fourth, fifth);
 
   function formateDate(arr) {
     const arrDay = [];
@@ -36,10 +31,10 @@ export default function CardWeatherList({ dataWeather }) {
     return arrDay;
   }
   const dayWeek = formateDate(result);
-  // console.log(formateDate(dayWeek));
+  // console.log(dayWeek);
 
   useEffect(() => {
-    formateDate(list);
+    formateDate(result);
   }, [list]);
 
   return (

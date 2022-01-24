@@ -6,7 +6,7 @@ import CardWeather from "./components/CardWeather/CardWeather";
 import CardWeatherList from "./components/CardWeatherList/CardWeatherList";
 import Loader from "./components/Loader";
 import Search from "./components/Search/Search";
-import CardWeatherInfo from "./components/CardWeatherInfo/CardWeatherInfo";
+import CardWeatherInfoContainer from "./components/CardWeatherInfoContainer/CardWeatherInfoContainer";
 
 function App() {
   const [latitude, setLatitude] = useState(59.89444);
@@ -85,7 +85,7 @@ function App() {
         <Loader />
       )}
       {typeof dataWeather.main != "undefined" ? (
-        <CardWeatherInfo dataWeather={dataWeather} />
+        <CardWeatherInfoContainer dataWeather={dataWeather} />
       ) : (
         <Loader />
       )}

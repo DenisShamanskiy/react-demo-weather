@@ -1,24 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./CardWeatherInfo.css";
 
-export default function CardWeatherInfo({ dataWeather }) {
-  const {
-    wind: { speed },
-  } = dataWeather;
-  console.log(dataWeather);
-  console.log(speed);
-
-  //   useEffect(() => {
-  //     formateDate(list);
-  //   }, [list]);
-
+export default function CardWeatherInfo({
+  title,
+  title_min,
+  description,
+  description_min,
+  img,
+}) {
   return (
     <div className="card-info">
       <div className="card-info-header">
-        <span className="svg-icon card-info-icon"></span>
-        <h3 className="card-info-title">Ветер</h3>
+        <img className="svg-icon card-info-icon" src={img} />
+        <h3 className="card-info-title">{title}</h3>
       </div>
-      <div className="card-info-text">{Math.round(speed)} м/с</div>
+      <div className="card-info-text">{description}</div>
+      <h3 className="card-info-title">{title_min}</h3>
+      <div className="card-info-text">{description_min}</div>
     </div>
   );
 }

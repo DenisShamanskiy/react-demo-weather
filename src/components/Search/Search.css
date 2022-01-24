@@ -1,10 +1,12 @@
 .search {
   width: 90%;
+  max-width: 376px;
   height: 2.5rem;
   display: flex;
   margin-bottom: 1rem;
   /* border-bottom: 1px solid grey; */
-  background-color: rgb(199, 199, 199);
+  /* background-color: rgb(199, 199, 199); */
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
   border-radius: 1rem;
   box-sizing: border-box;
@@ -19,7 +21,8 @@
   border: none;
   box-sizing: border-box;
   border: none;
-  background-color: rgb(199, 199, 199);
+  /* background-color: rgb(199, 199, 199); */
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .search-input:active,
@@ -38,7 +41,8 @@
   background-size: 50%;
   background-position: center;
   border: none;
-  background-color: rgb(199, 199, 199);
+  /* background-color: rgb(199, 199, 199); */
+  background-color: rgba(0, 0, 0, 0);
 }
 .search-button:hover {
   background-size: 60%;
