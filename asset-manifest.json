@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-demo-weather/static/css/main.29cdce53.css",
+    "main.css": "/react-demo-weather/static/css/main.9fea50bb.css",
     "main.js": "/react-demo-weather/static/js/main.1f6a4914.js",
     "static/js/787.e28efb7e.chunk.js": "/react-demo-weather/static/js/787.e28efb7e.chunk.js",
     "static/media/barometer.svg": "/react-demo-weather/static/media/barometer.0a36a8a5a712d29e17c9ccfc662b432f.svg",
@@ -12,12 +12,12 @@
     "static/media/thermometer.svg": "/react-demo-weather/static/media/thermometer.e1c9d8982a58e567ab727769b559eea7.svg",
     "static/media/search.svg": "/react-demo-weather/static/media/search.b1f781b99ceaafb9c831.svg",
     "static/media/calendar.svg": "/react-demo-weather/static/media/calendar.84471c0a90fae8ad0f38.svg",
-    "main.29cdce53.css.map": "/react-demo-weather/static/css/main.29cdce53.css.map",
+    "main.9fea50bb.css.map": "/react-demo-weather/static/css/main.9fea50bb.css.map",
     "main.1f6a4914.js.map": "/react-demo-weather/static/js/main.1f6a4914.js.map",
     "787.e28efb7e.chunk.js.map": "/react-demo-weather/static/js/787.e28efb7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.29cdce53.css",
+    "static/css/main.9fea50bb.css",
     "static/js/main.1f6a4914.js"
   ]
 }
