@@ -6,8 +6,10 @@
   flex-direction: column;
   /* border: 1px solid black; */
   /* background-color: rgb(199, 199, 199); */
-  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.1); */
   border-radius: 1rem;
+  background-color: #ffffff77;
+  backdrop-filter: blur(7px);
 }
 .card-info-header {
   display: flex;

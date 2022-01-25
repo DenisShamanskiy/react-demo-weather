@@ -1,41 +1,31 @@
-.card-user {
-  width: 100%;
-  max-width: 250px;
-  margin: 1rem 0;
-  /* height: 18rem; */
-  /* background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)); */
-  background-image: var(--bs-gradient);
-  /* border-radius: 15px; */
-  text-align: center;
-  /* border: 1px solid grey; */
-  box-sizing: border-box;
-}
-
-.card-icon-weather {
-  width: 50px;
-  height: 50px;
-  display: block;
-  margin-right: auto;
-}
-.card-body-user {
+.card {
+  width: 90%;
+  max-width: 376px;
+  margin: 2rem 0 0 0;
   padding: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  color: whitesmoke;
+  /* position: sticky;
+  top: 0px; */
 }
 
-.card-userstyle {
-  width: "20rem";
-  height: "20rem";
-  border-radius: "15px";
+.card-city {
+  font-family: var(--font-family-Jost);
+  font-weight: 400;
+  font-size: 1.6rem;
 }
 
-.card-img-top-size {
-  width: 50px;
-  height: 50px;
+.card-temp {
+  margin: 0;
+  font-family: var(--font-family-Jost);
+  font-weight: 200;
+  font-size: 4rem;
 }
 
-.card-title {
-  font-size: larger;
-}
-
-.card-text-user {
-  font-size: 3rem;
+.card-description {
+  margin: 0.7rem;
+  font-family: var(--font-family-Jost);
+  font-weight: 400;
+  font-size: 1rem;
 }

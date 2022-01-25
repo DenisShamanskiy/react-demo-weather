@@ -19,13 +19,13 @@ export default function Search({ search }) {
         className="search-input"
         placeholder="В каком городе?"
         aria-label="city"
-        aria-describedby="button-addon2"
+        aria-describedby="button-submit"
         onChange={handleChange}
       />
       <button
         className="search-button"
         type="submit"
-        id="button-addon2"
+        id="button-submit"
         onClick={handleSubmit}
       ></button>
     </form>

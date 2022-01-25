@@ -1,13 +1,17 @@
 import CardWeatherInfo from "../CardWeatherInfo/CardWeatherInfo.js";
 import "./CardWeatherInfoContainer.css";
 import wind from "../../images/svg/wind.svg";
-import water from "../../images/svg/water.svg";
-import atmosphere from "../../images/svg/pressure.svg";
+import moisture from "../../images/svg/moisture.svg";
+import atmosphere from "../../images/svg/barometer.svg";
+import sun from "../../images/svg/sunrise.svg";
+import eye from "../../images/svg/visibility.svg";
+import thermometer from "../../images/svg/thermometer.svg";
 
 export default function CardWeatherInfoContainer({ dataWeather }) {
   const {
+    visibility,
     wind: { speed },
-    main: { humidity, pressure },
+    main: { humidity, pressure, feels_like },
     sys: { sunrise, sunset },
   } = dataWeather;
   console.log(dataWeather);
@@ -25,7 +29,7 @@ export default function CardWeatherInfoContainer({ dataWeather }) {
       <CardWeatherInfo
         title="Влажность"
         description={`${humidity} %`}
-        img={water}
+        img={moisture}
       />
       <CardWeatherInfo
         title="Давление"
@@ -43,7 +47,17 @@ export default function CardWeatherInfoContainer({ dataWeather }) {
           hour: "numeric",
           minute: "numeric",
         })}`}
-        img={atmosphere}
+        img={sun}
+      />
+      <CardWeatherInfo
+        title="Ощущается как"
+        description={`${Math.round(feels_like)}°`}
+        img={thermometer}
+      />
+      <CardWeatherInfo
+        title="Видимость"
+        description={`${visibility / 1000} км.`}
+        img={eye}
       />
     </div>
   );

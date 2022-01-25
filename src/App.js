@@ -90,8 +90,8 @@ function App() {
         <Loader />
       )}
 
-      <button onClick={() => getGeolocation()}>Получить геолокацию</button>
-      <button onClick={() => getWeatherGeolocation()}>#2</button>
+      {/* <button onClick={() => getGeolocation()}>Получить геолокацию</button> */}
+      {/* <button onClick={() => getWeatherGeolocation()}>#2</button> */}
     </div>
   );
 }
