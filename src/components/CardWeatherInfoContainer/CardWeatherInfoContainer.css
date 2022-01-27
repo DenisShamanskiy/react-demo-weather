@@ -1,5 +1,37 @@
 .card-info-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.card-info {
+  min-width: 180px;
+  min-height: 180px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: #ffffff77;
+  backdrop-filter: blur(7px);
+}
+.card-info-header {
+  display: flex;
+  align-items: center;
+  color: var(--second-color);
+}
+.card-info-title {
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.card-info-text {
+  margin: 1.1rem 0 auto;
+  font-size: 1.7rem;
+  font-weight: 300;
+  /* color: rgb(28, 2, 172); */
+}
+.card-info-text_right {
+  text-align: end;
 }

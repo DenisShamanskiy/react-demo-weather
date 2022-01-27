@@ -55,7 +55,8 @@ export default function CardWeatherList({ dataWeather }) {
                 alt="Иконка погоды"
               />
               <p className="card-list-group-item-description">
-                {item.weather[0].description}
+                {item.weather[0].description[0].toUpperCase() +
+                  item.weather[0].description.slice(1)}
               </p>
               <p className="card-list-group-item-temp">
                 {Math.round(item.main.temp)}°

@@ -11,8 +11,6 @@ export default function CardWeather({ dataWeather }) {
   const [data] = weather;
   const { description } = data;
 
-  console.log(typeof description);
-
   return (
     <div className="card">
       <h1 className="card-city">{city}</h1>
