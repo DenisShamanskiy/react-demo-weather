@@ -15,7 +15,7 @@ function App() {
   const [data5DayWeather, set5DayWeather] = useState([]);
   const [er, setEr] = useState("");
 
-  console.log(dataWeather);
+  // console.log(dataWeather);
   // console.log(data5DayWeather);
 
   async function getWeatherCity(city) {

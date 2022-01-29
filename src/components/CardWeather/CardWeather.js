@@ -2,7 +2,7 @@ import React from "react";
 import "./CardWeather.css";
 
 export default function CardWeather({ dataWeather }) {
-  //console.log(dataWeather);
+  // console.log(dataWeather);
   const {
     name: city,
     weather,

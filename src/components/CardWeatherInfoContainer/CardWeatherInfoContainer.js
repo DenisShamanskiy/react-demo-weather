@@ -6,8 +6,10 @@ import sun from "../../images/svg/sunrise.svg";
 import eye from "../../images/svg/visibility.svg";
 import thermometer from "../../images/svg/thermometer.svg";
 import fallout from "../../images/svg/fallout.svg";
+import { useEffect, useState } from "react";
 
 export default function CardWeatherInfoContainer({ dataWeather }) {
+  console.log(dataWeather);
   const {
     visibility,
     wind: { speed },
@@ -17,7 +19,24 @@ export default function CardWeatherInfoContainer({ dataWeather }) {
     snow,
   } = dataWeather;
 
-  const getWeatherPrecipitation = () => (!!rain ? rain["1h"] : snow["1h"]);
+  const [precipitation, setPrecipitation] = useState("");
+
+  function getWeatherPrecipitation() {
+    if (rain) {
+      // console.log(rain);
+      setPrecipitation(`${rain["1h"]} мм`);
+    } else if (snow) {
+      // console.log(snow);
+      setPrecipitation(`${snow["1h"]} мм`);
+    }
+  }
+
+  const checkWeatherPrecipitation = () =>
+    precipitation ? precipitation : "0 мм";
+
+  useEffect(() => {
+    getWeatherPrecipitation();
+  });
 
   return (
     <div className="card-info-container">
@@ -54,7 +73,7 @@ export default function CardWeatherInfoContainer({ dataWeather }) {
           <img className="svg-icon card-info-icon" src={fallout} />
           <h3 className="card-info-title">Осадки</h3>
         </div>
-        <div className="card-info-text">{getWeatherPrecipitation()} мм</div>
+        <div className="card-info-text">{checkWeatherPrecipitation()}</div>
         <p className="card-info-title text_right">за последний час</p>
       </div>
 
