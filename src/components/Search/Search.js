@@ -21,6 +21,7 @@ export default function Search({ search, text }) {
           placeholder="В каком городе?"
           aria-label="city"
           aria-describedby="button-submit"
+          autoComplete="on"
           onChange={handleChange}
         />
         <button

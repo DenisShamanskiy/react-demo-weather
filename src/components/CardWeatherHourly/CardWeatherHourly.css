@@ -1,0 +1,100 @@
+.card-weather-hourly {
+  width: 90%;
+  max-width: 376px;
+  min-height: 150px;
+  padding: 0.9rem 0.9rem 0 0.9rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  background-color: #ffffff77;
+  backdrop-filter: blur(7px);
+}
+
+.card-weather-hourly-header {
+  display: flex;
+  align-items: center;
+  color: var(--second-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  padding-bottom: 0.5rem;
+}
+
+.card-weather-hourly-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-weather-hourly-title {
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.card-weather-hourly-info-container {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(25, 64.5px);
+  /* grid-template-rows: 60px; */
+  gap: 5px;
+  /* border: 1px solid red; */
+  overflow-x: scroll;
+}
+
+.card-weather-hourly-info-container::-webkit-scrollbar {
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.card-weather-hourly-info-container-item {
+  min-width: 100%;
+  height: 80px;
+  margin: 0.3rem 0 0 0;
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0.3rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow-x: scroll;
+  /* border: 1px solid cornflowerblue; */
+}
+
+.card-weather-hourly-info-container-item-hour {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  padding: 0.1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.card-weather-hourly-info-container-item > img {
+  /* background-color: crimson; */
+  background-size: 100%;
+}
+
+.div2 {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+}
+
+.div3 {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+}

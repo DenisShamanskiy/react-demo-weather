@@ -1,17 +1,27 @@
 import React from "react";
 import "./Loader.css";
 
-export default function Loader() {
+export default function LoaderCardWeather({ height }) {
+  const loaderContainer = {
+    minHeight: height,
+    margin: "2rem 0 0 0",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
   return (
-    <div className="loader">
-      <div className="spinner-border spinner-border-sm" role="status">
-        <span className="visually-hidden">Загрузка...</span>
-      </div>
-      <div className="spinner-grow spinner-grow-sm" role="status">
-        <span className="visually-hidden">Загрузка...</span>
-      </div>
-      <div className="spinner-grow spinner-grow-sm" role="status">
-        <span className="visually-hidden">Загрузка...</span>
+    <div style={loaderContainer}>
+      <div className="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   );
