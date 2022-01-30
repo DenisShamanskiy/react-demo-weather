@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/react-demo-weather/static/css/main.07786f06.css",
-    "main.js": "/react-demo-weather/static/js/main.4da2519e.js",
+    "main.css": "/react-demo-weather/static/css/main.2d6625ab.css",
+    "main.js": "/react-demo-weather/static/js/main.51cd0de4.js",
     "static/js/787.e28efb7e.chunk.js": "/react-demo-weather/static/js/787.e28efb7e.chunk.js",
     "static/media/barometer.svg": "/react-demo-weather/static/media/barometer.0a36a8a5a712d29e17c9ccfc662b432f.svg",
     "static/media/fallout.svg": "/react-demo-weather/static/media/fallout.09787fad77cfd496d382316e84e9a185.svg",
     "static/media/moisture.svg": "/react-demo-weather/static/media/moisture.61743018bba09a4b3356b8c9ba9239bf.svg",
+    "static/media/sun.svg": "/react-demo-weather/static/media/sun.41742d8f9bb1070afc2ed6f22d4802c0.svg",
     "static/media/sunrise.svg": "/react-demo-weather/static/media/sunrise.9bfb92f93ef5dd847156969c87332f5e.svg",
     "index.html": "/react-demo-weather/index.html",
     "static/media/visibility.svg": "/react-demo-weather/static/media/visibility.e99d74334ad6397152628e2098cbc42b.svg",
@@ -13,12 +14,13 @@
     "static/media/thermometer.svg": "/react-demo-weather/static/media/thermometer.e1c9d8982a58e567ab727769b559eea7.svg",
     "static/media/search.svg": "/react-demo-weather/static/media/search.b1f781b99ceaafb9c831.svg",
     "static/media/calendar.svg": "/react-demo-weather/static/media/calendar.84471c0a90fae8ad0f38.svg",
-    "main.07786f06.css.map": "/react-demo-weather/static/css/main.07786f06.css.map",
-    "main.4da2519e.js.map": "/react-demo-weather/static/js/main.4da2519e.js.map",
+    "static/media/clock.svg": "/react-demo-weather/static/media/clock.d2df5f347823101283c7f7184bd80d40.svg",
+    "main.2d6625ab.css.map": "/react-demo-weather/static/css/main.2d6625ab.css.map",
+    "main.51cd0de4.js.map": "/react-demo-weather/static/js/main.51cd0de4.js.map",
     "787.e28efb7e.chunk.js.map": "/react-demo-weather/static/js/787.e28efb7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07786f06.css",
-    "static/js/main.4da2519e.js"
+    "static/css/main.2d6625ab.css",
+    "static/js/main.51cd0de4.js"
   ]
 }
