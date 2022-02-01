@@ -1,0 +1,75 @@
+.card-daily {
+  width: 376px;
+  margin-bottom: 0.5rem;
+  padding: 0.9rem 0.9rem 0 0.9rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  background-color: #ffffff77;
+  backdrop-filter: blur(7px);
+}
+
+.card-daily-header {
+  display: flex;
+  align-items: center;
+  color: var(--second-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  padding-bottom: 0.5rem;
+}
+
+.card-daily-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-daily-title {
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.card-daily-list {
+  margin: 0;
+  padding: 0;
+}
+
+.card-daily-list-item {
+  height: 2.5rem;
+  display: grid;
+  grid-template-columns: 40px 40px 1fr 40px;
+  grid-template-rows: 40px;
+  gap: 5px;
+  align-items: center;
+  border-bottom: 1px solid var(--bs-gray);
+}
+
+.card-daily-list-item:last-child {
+  border: none;
+}
+
+.card-daily-list-item-day {
+  margin: 0;
+  padding: 0 1rem 0 0;
+}
+
+.card-daily-list-item-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: auto;
+}
+
+.card-daily-list-item-description {
+  margin: auto;
+  font-size: var(--f-s-n-small);
+}
+
+.card-daily-list-item-temp {
+  margin: 0 0 0 auto;
+}

@@ -1,7 +1,8 @@
-.card-weather-hourly {
-  width: 90%;
-  max-width: 376px;
+.card-hourly {
+  /* width: 90%; */
+  width: 376px;
   min-height: 150px;
+  margin-bottom: 0.5rem;
   padding: 0.9rem 0.9rem 0 0.9rem;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,7 @@
   backdrop-filter: blur(7px);
 }
 
-.card-weather-hourly-header {
+.card-hourly-header {
   display: flex;
   align-items: center;
   color: var(--second-color);
@@ -19,7 +20,7 @@
   padding-bottom: 0.5rem;
 }
 
-.card-weather-hourly-icon {
+.card-hourly-icon {
   display: block;
   width: 20px;
   height: 20px;
@@ -28,7 +29,7 @@
   background-position: center;
 }
 
-.card-weather-hourly-title {
+.card-hourly-title {
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
   padding: 0;
@@ -36,51 +37,52 @@
   font-weight: 500;
 }
 
-.card-weather-hourly-info-container {
+.card-hourly-info-container {
   height: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(25, 64.5px);
+  display: flex;
+  flex-direction: row;
+  /* display: grid; */
+  /* grid-template-columns: repeat(25, 64.5px); */
   /* grid-template-rows: 60px; */
   gap: 5px;
   /* border: 1px solid red; */
+  /* overflow-x: scroll; */
+  /* overflow-y: hidden; */
+  /* white-space: nowrap; */
+
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
-.card-weather-hourly-info-container::-webkit-scrollbar {
+.card-hourly-info-container::-webkit-scrollbar {
   width: 0;
   padding: 0;
   margin: 0;
 }
 
-.card-weather-hourly-info-container-item {
-  min-width: 100%;
+.card-hourly-info-container-item {
+  min-width: 65px;
   height: 80px;
   margin: 0.3rem 0 0 0;
-  /* display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0.3rem; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  overflow-x: scroll;
   /* border: 1px solid cornflowerblue; */
 }
 
-.card-weather-hourly-info-container-item-hour {
+.card-hourly-info-container-item-hour {
   width: 100%;
   height: 20px;
   margin: 0;
-  padding: 0.1rem;
+  padding: 0;
   text-align: center;
+  line-height: 20px;
   font-size: 0.9rem;
 }
 
-.card-weather-hourly-info-container-item > img {
+.card-hourly-info-container-item > img {
   /* background-color: crimson; */
   background-size: 100%;
 }
@@ -88,7 +90,7 @@
 .div2 {
   width: 40px;
   height: 40px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .div3 {

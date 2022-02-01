@@ -6,20 +6,29 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.4.2",
     "bootstrap": "^5.1.3",
     "gh-pages": "^3.2.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-nested": "^5.0.6",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "serve": "^13.0.2",
     "web-vitals": "^2.1.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build:css": "postcss src/styles/main.css -o src/index.css",
+    "watch:css": "postcss src/styles/main.css -o src/index.css -w",
+    "start": "npm-run-all -p watch:css start-js",
+    "start-js": "react-scripts start",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build:css build-js",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "repository": {
@@ -32,8 +41,6 @@
     "url": "https://denisshamanskiy.github.io/react-demo-weather/issues"
   },
   "homepage": "https://denisshamanskiy.github.io/react-demo-weather/",
-  
-
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -51,5 +58,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "postcss-import": "^14.0.2",
+    "postcss-preset-env": "^7.3.0"
   }
 }

@@ -1,14 +1,13 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+// import "./App.css";
 import React, { useEffect, useState } from "react";
 //import WeatherAlert from "./components/AlertWeather/AlertWeather";
 import CardWeather from "./components/CardWeather/CardWeather";
-import CardWeatherList from "./components/CardWeatherList/CardWeatherList";
+import CardDaily from "./components/CardDaily/CardDaily";
 import Loader from "./components/Loader";
 import Search from "./components/Search/Search";
-import CardWeatherInfoContainer from "./components/CardWeatherInfoContainer/CardWeatherInfoContainer";
-import { waitForElementToBeRemoved } from "@testing-library/react";
-import CardWeatherHourly from "./components/CardWeatherHourly/CardWeatherHourly";
+import CardWeatherInfo from "./components/CardWeatherInfo/CardWeatherInfo";
+import CardHourly from "./components/CardHourly/CardHourly";
 
 function App() {
   const [latitude, setLatitude] = useState();
@@ -21,11 +20,12 @@ function App() {
   // console.log(currentWeather);
   const [currentOneCall, setCurrentOneCall] = useState({});
   // console.log(currentOneCall);
-  const [dailyOneCall, setDailyOneCall] = useState({});
-  // console.log(dailyOneCall);
+  const [dailyOneCall, setDailyOneCall] = useState();
+  console.log(dailyOneCall);
   const [hourlyOneCall, setHourlyOneCall] = useState();
   // console.log(hourlyOneCall);
-
+  const [timeZone, setTimeZone] = useState();
+  // console.log(timeZone);
   const [alertsOneCall, setAlertsOneCall] = useState({});
   // console.log(alertsWeather);
 
@@ -51,14 +51,16 @@ function App() {
       `${process.env.REACT_APP_API_URL}/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
     );
     const currentOneCall = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=minutely,hourly,daily,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=minutely,hourly,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
     );
     const {
       current: { uvi },
+      daily,
     } = await currentOneCall.json();
     const dataCurrentWeather = await response.json();
     dataCurrentWeather.uvi = uvi;
     setCurrentWeather(dataCurrentWeather);
+    setDailyOneCall(daily);
     getWeatherHourly(position.coords.latitude, position.coords.longitude);
   }
 
@@ -79,6 +81,12 @@ function App() {
     } = await currentOneCall.json();
     dataCityWeather.uvi = uvi;
     setCurrentWeather(dataCityWeather);
+    const hourlyWeather = await fetch(
+      `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,daily,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
+    );
+    const { hourly, timezone_offset } = await hourlyWeather.json();
+    setTimeZone(timezone_offset);
+    setHourlyOneCall(hourly.slice(0, 25));
   }
 
   // 1 час
@@ -86,9 +94,19 @@ function App() {
     const response = await fetch(
       `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,daily,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
     );
-    const { hourly } = await response.json();
-    // console.log(data);
+    const { hourly, timezone_offset } = await response.json();
+    setTimeZone(timezone_offset);
     setHourlyOneCall(hourly.slice(0, 25));
+  }
+
+  // 1 день
+  async function getWeatherDaily(lat, lon) {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
+    );
+    const { daily, timezone_offset } = await response.json();
+    // setTimeZone(timezone_offset);
+    setDailyOneCall(daily);
   }
 
   async function getCoordinatesCity(city) {
@@ -107,122 +125,6 @@ function App() {
     // setLongitude(lon);
     // setCity(name);
   }
-
-  // API одного вызова
-  // async function getWeatherCityOneCall() {
-  //   const position = await new Promise((res, rej) => {
-  //     navigator.geolocation.getCurrentPosition(res, rej);
-  //   });
-  //   // console.log(position.coords.latitude);
-  //   // console.log(position.coords.longitude);
-  //   const response = await fetch(
-  //     `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //   );
-  //   const cityName = await fetch(
-  //     `${process.env.REACT_APP_API_URL}/weather/?lat=${position.coords.latitude}&lon=${position.coords.longitude}&APPID=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //   );
-  //   const { name } = await cityName.json();
-  //   const { alerts, current, daily, hourly } = await response.json();
-
-  //   setCurrentOneCall(current);
-  //   setDailyOneCall(daily);
-  //   setHourlyOneCall(hourly);
-  //   setAlertsOneCall(alerts);
-  //   setCity(name);
-  // }
-
-  // const [currentWeather, setCurrentWeather] = useState({});
-  // console.log(currentWeather);
-
-  // console.log(dataWeather);
-  // console.log(data5DayWeather);
-
-  // async function getWeatherCity(city) {
-  //   const response = await fetch(
-  //     `${process.env.REACT_APP_API_URL}/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //   );
-  //   const result = await response.json();
-  //   getCoordinatesCity(city);
-  //   setDataWeather(result);
-  //   getWeatherCity5day(city);
-  // }
-
-  // async function getWeatherCity5day(city) {
-  //   const response = await fetch(
-  //     `${process.env.REACT_APP_API_URL}/forecast?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //   );
-  //   const result = await response.json();
-  //   set5DayWeather(result);
-  // }
-
-  // async function getWeatherCityOneCall() {
-  //   const response = await fetch(
-  //     `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //   );
-  //   const result = await response.json();
-  //   console.log(result);
-  // }
-
-  // async function getWeatherCity(city) {
-  //   try {
-  //     const [qwer, asdf] = await Promise.all([
-  //       fetch(
-  //         `${process.env.REACT_APP_API_URL}/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //       ),
-  //       fetch(
-  //         `${process.env.REACT_APP_API_URL}/forecast?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //       ),
-  //     ]);
-
-  //     console.log(qwer, asdf);
-  //     if (!qwer.ok || !asdf.ok) {
-  //       console.log(qwer.status, asdf.status);
-  //       const message = `Возникла ошибка`;
-  //       throw new Error(message);
-  //     }
-  //     const dataW1 = await qwer.json();
-  //     const data5DayWe1 = await asdf.json();
-
-  //     setDataWeather(dataW1);
-  //     set5DayWeather(data5DayWe1);
-  //     // console.log(dataW1, data5DayWe1);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
-  // function getWeatherCity(city) {
-  //   fetch(
-  //     `${process.env.REACT_APP_API_URL}/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       setDataWeather(result);
-  //       // console.log(result);
-  //     });
-  //   get5DayWeather(city);
-  // }
-
-  // function get5DayWeather(city) {
-  //   fetch(
-  //     `${process.env.REACT_APP_API_URL}/forecast?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       set5DayWeather(result);
-  //       // console.log(result);
-  //     });
-  // }
-
-  // console.log(`Широта: ${latitude}`);
-  // console.log(`Долгота: ${longitude}`);
-
-  // function getGeolocation() {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     setLatitude(position.coords.latitude);
-  //     setLongitude(position.coords.longitude);
-  //   });
-  // }
 
   async function getWeatherGeolocation() {
     if (latitude && longitude) {
@@ -263,18 +165,14 @@ function App() {
       <Search search={getCityWeather} />
 
       {hourlyOneCall ? (
-        <CardWeatherHourly hourlyWeather={hourlyOneCall} />
+        <CardHourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
       ) : (
         <Loader height={"239.641px"} />
       )}
 
-      {/* {typeof data5DayWeather.list != "undefined" ? (
-        <CardWeatherList dataWeather={data5DayWeather} />
-      ) : (
-        <Loader />
-      )} */}
+      {dailyOneCall ? <CardDaily dataWeather={dailyOneCall} /> : <Loader />}
       {currentWeather ? (
-        <CardWeatherInfoContainer dataWeather={currentWeather} />
+        <CardWeatherInfo dataWeather={currentWeather} />
       ) : (
         <Loader height={"744px"} />
       )}
