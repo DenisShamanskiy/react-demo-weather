@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./Search.css";
 
-export default function Search({ search, text }) {
+export default function Search({ search }) {
   const [city, setCity] = useState("");
 
   function handleChange(event) {
@@ -32,7 +32,6 @@ export default function Search({ search, text }) {
           onClick={handleSubmit}
         ></button>
       </form>
-      <p>{text}</p>
     </>
   );
 }

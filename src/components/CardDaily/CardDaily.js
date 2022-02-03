@@ -3,7 +3,7 @@ import "./CardDaily.css";
 import calendar from "../../images/svg/calendar.svg";
 
 export default function CardDaily({ dataWeather }) {
-  console.log(dataWeather);
+  // console.log(dataWeather);
 
   function getWeekDay(date) {
     let days = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
@@ -23,7 +23,7 @@ export default function CardDaily({ dataWeather }) {
       </div>
 
       <ul className="card-daily-list">
-        {dataWeather.map(({ temp: { day }, weather, dt }, index) => {
+        {dataWeather.map(({ temp: { max, min }, weather, dt, pop }, index) => {
           return (
             <li key={index} className="card-daily-list-item">
               <p className="card-daily-list-item-day">
@@ -38,11 +38,17 @@ export default function CardDaily({ dataWeather }) {
                 className="card-daily-list-item-icon"
                 alt="Иконка погоды"
               />
-              <p className="card-daily-list-item-description">
-                {weather[0].description[0].toUpperCase() +
-                  weather[0].description.slice(1)}
-              </p>
-              <p className="card-daily-list-item-temp">{Math.round(day)}°</p>
+              <div className="card-daily-list-item-description-container">
+                <p className="card-daily-list-item-description">
+                  {weather[0].description[0].toUpperCase() +
+                    weather[0].description.slice(1)}
+                </p>
+                <p className="card-daily-list-item-description-precipitation">
+                  {pop !== 0 ? `${pop * 100}%` : ""}
+                </p>
+              </div>
+              <p className="card-daily-list-item-temp">{Math.round(min)}°</p>
+              <p className="card-daily-list-item-temp">{Math.round(max)}°</p>
             </li>
           );
         })}

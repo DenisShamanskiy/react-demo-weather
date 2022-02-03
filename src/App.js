@@ -8,60 +8,48 @@ import Loader from "./components/Loader";
 import Search from "./components/Search/Search";
 import CardWeatherInfo from "./components/CardWeatherInfo/CardWeatherInfo";
 import CardHourly from "./components/CardHourly/CardHourly";
+import getCoordinates from "./utils/getCoordinates";
+import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
+import Alerts from "./components/Alerts/Alerts";
 
 function App() {
-  const [latitude, setLatitude] = useState();
+  // const [latitude, setLatitude] = useState();
   // console.log(`latitude ${latitude}`);
-  const [longitude, setLongitude] = useState();
+  // const [longitude, setLongitude] = useState();
   // console.log(`longitude ${longitude}`);
-  const [city, setCity] = useState("");
+  // const [city, setCity] = useState("");
   // console.log(`Город ${city}`);
   const [currentWeather, setCurrentWeather] = useState();
   // console.log(currentWeather);
   const [currentOneCall, setCurrentOneCall] = useState({});
   // console.log(currentOneCall);
   const [dailyOneCall, setDailyOneCall] = useState();
-  console.log(dailyOneCall);
+  // console.log(dailyOneCall);
   const [hourlyOneCall, setHourlyOneCall] = useState();
   // console.log(hourlyOneCall);
   const [timeZone, setTimeZone] = useState();
   // console.log(timeZone);
-  const [alertsOneCall, setAlertsOneCall] = useState({});
-  // console.log(alertsWeather);
+  const [alertsOneCall, setAlertsOneCall] = useState();
+  // console.log(alertsOneCall);
 
-  const [dataWeather, setDataWeather] = useState([]);
-  const [data5DayWeather, set5DayWeather] = useState([]);
-  const [er, setEr] = useState("");
-
-  // Текущие координаты
-  // async function getCurrentCoordinates() {
-  //   const position = await new Promise((res, rej) => {
-  //     navigator.geolocation.getCurrentPosition(res, rej);
-  //   });
-  //   // setLatitude(position.coords.latitude);
-  //   // setLongitude(position.coords.longitude);
-  // }
+  // const [dataWeather, setDataWeather] = useState([]);
+  // const [data5DayWeather, set5DayWeather] = useState([]);
+  // const [er, setEr] = useState("");
 
   // Основной запрос
   async function getWeatherByCoordinates() {
-    const position = await new Promise((res, rej) => {
-      navigator.geolocation.getCurrentPosition(res, rej);
-    });
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-    );
-    const currentOneCall = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=minutely,hourly,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-    );
+    const [lat, lon] = await getCoordinates();
+    const responseCurrentWeather = await сurrentWeatherData(lat, lon);
     const {
       current: { uvi },
       daily,
-    } = await currentOneCall.json();
-    const dataCurrentWeather = await response.json();
-    dataCurrentWeather.uvi = uvi;
-    setCurrentWeather(dataCurrentWeather);
+      alert,
+    } = await OneCallAPI(lat, lon);
+    responseCurrentWeather.uvi = uvi;
+    getWeatherHourly(lat, lon);
+    setCurrentWeather(responseCurrentWeather);
     setDailyOneCall(daily);
-    getWeatherHourly(position.coords.latitude, position.coords.longitude);
+    setAlertsOneCall(alert);
   }
 
   // Поиск погоды по городу
@@ -73,20 +61,22 @@ function App() {
       coord: { lat, lon },
       ...dataCityWeather
     } = await response.json();
-    const currentOneCall = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
-    );
+
     const {
       current: { uvi },
-    } = await currentOneCall.json();
+      daily,
+      alerts,
+    } = await OneCallAPI(lat, lon);
     dataCityWeather.uvi = uvi;
     setCurrentWeather(dataCityWeather);
     const hourlyWeather = await fetch(
-      `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,daily,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
+      `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,daily&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
     );
     const { hourly, timezone_offset } = await hourlyWeather.json();
     setTimeZone(timezone_offset);
     setHourlyOneCall(hourly.slice(0, 25));
+    setDailyOneCall(daily);
+    setAlertsOneCall(alerts);
   }
 
   // 1 час
@@ -126,27 +116,27 @@ function App() {
     // setCity(name);
   }
 
-  async function getWeatherGeolocation() {
-    if (latitude && longitude) {
-      fetch(
-        `${process.env.REACT_APP_API_URL}/weather/?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}&lang=ru`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setDataWeather(result);
+  // async function getWeatherGeolocation() {
+  //   if (latitude && longitude) {
+  //     fetch(
+  //       `${process.env.REACT_APP_API_URL}/weather/?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}&lang=ru`
+  //     )
+  //       .then((res) => res.json())
+  //       .then((result) => {
+  //         setDataWeather(result);
 
-          // console.log(result);
-        });
-      fetch(
-        `${process.env.REACT_APP_API_URL}/forecast?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}&lang=ru`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          set5DayWeather(result);
-          // console.log(result);
-        });
-    }
-  }
+  //         // console.log(result);
+  //       });
+  //     fetch(
+  //       `${process.env.REACT_APP_API_URL}/forecast?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}&lang=ru`
+  //     )
+  //       .then((res) => res.json())
+  //       .then((result) => {
+  //         set5DayWeather(result);
+  //         // console.log(result);
+  //       });
+  //   }
+  // }
 
   useEffect(() => {
     // getGeolocation();
@@ -163,7 +153,7 @@ function App() {
         <Loader height={"239.641px"} />
       )}
       <Search search={getCityWeather} />
-
+      {alertsOneCall ? <Alerts dataAlerts={alertsOneCall} /> : ""}
       {hourlyOneCall ? (
         <CardHourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
       ) : (

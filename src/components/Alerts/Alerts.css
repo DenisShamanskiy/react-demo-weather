@@ -1,0 +1,170 @@
+.alerts {
+  width: 90%;
+  max-width: 376px;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: black;
+  background-color: #ffffff77;
+  backdrop-filter: blur(7px);
+
+  border: 1px solid rgb(165, 77, 15);
+}
+
+.alerts-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  box-sizing: border-box;
+  align-items: center;
+  background-color: #00000022;
+  border-radius: 1rem 1rem 0 0;
+  border: none;
+  text-align: start;
+  padding: 0.9rem;
+  color: var(--second-color);
+}
+
+.alerts-icon {
+  width: 20px;
+  height: 20px;
+  /* margin: auto; */
+  margin-right: 0.5rem;
+  animation: alerts 1.5s infinite ease;
+}
+.alerts-title {
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 auto 0 0;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.alerts-open,
+.alerts-closed {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  background-image: url(../../images/arrow-down-circle.svg);
+  transition: transform 0.5s;
+  animation: btn 1.5s infinite;
+}
+
+.alerts-open:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.alerts-open {
+  background-image: url(../../images/arrow-down-circle.svg);
+}
+
+.alerts-closed {
+  background-image: url(../../images/arrow-up-circle.svg);
+}
+
+.alerts-closed:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.alerts-text {
+  padding: 1rem;
+}
+
+.icon {
+  background-size: contain;
+  margin: 5px;
+  min-width: 30px;
+  min-height: 30px;
+  background-image: url(../../images/arrow-down-circle.svg);
+}
+
+.alert-list {
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.alert-item {
+  padding: 0.3rem;
+}
+
+.alert-title {
+  margin: 0;
+  padding: 0.2rem 0.2rem 0.2rem 0.8rem;
+  font-weight: 500;
+  /* background-color: #00000022; */
+  /* border-radius: 1rem; */
+  /* border-bottom: 1px solid red; */
+}
+
+.alerts-description-icon {
+  margin-right: 1rem;
+}
+
+.alerts-description {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+.alerts-text {
+  margin: 0;
+  padding: 0;
+}
+
+/* .alerts-text::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: auto 0 0 0;
+  padding: 0;
+  background-size: cover;
+  background-image: url(../../images/svg/exclamation.svg);
+} */
+
+@keyframes alerts {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes btn {
+  0% {
+    transform: translateY(-1px);
+  }
+
+  /* 25% {
+    transform: translateY(-1px);
+  } */
+  50% {
+    transform: translateY(1px);
+  }
+
+  /* 70% {
+    transform: translateY(1px);
+  } */
+
+  100% {
+    transform: translateY(-1px);
+  }
+}

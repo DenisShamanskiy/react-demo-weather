@@ -4,7 +4,7 @@
 @import "../components/CardHourly/CardHourly.css";
 @import "../components/CardWeatherInfo/CardWeatherInfo.css";
 @import "../components/CardWeatherInfo/CardWeatherInfo.css";
-@import "../components/CardWeatherList/CardWeatherList.css";
+@import "../components/CardDaily/CardDaily.css";
 @import "../components/Search/Search.css";
 @import "../components/Loader.css";
 :root {
