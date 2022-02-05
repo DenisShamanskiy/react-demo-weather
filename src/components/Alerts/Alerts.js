@@ -4,13 +4,14 @@ import exclamation from "../../images/svg/info_square.svg";
 import "./Alerts.css";
 
 export default function Alerts({ dataAlerts }) {
-  console.log(dataAlerts);
+  // console.log(dataAlerts);
   const alertEvents = [
     "Ветер",
     "Наводнение",
     "Лавины",
     "Прочие опасности",
     "Дождь",
+    "Снег",
     "Гололедно - изморозевое отложение",
     "Туман",
   ];
@@ -20,7 +21,7 @@ export default function Alerts({ dataAlerts }) {
     return alertEvents.includes(element.event);
   });
 
-  // console.log(filt);
+  // console.log(alertFilter);
 
   return (
     <section className="alerts">

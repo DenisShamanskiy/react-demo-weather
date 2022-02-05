@@ -5,17 +5,6 @@ import timeFormate from "../../utils/timeFormate";
 
 export default function CardHourly({ hourlyWeather, timeZone }) {
   // console.log(hourlyWeather);
-  //   const a = hourlyWeather.map((item) => item.weather[0].icon);
-  //   console.log(a);
-
-  //   const {
-  //     name,
-  //     main: { temp, temp_max, temp_min },
-  //     weather,
-  //   } = currentWeather;
-  //   const [data] = weather;
-  //   const { description } = data;
-  //   // console.log(name, temp, temp_max, temp_min, description);
 
   return (
     <div className="card-hourly">

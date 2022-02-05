@@ -19,14 +19,20 @@
   --f-s-n-normal: 1rem;
 
   /* Цвет */
-  --first-color-gradient: #353941;
-  --second-color-gradient: #26282b;
-  --third-color-gradient: #5f85db;
-
-  --first: #222831;
-  --second: #393e46;
-  --third: #7971ea;
-  --fourth: #eeeeee;
+  --first: #f5feff;
+  --second: #bde4f4;
+  --third: #404969;
+  --fourth: #dc552c;
+  /* Цвет */
+  /* Размеры */
+  --width-min: 376px;
+  --width-max: 500px;
+  --width-mobile: 376px;
+  /* Размеры */
+  /* Border */
+  --radius-main: 1rem;
+  --border-color: #b1bed5;
+  /* Border */
 
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;

@@ -11,6 +11,7 @@ import CardHourly from "./components/CardHourly/CardHourly";
 import getCoordinates from "./utils/getCoordinates";
 import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
 import Alerts from "./components/Alerts/Alerts";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   // const [latitude, setLatitude] = useState();
@@ -43,13 +44,13 @@ function App() {
     const {
       current: { uvi },
       daily,
-      alert,
+      alerts,
     } = await OneCallAPI(lat, lon);
     responseCurrentWeather.uvi = uvi;
     getWeatherHourly(lat, lon);
     setCurrentWeather(responseCurrentWeather);
     setDailyOneCall(daily);
-    setAlertsOneCall(alert);
+    setAlertsOneCall(alerts);
   }
 
   // Поиск погоды по городу
@@ -116,28 +117,6 @@ function App() {
     // setCity(name);
   }
 
-  // async function getWeatherGeolocation() {
-  //   if (latitude && longitude) {
-  //     fetch(
-  //       `${process.env.REACT_APP_API_URL}/weather/?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //     )
-  //       .then((res) => res.json())
-  //       .then((result) => {
-  //         setDataWeather(result);
-
-  //         // console.log(result);
-  //       });
-  //     fetch(
-  //       `${process.env.REACT_APP_API_URL}/forecast?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}&lang=ru`
-  //     )
-  //       .then((res) => res.json())
-  //       .then((result) => {
-  //         set5DayWeather(result);
-  //         // console.log(result);
-  //       });
-  //   }
-  // }
-
   useEffect(() => {
     // getGeolocation();
     // getWeatherGeolocation();
@@ -166,6 +145,7 @@ function App() {
       ) : (
         <Loader height={"744px"} />
       )}
+      <Footer />
     </div>
   );
 }

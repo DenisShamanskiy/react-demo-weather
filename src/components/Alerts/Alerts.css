@@ -5,10 +5,11 @@
   border-radius: 1rem;
   box-sizing: border-box;
   color: black;
-  background-color: #ffffff77;
+  /* background-color: #ffffff77; */
+  background-color: var(--second);
   backdrop-filter: blur(7px);
 
-  border: 1px solid rgb(165, 77, 15);
+  /* border: 1px solid rgb(165, 77, 15); */
 }
 
 .alerts-header {
@@ -18,8 +19,9 @@
   /* justify-content: space-between; */
   box-sizing: border-box;
   align-items: center;
-  background-color: #00000022;
-  border-radius: 1rem 1rem 0 0;
+  /* background-color: #00000022; */
+  background-color: var(--second);
+  border-radius: 1rem;
   border: none;
   text-align: start;
   padding: 0.9rem;

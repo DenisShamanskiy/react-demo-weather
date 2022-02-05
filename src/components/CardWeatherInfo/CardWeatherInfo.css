@@ -1,19 +1,20 @@
-.card-info-container {
-  max-width: 376px;
-  margin: 0 0 0.5rem 0;
-  padding: 0 0 0.5rem 0;
+.forecast-info {
+  width: clamp(var(--width-min), 90%, var(--width-max));
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 }
 .card-info {
   /* width: 180px; */
-  height: 182.8px;
+  height: 184px;
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  background-color: #ffffff77;
+  /* background-color: #ffffff77; */
+  background-color: var(--second);
   backdrop-filter: blur(7px);
 }
 .card-info-header {

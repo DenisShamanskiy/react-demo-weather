@@ -8,9 +8,7 @@
   padding: 1rem;
   text-align: center;
   box-sizing: border-box;
-  color: whitesmoke;
-  /* position: sticky;
-  top: 0px; */
+  color: var(--third);
 }
 .card-city {
   font-family: var(--font-family-Jost);
@@ -39,14 +37,15 @@
   flex-direction: column;
   border-radius: 1rem;
   box-sizing: border-box;
-  background-color: #ffffff77;
+  /* background-color: #ffffff77; */
+  background-color: var(--second);
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
 }
 .card-hourly-header {
   display: flex;
   align-items: center;
-  color: var(--second-color);
+  color: var(--third);
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   padding-bottom: 0.5rem;
 }
@@ -59,7 +58,7 @@
   background-position: center;
 }
 .card-hourly-title {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--third);
   margin: 0;
   padding: 0;
   font-size: 0.8rem;
@@ -122,22 +121,23 @@
   text-align: center;
   font-size: 0.9rem;
 }
-.card-info-container {
-  max-width: 376px;
-  margin: 0 0 0.5rem 0;
-  padding: 0 0 0.5rem 0;
+.forecast-info {
+  width: clamp(var(--width-min), 90%, var(--width-max));
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 }
 .card-info {
   /* width: 180px; */
-  height: 182.8px;
+  height: 184px;
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  background-color: #ffffff77;
+  /* background-color: #ffffff77; */
+  background-color: var(--second);
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
 }
@@ -161,26 +161,25 @@
 .card-info-text_right {
   text-align: end;
 }
-.card-daily {
-  width: 376px;
+.forecast-daily {
+  width: clamp(var(--width-min), 90%, var(--width-max));
   margin-bottom: 0.5rem;
   padding: 0.9rem 0.9rem 0 0.9rem;
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
-  box-sizing: border-box;
-  background-color: #ffffff77;
-  -webkit-backdrop-filter: blur(7px);
-          backdrop-filter: blur(7px);
+  border-radius: var(--radius-main);
+  background-color: var(--second);
+  /* background-color: #ffffff77; */
+  /* backdrop-filter: blur(7px); */
 }
-.card-daily-header {
+.forecast-daily-header {
+  padding-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  color: var(--second-color);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-  padding-bottom: 0.5rem;
+  color: var(--third);
+  border-bottom: 1px solid var(--border-color);
 }
-.card-daily-icon {
+.forecast-daily-icon {
   display: block;
   width: 20px;
   height: 20px;
@@ -188,87 +187,56 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.card-daily-title {
-  color: rgba(0, 0, 0, 0.6);
+.forecast-daily-title {
+  color: var(--third);
   margin: 0;
   padding: 0;
   font-size: 0.8rem;
   font-weight: 500;
 }
-.card-daily-list {
+.forecast-daily-list {
   margin: 0;
   padding: 0;
 }
-.card-daily-list-item {
+.forecast-daily-item {
   height: 2.5rem;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 65px 40px 1fr 35px 35px;
+  justify-content: center;
   align-items: center;
-
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--border-color);
 }
-.card-daily-list-item:last-child {
+.forecast-daily-item:last-child {
   border: none;
 }
-.card-daily-list-item-day {
-  width: 70px;
+.forecast-daily-item-day {
   margin: 0;
   padding: 0;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 16px;
-  /* margin: 0;
-  padding: 0 1rem 0 0; */
 }
-.card-daily-list-item-icon-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-.card-daily-list-item-icon {
+.forecast-daily-item-icon {
   width: 40px;
   height: 40px;
-  /* margin: auto; */
-  position: relative;
 }
-.card-daily-list-item-icon-figcaptionn {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  /* height: 10px; */
-  font-size: 0.5rem;
-  text-align: center;
-  position: absolute;
-  top: 30px;
-  z-index: 10;
-}
-.card-daily-list-item-description-container {
+.forecast-daily-item-description-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  align-content: space-around;
 }
-.card-daily-list-item-description,
-.card-daily-list-item-description-precipitation {
+.forecast-daily-item-description,
+.forecast-daily-item-description-precipitation {
   margin: 0;
   font-size: var(--f-s-n-small);
+  text-align: center;
 }
-.card-daily-list-item-description-precipitation {
-  padding-top: 0.1rem;
+.forecast-daily-item-description-precipitation {
+  margin-top: 0.2rem;
 }
-.card-daily-list-item-temp {
-  margin: auto 0.8rem auto 0;
-
-  color: rgb(65, 65, 65);
-}
-.card-daily-list-item-temp:last-child {
-  margin: auto 0;
-  color: black;
+.forecast-daily-item-temp {
+  margin: 0;
+  text-align: center;
 }
 .search {
   width: 90%;
@@ -276,15 +244,13 @@
   /* height: 2.5rem; */
   display: flex;
   margin-bottom: 1rem;
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
   border-radius: 1rem;
   box-sizing: border-box;
-  color: black;
-  background-color: #ffffff77;
-  -webkit-backdrop-filter: blur(7px);
-          backdrop-filter: blur(7px);
-
+  color: var(--third);
+  /* background-color: #ffffff77; */
+  background-color: var(--second);
+  /* backdrop-filter: blur(7px); */
   transition: 0.3s ease-in-out;
 }
 .search:focus-within {
@@ -300,10 +266,10 @@
   box-sizing: border-box;
   border: none;
   background-color: rgba(0, 0, 0, 0);
-  color: black;
+  color: var(--third);
 }
 .search-input::placeholder {
-  color: black;
+  color: var(--third);
 }
 .search-input:active,
 :hover,
@@ -448,14 +414,20 @@
   --f-s-n-normal: 1rem;
 
   /* Цвет */
-  --first-color-gradient: #353941;
-  --second-color-gradient: #26282b;
-  --third-color-gradient: #5f85db;
-
-  --first: #222831;
-  --second: #393e46;
-  --third: #7971ea;
-  --fourth: #eeeeee;
+  --first: #f5feff;
+  --second: #bde4f4;
+  --third: #404969;
+  --fourth: #dc552c;
+  /* Цвет */
+  /* Размеры */
+  --width-min: 376px;
+  --width-max: 500px;
+  --width-mobile: 376px;
+  /* Размеры */
+  /* Border */
+  --radius-main: 1rem;
+  --border-color: #b1bed5;
+  /* Border */
 
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;

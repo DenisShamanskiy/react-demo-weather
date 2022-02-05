@@ -39,7 +39,7 @@ export default function CardWeatherInfo({ dataWeather }) {
   });
 
   return (
-    <ul className="card-info-container">
+    <ul className="forecast-info">
       <li className="card-info">
         <div className="card-info-header">
           <img className="svg-icon card-info-icon" src={uv} />

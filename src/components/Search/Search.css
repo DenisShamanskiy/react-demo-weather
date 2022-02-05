@@ -4,14 +4,13 @@
   /* height: 2.5rem; */
   display: flex;
   margin-bottom: 1rem;
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
   border-radius: 1rem;
   box-sizing: border-box;
-  color: black;
-  background-color: #ffffff77;
-  backdrop-filter: blur(7px);
-
+  color: var(--third);
+  /* background-color: #ffffff77; */
+  background-color: var(--second);
+  /* backdrop-filter: blur(7px); */
   transition: 0.3s ease-in-out;
 }
 
@@ -30,11 +29,11 @@
   box-sizing: border-box;
   border: none;
   background-color: rgba(0, 0, 0, 0);
-  color: black;
+  color: var(--third);
 }
 
 .search-input::placeholder {
-  color: black;
+  color: var(--third);
 }
 
 .search-input:active,

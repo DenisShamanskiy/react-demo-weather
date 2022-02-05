@@ -8,14 +8,15 @@
   flex-direction: column;
   border-radius: 1rem;
   box-sizing: border-box;
-  background-color: #ffffff77;
+  /* background-color: #ffffff77; */
+  background-color: var(--second);
   backdrop-filter: blur(7px);
 }
 
 .card-hourly-header {
   display: flex;
   align-items: center;
-  color: var(--second-color);
+  color: var(--third);
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   padding-bottom: 0.5rem;
 }
@@ -30,7 +31,7 @@
 }
 
 .card-hourly-title {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--third);
   margin: 0;
   padding: 0;
   font-size: 0.8rem;
