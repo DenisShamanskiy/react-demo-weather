@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/react-demo-weather/static/css/main.4fd1da31.css",
-    "main.js": "/react-demo-weather/static/js/main.39786dbd.js",
+    "main.css": "/react-demo-weather/static/css/main.5523a6b3.css",
+    "main.js": "/react-demo-weather/static/js/main.568c2402.js",
     "static/js/787.e28efb7e.chunk.js": "/react-demo-weather/static/js/787.e28efb7e.chunk.js",
     "static/media/barometer.svg": "/react-demo-weather/static/media/barometer.0a36a8a5a712d29e17c9ccfc662b432f.svg",
     "static/media/fallout.svg": "/react-demo-weather/static/media/fallout.09787fad77cfd496d382316e84e9a185.svg",
     "static/media/moisture.svg": "/react-demo-weather/static/media/moisture.61743018bba09a4b3356b8c9ba9239bf.svg",
     "static/media/sun.svg": "/react-demo-weather/static/media/sun.41742d8f9bb1070afc2ed6f22d4802c0.svg",
+    "static/media/calendar.svg": "/react-demo-weather/static/media/calendar.41ff6d6c067d2f45dd786dce9821ed99.svg",
     "static/media/sunrise.svg": "/react-demo-weather/static/media/sunrise.9bfb92f93ef5dd847156969c87332f5e.svg",
     "static/media/exclamation-octagon.svg": "/react-demo-weather/static/media/exclamation-octagon.0b947f648cc5c0656f671e9c53e0fec6.svg",
     "static/media/visibility.svg": "/react-demo-weather/static/media/visibility.e99d74334ad6397152628e2098cbc42b.svg",
@@ -17,14 +18,13 @@
     "static/media/arrow-down-circle.svg": "/react-demo-weather/static/media/arrow-down-circle.5c6f32c6cb6037967f41.svg",
     "static/media/arrow-up-circle.svg": "/react-demo-weather/static/media/arrow-up-circle.5bedee1373e758ae03b2.svg",
     "static/media/search.svg": "/react-demo-weather/static/media/search.b1f781b99ceaafb9c831.svg",
-    "static/media/calendar.svg": "/react-demo-weather/static/media/calendar.84471c0a90fae8ad0f380c56f657f4ba.svg",
     "static/media/clock.svg": "/react-demo-weather/static/media/clock.d2df5f347823101283c7f7184bd80d40.svg",
-    "main.4fd1da31.css.map": "/react-demo-weather/static/css/main.4fd1da31.css.map",
-    "main.39786dbd.js.map": "/react-demo-weather/static/js/main.39786dbd.js.map",
+    "main.5523a6b3.css.map": "/react-demo-weather/static/css/main.5523a6b3.css.map",
+    "main.568c2402.js.map": "/react-demo-weather/static/js/main.568c2402.js.map",
     "787.e28efb7e.chunk.js.map": "/react-demo-weather/static/js/787.e28efb7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fd1da31.css",
-    "static/js/main.39786dbd.js"
+    "static/css/main.5523a6b3.css",
+    "static/js/main.568c2402.js"
   ]
 }
