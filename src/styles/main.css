@@ -56,6 +56,7 @@ body {
   padding: 0;
   font-family: var(--font-family-Jost);
   background-color: var(--first);
+  color: var(--third);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background: linear-gradient(

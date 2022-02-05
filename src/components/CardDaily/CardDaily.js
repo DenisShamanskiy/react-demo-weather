@@ -15,7 +15,7 @@ export default function CardDaily({ dataWeather }) {
           src={calendar}
           alt="Иконка календаря"
         />
-        <h3 className="forecast-daily-title">ПРОГНОЗ НА 7 ДНЕЙ</h3>
+        <h2 className="forecast-daily-title">ПРОГНОЗ НА 7 ДНЕЙ</h2>
       </div>
 
       <ul className="forecast-daily-list">

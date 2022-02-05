@@ -1,5 +1,6 @@
 import React from "react";
 import "./CardHourly.css";
+import ScrollHorizontal from "../ScrollHorizontal";
 import clock from "../../images/svg/clock.svg";
 import timeFormate from "../../utils/timeFormate";
 
@@ -7,28 +8,30 @@ export default function CardHourly({ hourlyWeather, timeZone }) {
   // console.log(hourlyWeather);
 
   return (
-    <div className="card-hourly">
-      <div className="card-hourly-header">
-        <img className="card-hourly-icon" src={clock} alt="Иконка погоды" />
-        <h3 className="card-hourly-title">ПОЧАСОВОЙ ПРОГНОЗ</h3>
+    <article className="forecast-hourly">
+      <div className="forecast-hourly-header">
+        <img className="forecast-hourly-icon" src={clock} alt="Иконка часов" />
+        <h2 className="forecast-hourly-title">ПОЧАСОВОЙ ПРОГНОЗ</h2>
       </div>
-      <ul className="card-hourly-info-container">
+      <ScrollHorizontal class={"forecast-hourly-list"}>
         {hourlyWeather.map(({ temp, weather, dt }, index) => {
           return (
-            <li key={index} className="card-hourly-info-container-item">
-              <p className="card-hourly-info-container-item-hour">
+            <li key={index} className="forecast-hourly-item">
+              <p className="forecast-hourly-item-hour">
                 {index === 0 ? "Сейчас" : timeFormate(dt, timeZone)}
               </p>
               <img
-                className="div2"
+                className="forecast-hourly-item-icon"
                 src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
                 alt="Иконка погоды"
               />
-              <p className="div3">{`${Math.round(temp)}°`}</p>
+              <p className="forecast-hourly-item-temp">{`${Math.round(
+                temp
+              )}°`}</p>
             </li>
           );
         })}
-      </ul>
-    </div>
+      </ScrollHorizontal>
+    </article>
   );
 }
