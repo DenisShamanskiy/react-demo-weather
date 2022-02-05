@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-demo-weather/static/css/main.cf0c074d.css",
-    "main.js": "/react-demo-weather/static/js/main.b1ba84ef.js",
+    "main.css": "/react-demo-weather/static/css/main.80671723.css",
+    "main.js": "/react-demo-weather/static/js/main.6a32b74f.js",
     "static/js/787.e28efb7e.chunk.js": "/react-demo-weather/static/js/787.e28efb7e.chunk.js",
     "static/media/barometer.svg": "/react-demo-weather/static/media/barometer.0a36a8a5a712d29e17c9ccfc662b432f.svg",
     "static/media/fallout.svg": "/react-demo-weather/static/media/fallout.09787fad77cfd496d382316e84e9a185.svg",
@@ -19,12 +19,12 @@
     "static/media/search.svg": "/react-demo-weather/static/media/search.b1f781b99ceaafb9c831.svg",
     "static/media/calendar.svg": "/react-demo-weather/static/media/calendar.84471c0a90fae8ad0f380c56f657f4ba.svg",
     "static/media/clock.svg": "/react-demo-weather/static/media/clock.d2df5f347823101283c7f7184bd80d40.svg",
-    "main.cf0c074d.css.map": "/react-demo-weather/static/css/main.cf0c074d.css.map",
-    "main.b1ba84ef.js.map": "/react-demo-weather/static/js/main.b1ba84ef.js.map",
+    "main.80671723.css.map": "/react-demo-weather/static/css/main.80671723.css.map",
+    "main.6a32b74f.js.map": "/react-demo-weather/static/js/main.6a32b74f.js.map",
     "787.e28efb7e.chunk.js.map": "/react-demo-weather/static/js/787.e28efb7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf0c074d.css",
-    "static/js/main.b1ba84ef.js"
+    "static/css/main.80671723.css",
+    "static/js/main.6a32b74f.js"
   ]
 }
