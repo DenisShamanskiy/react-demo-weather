@@ -37,10 +37,10 @@ export default function Alerts({ dataAlerts }) {
       </div>
 
       {open ? (
-        <ul className="alert-list" in={open}>
+        <ul className="alert-list">
           {alertFilter.map(({ event, description }, index) => {
             return (
-              <li className="alert-item">
+              <li key={index} className="alert-item">
                 {/* <p className="alert-title">{event}</p> */}
                 <div className="alerts-description">
                   <img

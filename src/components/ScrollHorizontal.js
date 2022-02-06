@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export default function ScrollHorizontal(props) {
   let ref = useRef();
 
-  const [state, sesState] = useState({
+  const [state, setState] = useState({
     isScrolling: false,
     clientX: 0,
     scrollX: 0,
@@ -32,7 +32,7 @@ export default function ScrollHorizontal(props) {
     const { clientX, scrollX, isScrolling } = state;
     if (isScrolling) {
       ref.current.scrollLeft = scrollX + event.clientX - clientX;
-      sesState({
+      setState({
         ...state,
         scrollX: scrollX + event.clientX - clientX,
         clientX: event.clientX,
@@ -44,7 +44,7 @@ export default function ScrollHorizontal(props) {
       return;
     }
     event.preventDefault();
-    sesState({
+    setState({
       ...state,
       isScrolling: false,
     });
@@ -54,7 +54,7 @@ export default function ScrollHorizontal(props) {
       return;
     }
     event.preventDefault();
-    sesState({
+    setState({
       ...state,
       isScrolling: true,
       clientX: event.clientX,
@@ -79,7 +79,7 @@ export default function ScrollHorizontal(props) {
       className={props.class}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
-      onMouseUDown={onMouseDown}
+      onMouseDown={onMouseDown}
     >
       {" "}
       {props.children}

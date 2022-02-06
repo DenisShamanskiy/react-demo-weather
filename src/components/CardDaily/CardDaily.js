@@ -1,8 +1,7 @@
 import React from "react";
 import "./CardDaily.css";
 import calendar from "../../images/svg/calendar.svg";
-import formateDayWeek from "../../utils/formateDayWeek";
-import formatePrecipitation from "../../utils/formatePrecipitation";
+import formate from "../../utils/formate";
 
 export default function CardDaily({ dataWeather }) {
   // console.log(dataWeather);
@@ -27,7 +26,7 @@ export default function CardDaily({ dataWeather }) {
                   ? "Сегодня"
                   : index === 1
                   ? "Завтра"
-                  : formateDayWeek(dt)}
+                  : formate.dayWeek(dt)}
               </p>
               <img
                 src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
@@ -40,7 +39,7 @@ export default function CardDaily({ dataWeather }) {
                     weather[0].description.slice(1)}
                 </p>
                 <p className="forecast-daily-item-description-precipitation">
-                  {pop !== 0 ? formatePrecipitation(pop) : ""}
+                  {pop !== 0 ? formate.precipitation(pop) : ""}
                 </p>
               </div>
               <p className="forecast-daily-item-temp">{Math.round(min)}°</p>

@@ -2,7 +2,7 @@ import React from "react";
 import "./CardHourly.css";
 import ScrollHorizontal from "../ScrollHorizontal";
 import clock from "../../images/svg/clock.svg";
-import timeFormate from "../../utils/timeFormate";
+import formate from "../../utils/formate";
 
 export default function CardHourly({ hourlyWeather, timeZone }) {
   // console.log(hourlyWeather);
@@ -18,7 +18,7 @@ export default function CardHourly({ hourlyWeather, timeZone }) {
           return (
             <li key={index} className="forecast-hourly-item">
               <p className="forecast-hourly-item-hour">
-                {index === 0 ? "Сейчас" : timeFormate(dt, timeZone)}
+                {index === 0 ? "Сейчас" : formate.time(dt, timeZone)}
               </p>
               <img
                 className="forecast-hourly-item-icon"
