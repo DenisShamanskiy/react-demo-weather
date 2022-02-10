@@ -1,6 +1,4 @@
 import { useState } from "react";
-import al from "../../images/svg/exclamation-octagon.svg";
-import exclamation from "../../images/svg/info_square.svg";
 import "./Alerts.css";
 
 export default function Alerts({ dataAlerts }) {
@@ -15,7 +13,6 @@ export default function Alerts({ dataAlerts }) {
     "Гололедно - изморозевое отложение",
     "Туман",
   ];
-  const [open, setOpen] = useState(false);
 
   const alertFilter = dataAlerts.filter(function callbackFn(element) {
     return alertEvents.includes(element.event);
@@ -24,41 +21,24 @@ export default function Alerts({ dataAlerts }) {
   // console.log(alertFilter);
 
   return (
-    <section className="alerts">
-      <div className="alerts-header">
-        <img className="alerts-icon" src={al} alt="Иконка погоды" />
-        <p className="alerts-title">Росгидромет предупреждает:</p>
-        <button
-          className={!open ? "alerts-open" : "alerts-closed"}
-          onClick={() => setOpen(!open)}
-          aria-controls="example-collapse-text"
-          aria-expanded={open}
-        ></button>
-      </div>
-
-      {open ? (
+    <article className="container">
+      <details className="default">
+        <summary className="alerts-header">Росгидромет предупреждает:</summary>
         <ul className="alert-list">
           {alertFilter.map(({ event, description }, index) => {
             return (
               <li key={index} className="alert-item">
                 {/* <p className="alert-title">{event}</p> */}
                 <div className="alerts-description">
-                  <img
-                    className="alerts-description-icon"
-                    src={exclamation}
-                    alt="Иконка погоды"
-                  />
                   <p className="alerts-text" id="example-collapse-text">
-                    {description}
+                    {description[0].toUpperCase() + description.slice(1)}
                   </p>
                 </div>
               </li>
             );
           })}
         </ul>
-      ) : (
-        ""
-      )}
-    </section>
+      </details>
+    </article>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import "./CardHourly.css";
 import ScrollHorizontal from "../ScrollHorizontal";
-import clock from "../../images/svg/clock.svg";
 import formate from "../../utils/formate";
 
 export default function CardHourly({ hourlyWeather, timeZone }) {
@@ -10,7 +9,6 @@ export default function CardHourly({ hourlyWeather, timeZone }) {
   return (
     <article className="forecast-hourly">
       <div className="forecast-hourly-header">
-        <img className="forecast-hourly-icon" src={clock} alt="Иконка часов" />
         <h2 className="forecast-hourly-title">ПОЧАСОВОЙ ПРОГНОЗ</h2>
       </div>
       <ScrollHorizontal class={"forecast-hourly-list"}>
