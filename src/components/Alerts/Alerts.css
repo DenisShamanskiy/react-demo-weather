@@ -1,4 +1,4 @@
-.container {
+.alerts {
   width: clamp(var(--width-min), 90%, var(--width-max));
   margin-bottom: 0.5rem;
   padding: 0.9rem;
@@ -8,21 +8,32 @@
 details {
   background-color: var(--second);
   cursor: pointer;
-  transition: background 0.3s;
-  min-height: 30px;
-  max-height: 30px;
+  min-height: 10px;
+  max-height: 60px;
   transform-origin: top center;
   transform: rotate(0.1deg);
-  transition: all 0.5s;
+  transition: all 0.6s linear;
+}
+details[open] {
+  transition: all 1s linear;
+  min-height: 60px;
+  max-height: 300px;
+  overflow: hidden;
 }
 details ::-webkit-details-marker {
   display: none;
 }
-
 details + details {
   margin-top: 10px;
 }
-
+summary:before {
+  content: url(../../images/svg/exclamation-octagon.svg);
+  display: inline-block;
+  min-width: 20px;
+  height: 20px;
+  margin-right: 0.3rem;
+  padding: 1px;
+}
 .alerts-header {
   padding-bottom: 0.5rem;
   display: flex;
@@ -32,60 +43,28 @@ details + details {
   text-transform: uppercase;
   border-bottom: 1px solid var(--border-color);
 }
-
-details[open] {
-  transition: all 1s;
-  min-height: 100px;
-  max-height: 200px;
-  overflow: hidden;
-}
-
-summary:before {
-  content: url(../../images/svg/exclamation-octagon.svg);
-  width: 20px;
-  height: 20px;
-  margin-right: 0.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: contain;
-}
-
 .alert-list {
   list-style: none;
   padding: 0.8rem 0.8rem 0 0.8rem;
   margin: 0;
 }
-
-.alert-item {
-  padding: 0.3rem;
-}
-
-.alerts-text {
-  margin: 0;
+.alerts-description {
+  width: 100%;
+  margin-bottom: 0.4rem;
   padding: 0;
   display: flex;
-}
-
-.alerts-text::before {
-  content: url(../../images/svg/info_square.svg);
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  background-size: contain;
+  font-size: 0.9rem;
+  line-height: 20px;
+  position: relative;
 }
-
-details[open] div {
-  animation: spoiler 1s;
+.alerts-description:last-child {
+  margin: 0;
 }
-@keyframes spoiler {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.alerts-description::before {
+  content: url(../../images/svg/info_square.svg);
+  display: inline-block;
+  min-width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
 }

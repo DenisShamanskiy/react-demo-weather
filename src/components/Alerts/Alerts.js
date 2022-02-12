@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import "./Alerts.css";
 
 export default function Alerts({ dataAlerts }) {
@@ -12,28 +12,22 @@ export default function Alerts({ dataAlerts }) {
     "Снег",
     "Гололедно - изморозевое отложение",
     "Туман",
+    "Пыльная (песчаная) буря",
   ];
 
-  const alertFilter = dataAlerts.filter(function callbackFn(element) {
-    return alertEvents.includes(element.event);
-  });
-
-  // console.log(alertFilter);
+  const alertFilter = dataAlerts.filter((alert) =>
+    alertEvents.includes(alert.event)
+  );
 
   return (
-    <article className="container">
-      <details className="default">
+    <article className="alerts">
+      <details>
         <summary className="alerts-header">Росгидромет предупреждает:</summary>
         <ul className="alert-list">
-          {alertFilter.map(({ event, description }, index) => {
+          {alertFilter.map(({ description }, index) => {
             return (
-              <li key={index} className="alert-item">
-                {/* <p className="alert-title">{event}</p> */}
-                <div className="alerts-description">
-                  <p className="alerts-text" id="example-collapse-text">
-                    {description[0].toUpperCase() + description.slice(1)}
-                  </p>
-                </div>
+              <li key={index} className="alerts-description">
+                {description[0].toUpperCase() + description.slice(1)}
               </li>
             );
           })}
