@@ -10,8 +10,8 @@ import CardWeatherInfo from "./components/CardWeatherInfo/CardWeatherInfo";
 import CardHourly from "./components/CardHourly/CardHourly";
 import getCoordinates from "./utils/getCoordinates";
 import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
-import Alerts from "./components/Alerts/Alerts";
 import Footer from "./components/Footer/Footer";
+import Alerts from "./components/Alerts/Alerts";
 
 function App() {
   // const [latitude, setLatitude] = useState();
