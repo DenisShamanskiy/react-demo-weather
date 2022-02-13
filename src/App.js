@@ -132,7 +132,11 @@ function App() {
         <Loader height={"239.641px"} />
       )}
       <Search search={getCityWeather} />
-      {alertsOneCall ? <Alerts dataAlerts={alertsOneCall} /> : ""}
+      {alertsOneCall ? (
+        <Alerts dataAlerts={alertsOneCall} timeZone={timeZone} />
+      ) : (
+        ""
+      )}
       {hourlyOneCall ? (
         <CardHourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
       ) : (
