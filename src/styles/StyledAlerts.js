@@ -7,6 +7,12 @@ import InfoSquare from "../images/svg/info_square.svg";
 const StyledAlerts = styled.article`
   border-radius: var(--radius-main);
   grid-column: 1 / 3;
+  ${"" /* фон */}
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--webkit-bf);
+  border: var(--border);
 `;
 
 const Header = styled.h2`
@@ -17,7 +23,6 @@ const Header = styled.h2`
   font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
-  background-color: var(--second);
   border-radius: var(--radius-main);
   cursor: pointer;
   transform: translate3d(0, 0, 0);
@@ -50,8 +55,6 @@ const Content = styled.ul`
   max-height: ${(props) => (props.open ? `350px` : `0`)};
   margin: 0;
   padding: ${(props) => (props.open ? `0.9rem 0.9rem 0.9rem 1.1rem` : ``)};
-  background-color: var(--second);
-  border-top: ${(props) => (props.open ? `1px solid var(--border-color)` : ``)};
   border-radius: ${(props) =>
     props.open
       ? `0 0 var(--radius-main) var(--radius-main)`
@@ -60,6 +63,8 @@ const Content = styled.ul`
   opacity: ${(props) => (props.open ? `1` : `0`)};
   transition: all 0.5s;
   cursor: ${(props) => (props.open ? `pointer` : ``)};
+
+  border-top: ${(props) => (props.open ? `1px solid var(--border-color)` : ``)};
 `;
 
 const Item = styled.li`

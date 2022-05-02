@@ -9,6 +9,12 @@ const Container = styled.article`
   border-radius: var(--radius-main);
   background-color: var(--second);
   grid-column: 1 / 3;
+  ${"" /* фон */}
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--webkit-bf);
+  border: var(--border);
 `;
 
 const Title = styled.h2`

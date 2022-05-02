@@ -14,9 +14,15 @@ const Card = styled.div`
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
+  border-radius: var(--radius-main);
   background-color: var(--second);
   backdrop-filter: blur(7px);
+  ${"" /* фон */}
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--webkit-bf);
+  border: var(--border);
 `;
 
 const handleIconType = (icon) => {

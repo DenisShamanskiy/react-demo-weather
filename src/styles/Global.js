@@ -12,8 +12,8 @@ export default createGlobalStyle`
   --f-s-n-normal: 1rem;
 
   /* Цвет */
-  --first: #f5feff;
-  --second: #bde4f4;
+  --first: #8dc6ff;
+  --second: #9eefff;
   --third: #404969;
   --fourth: #dc552c;
   /* Цвет */
@@ -23,18 +23,15 @@ export default createGlobalStyle`
   --width-mobile: 376px;
   /* Размеры */
   /* Border */
-  --radius-main: 1rem;
+  --radius-main: 10px;
   --border-color: #b1bed5;
   /* Border */
-
-  ${
-    "" /* --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
-  --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
-  --bs-body-bg: #fff; */
-  }
+  /* Фон */
+  --background-color: rgba( 255, 255, 255, 0.5 );
+  --box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  --backdrop-filter: blur( 10px );
+  --webkit-bf: blur( 10px );
+  --border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 * {
     box-sizing: border-box;
@@ -54,26 +51,6 @@ body {
     justify-content: center;
     font-family: var(--font-family-Jost);
     background-color: var(--first);
-    color: var(--third);
-    
-    
+    color: var(--third); 
   }
-
-.text_right {
-    text-align: end;
-}
-.city {
-  font-size: 20px;
-}
-.temp {
-  font-size: 50px;
-}
-.svg-icon {
-  display: block;
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 `;

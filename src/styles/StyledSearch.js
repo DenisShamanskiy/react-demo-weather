@@ -5,12 +5,18 @@ const StyledSearch = styled.form`
   width: 398px;
   display: flex;
   padding: 0.5rem;
-  border-radius: 1rem;
+  border-radius: var(--radius-main);
   box-sizing: border-box;
   color: var(--third);
   background-color: var(--second);
   transition: 0.3s ease-in-out;
   grid-column: 1 / 3;
+  ${"" /* фон */}
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--webkit-bf);
+  border: var(--border);
   &:focus-within {
     background: rgb(218, 218, 218);
     transition: 0.3s ease-in-out;
