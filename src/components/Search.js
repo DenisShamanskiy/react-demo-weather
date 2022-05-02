@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-import "./Search.css";
+import { StyledSearch, Input, Button } from "../styles/StyledSearch";
 
 export default function Search({ search }) {
   const [city, setCity] = useState("");
@@ -15,23 +14,21 @@ export default function Search({ search }) {
 
   return (
     <>
-      <form className="search">
-        <input
+      <StyledSearch>
+        <Input
           type="text"
-          className="search-input"
           placeholder="В каком городе?"
           aria-label="city"
           aria-describedby="button-submit"
           autoComplete="on"
           onChange={handleChange}
         />
-        <button
-          className="search-button"
+        <Button
           type="submit"
           id="button-submit"
           onClick={handleSubmit}
-        ></button>
-      </form>
+        ></Button>
+      </StyledSearch>
     </>
   );
 }

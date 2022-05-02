@@ -74,15 +74,14 @@ export default function ScrollHorizontal(props) {
   });
 
   return (
-    <ul
+    <props.List
       ref={ref}
-      className={props.class}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseDown={onMouseDown}
     >
       {" "}
       {props.children}
-    </ul>
+    </props.List>
   );
 }

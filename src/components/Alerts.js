@@ -1,6 +1,14 @@
 import { useState } from "react";
-import "./Alerts.css";
-import formate from "../../utils/formate";
+import {
+  StyledAlerts,
+  Header,
+  Content,
+  Item,
+  Description,
+  Event,
+  Text,
+} from "../styles/StyledAlerts";
+import formate from "../utils/formate";
 
 export default function Alerts({ dataAlerts, timeZone }) {
   // console.log(dataAlerts);
@@ -27,39 +35,40 @@ export default function Alerts({ dataAlerts, timeZone }) {
   }
 
   return (
-    <article className="alerts" onClick={() => setOpen(!open)}>
-      <h2 className={open ? "alerts-header is-expanded" : "alerts-header"}>
+    <StyledAlerts onClick={() => setOpen(!open)}>
+      <Header open={open}>
         {confirmCountryAlerts(dataAlerts)[0].sender_name
           ? confirmCountryAlerts(dataAlerts)[0].sender_name
           : "Росгидромет предупреждает:"}
-      </h2>
-      <ul className={open ? "alerts-content is-expanded" : "alerts-content"}>
+      </Header>
+
+      <Content open={open}>
         {confirmCountryAlerts(dataAlerts).map(
           ({ description, start, end, event }, index) => {
             return (
-              <li key={index} className="alerts-item">
-                <div className="alerts-description">
-                  <p className="alerts-event">{event}.</p>
+              <Item key={index}>
+                <Description>
+                  <Event>{event}.</Event>
                   {!confirmCountryAlerts(dataAlerts)[0].sender_name ? (
-                    <p className="alerts-time">{`Период предупреждения c ${formate.day(
+                    <Event>{`Период предупреждения c ${formate.day(
                       start,
                       timeZone
                     )} ${formate.time(start, timeZone)} до ${formate.day(
                       end,
                       timeZone
-                    )} ${formate.time(end, timeZone)}`}</p>
+                    )} ${formate.time(end, timeZone)}`}</Event>
                   ) : (
                     ""
                   )}
-                  <p className="alerts-text">
+                  <Text>
                     {description[0].toUpperCase() + description.slice(1)}
-                  </p>
-                </div>
-              </li>
+                  </Text>
+                </Description>
+              </Item>
             );
           }
         )}
-      </ul>
-    </article>
+      </Content>
+    </StyledAlerts>
   );
 }

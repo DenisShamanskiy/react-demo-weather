@@ -1,23 +1,25 @@
-.forecast-info {
+/* .forecast-info {
   width: clamp(var(--width-min), 90%, var(--width-max));
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
-}
-.card-info {
-  /* width: 180px; */
-  height: 184px;
+} */
+/* .card-info {
+  width: 180px;
+
+  width: 195px;
+  height: 195px;
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  /* background-color: #ffffff77; */
+  background-color: #ffffff77;
   background-color: var(--second);
   backdrop-filter: blur(7px);
-}
-.card-info-header {
+} */
+/* .card-info-header {
   margin: 0 0 1rem 0;
   display: flex;
   align-items: center;
@@ -27,22 +29,22 @@
   padding: 0;
   font-size: 0.8rem;
   font-weight: 500;
-}
-.card-info-text {
+} */
+/* .card-info-text {
   margin: 0 0 auto 0;
   font-size: 1.7rem;
   font-weight: 300;
-}
+} */
 
-.card-info-description {
+/* .card-info-description {
   margin: auto 0 0 auto;
   font-size: 1.2rem;
   font-weight: 400;
-}
+} */
 
-.card-info-text_right {
+/* .card-info-text_right {
   text-align: end;
-}
+} */
 
 /* УФ-ИНДЕКС */
 input[type="range"] {

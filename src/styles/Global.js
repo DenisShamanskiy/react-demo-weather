@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500&display=swap");
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
 :root {
   /* Шрифт */
   --font-family-Jost: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -25,52 +27,47 @@
   --border-color: #b1bed5;
   /* Border */
 
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  ${
+    "" /* --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: #fff; */
+  }
 }
+* {
+    box-sizing: border-box;
+  }
 
-*,
 *::before,
 *::after {
-  box-sizing: border-box;
-}
+    box-sizing: border-box;
+  }
 
 body {
-  /* min-width: 375px; */
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family-Jost);
-  background-color: var(--first);
-  color: var(--third);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-family-Jost);
+    background-color: var(--first);
+    color: var(--third);
+    
+    
+  }
 
 .text_right {
-  text-align: end;
+    text-align: end;
 }
-
-.App {
-  height: 100vh;
-  min-width: 414px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .city {
   font-size: 20px;
 }
 .temp {
   font-size: 50px;
 }
-
 .svg-icon {
   display: block;
   width: 20px;
@@ -79,3 +76,4 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+`;

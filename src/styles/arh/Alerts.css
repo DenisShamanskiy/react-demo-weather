@@ -1,9 +1,11 @@
-.alerts {
+/* .alerts {
   width: clamp(var(--width-min), 90%, var(--width-max));
   margin: 0 0 0.5rem 0;
+  width: 95%;
   border-radius: var(--radius-main);
-}
-.alerts-header {
+  grid-column: 1 / 3;
+} */
+/* .alerts-header {
   margin: 0;
   padding: 0.9rem;
   display: flex;
@@ -16,8 +18,8 @@
   cursor: pointer;
   transform: translate3d(0, 0, 0);
   transition: all 0.5s;
-}
-.alerts-content {
+} */
+/* .alerts-content {
   max-height: 0;
   margin: 0;
   background-color: var(--second);
@@ -25,12 +27,12 @@
   overflow: hidden;
   opacity: 0;
   transition: all 0.5s;
-}
-.alerts-header.is-expanded {
+} */
+/* .alerts-header.is-expanded {
   background-color: var(--second);
   border-radius: var(--radius-main) var(--radius-main) 0 0;
-}
-.alerts-content.is-expanded {
+} */
+/* .alerts-content.is-expanded {
   padding: 0.9rem 0.9rem 0.9rem 1.1rem;
   border-top: 1px solid var(--border-color);
   opacity: 1;
@@ -38,8 +40,8 @@
   overflow: scroll;
   border-radius: 0 0 var(--radius-main) var(--radius-main);
   cursor: pointer;
-}
-.alerts-description {
+} */
+/* .alerts-description {
   width: 100%;
   margin-bottom: 0.4rem;
   padding: 0;
@@ -48,8 +50,8 @@
   font-size: 0.9rem;
   line-height: 20px;
   border-bottom: 1px solid var(--border-color);
-}
-.alerts-item {
+} */
+/* .alerts-item {
   width: 100%;
   margin-bottom: 0.4rem;
   padding: 0;
@@ -62,30 +64,30 @@
   min-width: 16px;
   height: 16px;
   margin-right: 0.9rem;
-}
-.alerts-header:before {
+} */
+/* .alerts-header:before {
   content: url(../../images/svg/exclamation-circle.svg);
   min-width: 20px;
   height: 20px;
   margin-right: 0.9rem;
-}
-.alerts-header::after {
+} */
+/* .alerts-header::after {
   content: url(../../images/svg/plus-circle.svg);
   min-width: 20px;
   height: 20px;
   margin-left: auto;
   transition: transform 0.5s ease-in-out;
-}
-.alerts-header.is-expanded::after {
+} */
+/* .alerts-header.is-expanded::after {
   content: url(../../images/svg/dash-circle.svg);
   min-width: 20px;
   height: 20px;
   transform: rotate(-360deg);
-}
-.alerts-description:last-child {
+} */
+/* .alerts-description:last-child {
   margin: 0;
-}
-.alerts-event,
+} */
+/* .alerts-event,
 .alerts-time {
   margin: 0;
   padding: 0;
@@ -98,4 +100,4 @@
   padding: 0;
   font-size: 0.8rem;
   font-weight: 400;
-}
+} */

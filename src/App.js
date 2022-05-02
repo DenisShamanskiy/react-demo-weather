@@ -2,16 +2,18 @@
 // import "./App.css";
 import React, { useEffect, useState } from "react";
 //import WeatherAlert from "./components/AlertWeather/AlertWeather";
-import CardWeather from "./components/CardWeather/CardWeather";
-import CardDaily from "./components/CardDaily/CardDaily";
+import CardWeather from "./components/CardWeather";
+import CardDaily from "./components/CardDaily";
 import Loader from "./components/Loader";
-import Search from "./components/Search/Search";
-import CardWeatherInfo from "./components/CardWeatherInfo/CardWeatherInfo";
-import CardHourly from "./components/CardHourly/CardHourly";
+import Search from "./components/Search";
+import CardWeatherInfo from "./components/CardWeatherInfo";
+import CardHourly from "./components/CardHourly";
 import getCoordinates from "./utils/getCoordinates";
 import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
-import Footer from "./components/Footer/Footer";
-import Alerts from "./components/Alerts/Alerts";
+import Footer from "./components/Footer";
+import Alerts from "./components/Alerts";
+import GlobalStyles from "./styles/Global";
+import StyledApp from "./styles/StyledApp";
 
 function App() {
   // const [latitude, setLatitude] = useState();
@@ -125,32 +127,35 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {currentWeather ? (
-        <CardWeather currentWeather={currentWeather} />
-      ) : (
-        <Loader height={"239.641px"} />
-      )}
-      <Search search={getCityWeather} />
-      {alertsOneCall ? (
-        <Alerts dataAlerts={alertsOneCall} timeZone={timeZone} />
-      ) : (
-        ""
-      )}
-      {hourlyOneCall ? (
-        <CardHourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
-      ) : (
-        <Loader height={"239.641px"} />
-      )}
+    <>
+      <GlobalStyles />
+      <StyledApp>
+        {currentWeather ? (
+          <CardWeather currentWeather={currentWeather} />
+        ) : (
+          <Loader height={"239.641px"} />
+        )}
+        <Search search={getCityWeather} />
+        {alertsOneCall ? (
+          <Alerts dataAlerts={alertsOneCall} timeZone={timeZone} />
+        ) : (
+          ""
+        )}
+        {hourlyOneCall ? (
+          <CardHourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
+        ) : (
+          <Loader height={"239.641px"} />
+        )}
 
-      {dailyOneCall ? <CardDaily dataWeather={dailyOneCall} /> : <Loader />}
-      {currentWeather ? (
-        <CardWeatherInfo dataWeather={currentWeather} />
-      ) : (
-        <Loader height={"744px"} />
-      )}
-      <Footer />
-    </div>
+        {dailyOneCall ? <CardDaily dataWeather={dailyOneCall} /> : <Loader />}
+        {currentWeather ? (
+          <CardWeatherInfo dataWeather={currentWeather} />
+        ) : (
+          <Loader height={"744px"} />
+        )}
+        <Footer />
+      </StyledApp>
+    </>
   );
 }
 

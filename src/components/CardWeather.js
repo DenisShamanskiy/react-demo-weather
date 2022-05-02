@@ -1,8 +1,12 @@
 import React from "react";
-import "./CardWeather.css";
+import {
+  StyledCard,
+  City,
+  Temperature,
+  Description,
+} from "../styles/StyledCard";
 
 export default function CardWeather({ currentWeather }) {
-  // console.log(currentWeather);
   const {
     name,
     main: { temp, temp_max, temp_min },
@@ -10,19 +14,17 @@ export default function CardWeather({ currentWeather }) {
   } = currentWeather;
   const [data] = weather;
   const { description } = data;
-  // console.log(name, temp, temp_max, temp_min, description);
 
   return (
-    <div className="card">
-      <h1 className="card-city">{name}</h1>
-      <p className="card-temp">{Math.round(temp)}°</p>
-      <p className="card-description">
+    <StyledCard>
+      <City>{name}</City>
+      <Temperature>{Math.round(temp)}°</Temperature>
+      <Description>
         {description[0].toUpperCase() + description.slice(1)}
-      </p>
-
-      <p className="card-description">
+      </Description>
+      <Description>
         Макс.: {Math.round(temp_max)}° Мин.: {Math.round(temp_min)}°
-      </p>
-    </div>
+      </Description>
+    </StyledCard>
   );
 }
