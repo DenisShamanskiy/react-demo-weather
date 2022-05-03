@@ -4,7 +4,7 @@ import {
   City,
   Temperature,
   Description,
-} from "../styles/StyledCard";
+} from "../styles/StyledCurrent";
 
 export default function CardWeather({ currentWeather }) {
   const {

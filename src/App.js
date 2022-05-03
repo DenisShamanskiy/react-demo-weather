@@ -1,17 +1,17 @@
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "./App.css";
 import React, { useEffect, useState } from "react";
-//import WeatherAlert from "./components/AlertWeather/AlertWeather";
-import CardWeather from "./components/CardWeather";
-import CardDaily from "./components/CardDaily";
-import Loader from "./components/Loader";
+
+import Current from "./components/Current";
 import Search from "./components/Search";
-import CardWeatherInfo from "./components/CardWeatherInfo";
-import CardHourly from "./components/CardHourly";
+import Alerts from "./components/Alerts";
+import Hourly from "./components/Hourly";
+import Daily from "./components/Daily";
+import CurrentDetailed from "./components/CurrentDetailed";
+import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+// utils
 import getCoordinates from "./utils/getCoordinates";
 import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
-import Footer from "./components/Footer";
-import Alerts from "./components/Alerts";
+// Styles
 import GlobalStyles from "./styles/Global";
 import StyledApp from "./styles/StyledApp";
 
@@ -131,7 +131,7 @@ function App() {
       <GlobalStyles />
       <StyledApp>
         {currentWeather ? (
-          <CardWeather currentWeather={currentWeather} />
+          <Current currentWeather={currentWeather} />
         ) : (
           <Loader height={"239.641px"} />
         )}
@@ -142,14 +142,14 @@ function App() {
           ""
         )}
         {hourlyOneCall ? (
-          <CardHourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
+          <Hourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
         ) : (
           <Loader height={"239.641px"} />
         )}
 
-        {dailyOneCall ? <CardDaily dataWeather={dailyOneCall} /> : <Loader />}
+        {dailyOneCall ? <Daily dataWeather={dailyOneCall} /> : <Loader />}
         {currentWeather ? (
-          <CardWeatherInfo dataWeather={currentWeather} />
+          <CurrentDetailed dataWeather={currentWeather} />
         ) : (
           <Loader height={"744px"} />
         )}

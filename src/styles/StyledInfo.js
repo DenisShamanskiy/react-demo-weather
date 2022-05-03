@@ -72,6 +72,7 @@ const Text = styled.p`
 `;
 
 const TextRight = styled.p`
+  margin: auto 0 0 auto;
   text-align: end;
 `;
 

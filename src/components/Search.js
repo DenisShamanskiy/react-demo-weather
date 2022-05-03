@@ -9,25 +9,22 @@ export default function Search({ search }) {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    search(city);
+    search(city.trim());
+    setCity("");
   }
 
   return (
     <>
-      <StyledSearch>
+      <StyledSearch role="search">
         <Input
-          type="text"
+          type="search"
+          value={city}
           placeholder="В каком городе?"
-          aria-label="city"
-          aria-describedby="button-submit"
-          autoComplete="on"
+          autocomplete="on"
           onChange={handleChange}
+          required
         />
-        <Button
-          type="submit"
-          id="button-submit"
-          onClick={handleSubmit}
-        ></Button>
+        <Button type="submit" onClick={handleSubmit}></Button>
       </StyledSearch>
     </>
   );
