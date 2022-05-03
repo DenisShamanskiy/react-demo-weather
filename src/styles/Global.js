@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+
+
 :root {
   /* Шрифт */
-  --font-family-Jost: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  --font-family-Jost: 'Jost', sans-serif;
   --f-s-x-small: 0.5rem;
   --f-s-n-small: 0.7rem;
   --f-s-b-small: 0.8rem;
@@ -16,16 +16,13 @@ export default createGlobalStyle`
   --second: #9eefff;
   --third: #404969;
   --fourth: #dc552c;
-  /* Цвет */
   /* Размеры */
   --width-min: 376px;
   --width-max: 376px;
   --width-mobile: 376px;
-  /* Размеры */
   /* Border */
   --radius-main: 10px;
   --border-color: #b1bed5;
-  /* Border */
   /* Фон */
   --background-color: rgba( 255, 255, 255, 0.5 );
   --box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
