@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-demo-weather/static/css/main.20ede6ac.css",
-    "main.js": "/react-demo-weather/static/js/main.52bcb164.js",
+    "main.css": "/react-demo-weather/static/css/main.755f59dc.css",
+    "main.js": "/react-demo-weather/static/js/main.3a4565ed.js",
     "static/js/787.e28efb7e.chunk.js": "/react-demo-weather/static/js/787.e28efb7e.chunk.js",
     "static/media/barometer.svg": "/react-demo-weather/static/media/barometer.d458531a662777496af7add0567c0127.svg",
     "static/media/fallout.svg": "/react-demo-weather/static/media/fallout.ab298e8dd14a9e9455ae4142d5fae851.svg",
     "static/media/moisture.svg": "/react-demo-weather/static/media/moisture.cfe3496a82312a6b4c876191fec4fd8a.svg",
     "static/media/sun.svg": "/react-demo-weather/static/media/sun.4eb4d733719dc7d850e410c85c3be2ea.svg",
+    "index.html": "/react-demo-weather/index.html",
     "static/media/calendar.svg": "/react-demo-weather/static/media/calendar.6f248633fa914a54653602d139285226.svg",
     "static/media/sunrise.svg": "/react-demo-weather/static/media/sunrise.87091bfcb8c3aa09e06aa20a35332971.svg",
     "static/media/visibility.svg": "/react-demo-weather/static/media/visibility.1a4ff43560c15b31a79998295a14546a.svg",
     "static/media/info_square.svg": "/react-demo-weather/static/media/info_square.4944cd7d5e8577335496d8612888c60b.svg",
-    "index.html": "/react-demo-weather/index.html",
     "static/media/exclamation-circle.svg": "/react-demo-weather/static/media/exclamation-circle.194a23bb2dc625a92e902188f749eeaa.svg",
     "static/media/wind.svg": "/react-demo-weather/static/media/wind.c48386bf78f33ec853ca9aec39408de1.svg",
     "static/media/thermometer.svg": "/react-demo-weather/static/media/thermometer.898684c6cad48ecfb0db5a3054d2ca30.svg",
@@ -19,12 +19,12 @@
     "static/media/search.svg": "/react-demo-weather/static/media/search.60a61a8c9476ac944225fa032d8b8aa6.svg",
     "static/media/clock.svg": "/react-demo-weather/static/media/clock.f2a27ed069ff9dbe178fbc7f3834ff19.svg",
     "static/media/dash-circle.svg": "/react-demo-weather/static/media/dash-circle.4ba348147757cc03172220a22cac0818.svg",
-    "main.20ede6ac.css.map": "/react-demo-weather/static/css/main.20ede6ac.css.map",
-    "main.52bcb164.js.map": "/react-demo-weather/static/js/main.52bcb164.js.map",
+    "main.755f59dc.css.map": "/react-demo-weather/static/css/main.755f59dc.css.map",
+    "main.3a4565ed.js.map": "/react-demo-weather/static/js/main.3a4565ed.js.map",
     "787.e28efb7e.chunk.js.map": "/react-demo-weather/static/js/787.e28efb7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20ede6ac.css",
-    "static/js/main.52bcb164.js"
+    "static/css/main.755f59dc.css",
+    "static/js/main.3a4565ed.js"
   ]
 }
