@@ -14,6 +14,8 @@ import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
 // Styles
 import GlobalStyles from "./styles/Global";
 import StyledApp from "./styles/StyledApp";
+// Loader
+import LoaderHourly from "./styles/Loader/LoaderHourly";
 
 function App() {
   // const [latitude, setLatitude] = useState();
@@ -144,7 +146,7 @@ function App() {
         {hourlyOneCall ? (
           <Hourly hourlyWeather={hourlyOneCall} timeZone={timeZone} />
         ) : (
-          <Loader height={"239.641px"} />
+          <LoaderHourly />
         )}
 
         {dailyOneCall ? <Daily dataWeather={dailyOneCall} /> : <Loader />}
