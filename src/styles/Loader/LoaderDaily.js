@@ -12,13 +12,13 @@ const shimmer = keyframes`
 
 const LoaderContainer = styled.div`
   width: 398px;
-  height: 144.59px;
+  height: 365.4px;
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
   border-radius: var(--radius-main);
   grid-column: 1 / 3;
+  background: rgba(255, 255, 255, 0.5);
   background-color: var(--background-color);
   box-shadow: var(--box-shadow);
   backdrop-filter: var(--backdrop-filter);
@@ -58,19 +58,16 @@ const Icon = styled.div`
 `;
 
 const List = styled.div`
+  height: 320px;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 `;
 
 const Item = styled.div`
-  min-width: 62px;
-  height: 76px;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+  height: 2rem;
   border-radius: var(--radius-main);
 
   animation: ${shimmer} 3s infinite linear;
@@ -78,7 +75,7 @@ const Item = styled.div`
   background-size: 1000px 100%;
 `;
 
-export default function LoaderHourly() {
+export default function LoaderDaily() {
   return (
     <LoaderContainer>
       <WrapperTitle>
@@ -86,6 +83,8 @@ export default function LoaderHourly() {
         <Title></Title>
       </WrapperTitle>
       <List>
+        <Item></Item>
+        <Item></Item>
         <Item></Item>
         <Item></Item>
         <Item></Item>

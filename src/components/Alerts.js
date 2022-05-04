@@ -24,6 +24,7 @@ export default function Alerts({ dataAlerts, timeZone }) {
     "Гололедно - изморозевое отложение",
     "Туман",
     "Пыльная (песчаная) буря",
+    "Пожарная опасность",
   ];
 
   function confirmCountryAlerts(array) {
@@ -49,17 +50,17 @@ export default function Alerts({ dataAlerts, timeZone }) {
               <Item key={index}>
                 <Description>
                   <Event>{event}.</Event>
-                  {!confirmCountryAlerts(dataAlerts)[0].sender_name ? (
-                    <Event>{`Период предупреждения c ${formate.day(
+                  {/* {!confirmCountryAlerts(dataAlerts)[0].sender_name ? (
+                    <Event>{`${formate.day(start, timeZone)} ${formate.time(
                       start,
                       timeZone
-                    )} ${formate.time(start, timeZone)} до ${formate.day(
+                    )} - ${formate.day(end, timeZone)} ${formate.time(
                       end,
                       timeZone
-                    )} ${formate.time(end, timeZone)}`}</Event>
+                    )}`}</Event>
                   ) : (
                     ""
-                  )}
+                  )} */}
                   <Text>
                     {description[0].toUpperCase() + description.slice(1)}
                   </Text>

@@ -16,6 +16,7 @@ import GlobalStyles from "./styles/Global";
 import StyledApp from "./styles/StyledApp";
 // Loader
 import LoaderHourly from "./styles/Loader/LoaderHourly";
+import LoaderDaily from "./styles/Loader/LoaderDaily";
 
 function App() {
   // const [latitude, setLatitude] = useState();
@@ -149,12 +150,14 @@ function App() {
           <LoaderHourly />
         )}
 
-        {dailyOneCall ? <Daily dataWeather={dailyOneCall} /> : <Loader />}
+        {dailyOneCall ? <Daily dataWeather={dailyOneCall} /> : <LoaderDaily />}
+
         {currentWeather ? (
           <CurrentDetailed dataWeather={currentWeather} />
         ) : (
           <Loader height={"744px"} />
         )}
+
         <Footer />
       </StyledApp>
     </>

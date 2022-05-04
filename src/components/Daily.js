@@ -14,7 +14,7 @@ import {
 import formate from "../utils/formate";
 
 export default function CardDaily({ dataWeather }) {
-  console.log(dataWeather);
+  // console.log(dataWeather);
 
   return (
     <Container>

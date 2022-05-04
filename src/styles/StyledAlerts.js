@@ -5,6 +5,7 @@ import DashCircle from "../images/svg/dash-circle.svg";
 import InfoSquare from "../images/svg/info_square.svg";
 
 const StyledAlerts = styled.article`
+  width: 100%;
   border-radius: var(--radius-main);
   grid-column: 1 / 3;
   ${"" /* фон */}
@@ -96,7 +97,7 @@ const Description = styled.div`
 `;
 
 const Event = styled.p`
-  margin: 0;
+  margin: 0 0 0.4rem 0;
   padding: 0;
   font-size: 0.9rem;
   font-weight: 500;

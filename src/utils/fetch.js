@@ -13,7 +13,7 @@ export async function OneCallAPI(latitude, longitude) {
 
   const result = await response.json();
   //   const res = JSON.stringify(result);
-  console.log(result);
+  // console.log(result);
   //   console.log(res);
   return result;
 }
