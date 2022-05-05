@@ -17,6 +17,7 @@ import StyledApp from "./styles/StyledApp";
 // Loader
 import LoaderHourly from "./styles/Loader/LoaderHourly";
 import LoaderDaily from "./styles/Loader/LoaderDaily";
+import LoaderCurrentDetailed from "./styles/Loader/LoaderCurrentDetailed";
 
 function App() {
   // const [latitude, setLatitude] = useState();
@@ -155,7 +156,7 @@ function App() {
         {currentWeather ? (
           <CurrentDetailed dataWeather={currentWeather} />
         ) : (
-          <Loader height={"744px"} />
+          <LoaderCurrentDetailed />
         )}
 
         <Footer />

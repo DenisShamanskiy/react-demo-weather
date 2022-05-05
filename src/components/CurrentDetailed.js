@@ -6,7 +6,7 @@ import {
   TextRight,
   Description,
   Input,
-} from "../styles/StyledInfo";
+} from "../styles/StyledCurrentDetailed";
 import formate from "../utils/formate";
 
 export default function CardWeatherInfo({ dataWeather }) {
