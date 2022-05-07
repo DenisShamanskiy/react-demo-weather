@@ -7,7 +7,6 @@ import Hourly from "./components/Hourly";
 import Daily from "./components/Daily";
 import CurrentDetailed from "./components/CurrentDetailed";
 import Footer from "./components/Footer";
-import Loader from "./components/Loader";
 // utils
 import getCoordinates from "./utils/getCoordinates";
 import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
@@ -15,6 +14,7 @@ import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
 import GlobalStyles from "./styles/Global";
 import StyledApp from "./styles/StyledApp";
 // Loader
+import LoaderCurrent from "./styles/Loader/LoaderCurrent";
 import LoaderHourly from "./styles/Loader/LoaderHourly";
 import LoaderDaily from "./styles/Loader/LoaderDaily";
 import LoaderCurrentDetailed from "./styles/Loader/LoaderCurrentDetailed";
@@ -137,8 +137,9 @@ function App() {
         {currentWeather ? (
           <Current currentWeather={currentWeather} />
         ) : (
-          <Loader height={"239.641px"} />
+          <LoaderCurrent />
         )}
+
         <Search search={getCityWeather} />
         {alertsOneCall ? (
           <Alerts dataAlerts={alertsOneCall} timeZone={timeZone} />

@@ -11,6 +11,7 @@ const StyledCard = styled.div`
 `;
 
 const City = styled.h1`
+  margin: 0.7rem 0;
   font-family: var(--font-family-Jost);
   font-weight: 400;
   font-size: 1.6rem;
