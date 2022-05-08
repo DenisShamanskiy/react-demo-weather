@@ -6,6 +6,12 @@ import {
   TextRight,
   Description,
   Input,
+  Compass,
+  North,
+  East,
+  West,
+  South,
+  CompassArrow,
 } from "../styles/StyledCurrentDetailed";
 import formate from "../utils/formate";
 
@@ -14,7 +20,7 @@ export default function CardWeatherInfo({ dataWeather }) {
     uvi,
     visibility,
     timezone,
-    wind: { speed },
+    wind: { speed, deg },
     main: { humidity, pressure, feels_like },
     sys: { sunrise, sunset },
     rain,
@@ -61,6 +67,13 @@ export default function CardWeatherInfo({ dataWeather }) {
       <Card>
         <Title icon="Wind">ВЕТЕР</Title>
         <Text>{`${Math.round(speed)} м/с`}</Text>
+        <Compass>
+          <North>N</North>
+          <East>E</East>
+          <West>W</West>
+          <South>S</South>
+          <CompassArrow deg={deg}></CompassArrow>
+        </Compass>
       </Card>
 
       <Card>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Uv from "../images/svg/sun.svg";
 import Sun from "../images/svg/sunrise.svg";
 import Wind from "../images/svg/wind.svg";
@@ -7,6 +7,16 @@ import Thermometer from "../images/svg/thermometer.svg";
 import Moisture from "../images/svg/moisture.svg";
 import Eye from "../images/svg/visibility.svg";
 import Atmosphere from "../images/svg/barometer.svg";
+import Arrow from "../images/svg/compass.svg";
+
+const spin = (props) => keyframes`
+0%{
+  transform: rotate(${props.deg - 7}deg)
+}
+100% {
+  transform: rotate(${props.deg + 7}deg)
+}
+`;
 
 const Card = styled.div`
   width: 195px;
@@ -82,6 +92,52 @@ const Description = styled.p`
   font-weight: 400;
 `;
 
+const Compass = styled.div`
+  width: 80px;
+  height: 80px;
+  margin: auto 0 0 auto;
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem;
+  grid-template-rows: 1rem 1fr 1rem;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 100%;
+`;
+
+const North = styled.p`
+  margin: 0;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  font-size: 0.7rem;
+`;
+
+const East = styled(North)`
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+`;
+
+const West = styled(North)`
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+`;
+
+const South = styled(North)`
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+`;
+
+const CompassArrow = styled.div`
+  width: 100%;
+  height: 100%;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background-image: url(${Arrow});
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: ${(props) => spin(props)} 2s alternate ease-out infinite;
+`;
+
 /* УФ-ИНДЕКС */
 const Input = styled.input`
   height: 11px;
@@ -154,4 +210,17 @@ const Input = styled.input`
   }
 `;
 
-export { Card, Title, Text, TextRight, Description, Input };
+export {
+  Card,
+  Title,
+  Text,
+  TextRight,
+  Description,
+  Input,
+  Compass,
+  North,
+  East,
+  West,
+  South,
+  CompassArrow,
+};

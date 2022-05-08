@@ -47,23 +47,7 @@ body {
     display: flex;
     justify-content: center;
     font-family: var(--font-family-Jost);
-    ${"" /* background-color: var(--first); */}
+    background-color: var(--first);
     color: var(--third); 
-    // Фон
-    background: linear-gradient(340deg,#547699,#8dc6ff,#badcff);
-    background-size: 180% 180%;
-    animation: gradient-animation 6s ease infinite;
   }
-  
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 `;

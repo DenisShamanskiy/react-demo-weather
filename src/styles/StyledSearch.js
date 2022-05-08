@@ -18,7 +18,7 @@ const StyledSearch = styled.form`
   -webkit-backdrop-filter: var(--webkit-bf);
   border: var(--border);
   &:focus-within {
-    background: rgb(218, 218, 218);
+    background: #f3f9ff;
     transition: 0.3s ease-in-out;
   }
 `;
