@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.js": "/react-demo-weather/static/js/main.2348cd53.js",
+    "main.js": "/react-demo-weather/static/js/main.f7f0dbee.js",
     "static/js/787.e28efb7e.chunk.js": "/react-demo-weather/static/js/787.e28efb7e.chunk.js",
     "static/media/barometer.svg": "/react-demo-weather/static/media/barometer.d458531a662777496af7add0567c0127.svg",
     "static/media/fallout.svg": "/react-demo-weather/static/media/fallout.ab298e8dd14a9e9455ae4142d5fae851.svg",
+    "static/media/compass.svg": "/react-demo-weather/static/media/compass.b925fa66187572fb09d0772aebdc2c13.svg",
     "static/media/moisture.svg": "/react-demo-weather/static/media/moisture.cfe3496a82312a6b4c876191fec4fd8a.svg",
     "index.html": "/react-demo-weather/index.html",
     "static/media/sun.svg": "/react-demo-weather/static/media/sun.4eb4d733719dc7d850e410c85c3be2ea.svg",
@@ -18,10 +19,10 @@
     "static/media/search.svg": "/react-demo-weather/static/media/search.60a61a8c9476ac944225fa032d8b8aa6.svg",
     "static/media/clock.svg": "/react-demo-weather/static/media/clock.f2a27ed069ff9dbe178fbc7f3834ff19.svg",
     "static/media/dash-circle.svg": "/react-demo-weather/static/media/dash-circle.4ba348147757cc03172220a22cac0818.svg",
-    "main.2348cd53.js.map": "/react-demo-weather/static/js/main.2348cd53.js.map",
+    "main.f7f0dbee.js.map": "/react-demo-weather/static/js/main.f7f0dbee.js.map",
     "787.e28efb7e.chunk.js.map": "/react-demo-weather/static/js/787.e28efb7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.2348cd53.js"
+    "static/js/main.f7f0dbee.js"
   ]
 }
