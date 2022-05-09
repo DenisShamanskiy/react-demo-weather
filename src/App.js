@@ -9,7 +9,7 @@ import CurrentDetailed from "./components/CurrentDetailed";
 import Footer from "./components/Footer";
 // utils
 import getCoordinates from "./utils/getCoordinates";
-import { сurrentWeatherData, OneCallAPI, AirPollutionAPI } from "./utils/fetch";
+import { сurrentWeatherData, OneCallAPI, airPollutionAPI } from "./utils/fetch";
 // Styles
 import GlobalStyles from "./styles/Global";
 import StyledApp from "./styles/StyledApp";
@@ -39,6 +39,7 @@ function App() {
   // console.log(timeZone);
   const [alertsOneCall, setAlertsOneCall] = useState();
   // console.log(alertsOneCall);
+  const [airPollution, setAirPollution] = useState();
 
   // const [dataWeather, setDataWeather] = useState([]);
   // const [data5DayWeather, set5DayWeather] = useState([]);
@@ -53,12 +54,13 @@ function App() {
       daily,
       alerts,
     } = await OneCallAPI(lat, lon);
+    const responseAirPollution = await airPollutionAPI(lat, lon);
     responseCurrentWeather.uvi = uvi;
     getWeatherHourly(lat, lon);
     setCurrentWeather(responseCurrentWeather);
     setDailyOneCall(daily);
     setAlertsOneCall(alerts);
-    AirPollutionAPI(lat, lon);
+    setAirPollution(responseAirPollution);
   }
 
   // Поиск погоды по городу
@@ -81,11 +83,13 @@ function App() {
     const hourlyWeather = await fetch(
       `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,daily&units=metric&appid=${process.env.REACT_APP_API_KEY}&lang=ru`
     );
+    const responseAirPollution = await airPollutionAPI(lat, lon);
     const { hourly, timezone_offset } = await hourlyWeather.json();
     setTimeZone(timezone_offset);
     setHourlyOneCall(hourly.slice(0, 25));
     setDailyOneCall(daily);
     setAlertsOneCall(alerts);
+    setAirPollution(responseAirPollution);
   }
 
   // 1 час
@@ -155,7 +159,12 @@ function App() {
         )}
 
         {dailyOneCall ? <Daily dataWeather={dailyOneCall} /> : <LoaderDaily />}
-        <AirPollution></AirPollution>
+
+        {airPollution ? (
+          <AirPollution airPollution={airPollution} />
+        ) : (
+          <p>Здесь скоро будет Loader</p>
+        )}
 
         {currentWeather ? (
           <CurrentDetailed dataWeather={currentWeather} />
