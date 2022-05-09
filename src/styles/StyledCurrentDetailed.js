@@ -63,6 +63,7 @@ const Title = styled.h2`
   align-items: center;
   font-size: 0.8rem;
   font-weight: 500;
+
   &::before {
     content: ${({ icon }) => handleIconType(icon)};
     display: block;
@@ -138,12 +139,11 @@ const CompassArrow = styled.div`
   animation: ${(props) => spin(props)} 2s alternate ease-out infinite;
 `;
 
-/* УФ-ИНДЕКС */
 const Input = styled.input`
   height: 11px;
   -webkit-appearance: none;
-  margin: 0.5rem 0 0 0;
-  width: 100%;
+  margin: ${(props) => (props.pollution ? `0.5rem 0 0 auto` : `0.5rem 0 0 0`)};
+  width: ${(props) => (props.pollution ? `164.2px` : `100%`)};
   background: transparent;
   &:focus {
     outline: none;
@@ -151,7 +151,10 @@ const Input = styled.input`
   &::-webkit-slider-runnable-track {
     width: 100%;
     height: 5px;
-    background: linear-gradient(to right, green, yellow, orange, red, violet);
+    background: ${(props) =>
+      props.pollution
+        ? `linear-gradient(to right, green, yellow, red)`
+        : `linear-gradient(to right, green, yellow, orange, red, violet)`};
     border-radius: 16px;
   }
   &::-webkit-slider-thumb {
@@ -163,12 +166,18 @@ const Input = styled.input`
     margin-top: 0px;
   }
   &:focus::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, green, yellow, orange, red, violet);
+    background: ${(props) =>
+      props.pollution
+        ? `linear-gradient(to right, green, yellow, red)`
+        : `linear-gradient(to right, green, yellow, orange, red, violet)`};
   }
   &::-moz-range-track {
     width: 100%;
     height: 5px;
-    background: linear-gradient(to right, green, yellow, orange, red, violet);
+    background: ${(props) =>
+      props.pollution
+        ? `linear-gradient(to right, green, yellow, red)`
+        : `linear-gradient(to right, green, yellow, orange, red, violet)`};
     border-radius: 16px;
   }
   &::-moz-range-thumb {
@@ -186,13 +195,19 @@ const Input = styled.input`
     color: transparent;
   }
   &::-ms-fill-lower {
-    background: linear-gradient(to right, green, yellow, orange, red, violet);
+    background: ${(props) =>
+      props.pollution
+        ? `linear-gradient(to right, green, yellow, red)`
+        : `linear-gradient(to right, green, yellow, orange, red, violet)`};
     border: 0px solid #000000;
     border-radius: 32px;
     box-shadow: 0px 0px 0px #000000;
   }
   &::-ms-fill-upper {
-    background: linear-gradient(to right, green, yellow, orange, red, violet);
+    background: ${(props) =>
+      props.pollution
+        ? `linear-gradient(to right, green, yellow, red)`
+        : `linear-gradient(to right, green, yellow, orange, red, violet)`};
     border-radius: 32px;
   }
   &::-ms-thumb {
@@ -203,10 +218,16 @@ const Input = styled.input`
     background: black;
   }
   &:focus::-ms-fill-lower {
-    background: linear-gradient(to right, green, yellow, orange, red, violet);
+    background: ${(props) =>
+      props.pollution
+        ? `linear-gradient(to right, green, yellow, red)`
+        : `linear-gradient(to right, green, yellow, orange, red, violet)`};
   }
   &:focus::-ms-fill-upper {
-    background: linear-gradient(to right, green, yellow, orange, red, violet);
+    background: ${(props) =>
+      props.pollution
+        ? `linear-gradient(to right, green, yellow, red)`
+        : `linear-gradient(to right, green, yellow, orange, red, violet)`};
   }
 `;
 

@@ -9,7 +9,7 @@ import CurrentDetailed from "./components/CurrentDetailed";
 import Footer from "./components/Footer";
 // utils
 import getCoordinates from "./utils/getCoordinates";
-import { сurrentWeatherData, OneCallAPI } from "./utils/fetch";
+import { сurrentWeatherData, OneCallAPI, AirPollutionAPI } from "./utils/fetch";
 // Styles
 import GlobalStyles from "./styles/Global";
 import StyledApp from "./styles/StyledApp";
@@ -18,6 +18,7 @@ import LoaderCurrent from "./styles/Loader/LoaderCurrent";
 import LoaderHourly from "./styles/Loader/LoaderHourly";
 import LoaderDaily from "./styles/Loader/LoaderDaily";
 import LoaderCurrentDetailed from "./styles/Loader/LoaderCurrentDetailed";
+import AirPollution from "./components/AirPollution";
 
 function App() {
   // const [latitude, setLatitude] = useState();
@@ -57,6 +58,7 @@ function App() {
     setCurrentWeather(responseCurrentWeather);
     setDailyOneCall(daily);
     setAlertsOneCall(alerts);
+    AirPollutionAPI(lat, lon);
   }
 
   // Поиск погоды по городу
@@ -153,6 +155,7 @@ function App() {
         )}
 
         {dailyOneCall ? <Daily dataWeather={dailyOneCall} /> : <LoaderDaily />}
+        <AirPollution></AirPollution>
 
         {currentWeather ? (
           <CurrentDetailed dataWeather={currentWeather} />
