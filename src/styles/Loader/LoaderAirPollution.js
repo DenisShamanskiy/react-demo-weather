@@ -16,6 +16,7 @@ const LoaderContainer = styled.div`
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border-radius: var(--radius-main);
   grid-column: 1 / 3;
   background: rgba(255, 255, 255, 0.5);
@@ -28,7 +29,6 @@ const LoaderContainer = styled.div`
 const WrapperTitle = styled.div`
   width: 100%;
   height: 25px;
-  margin-bottom: 0.9rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -57,9 +57,36 @@ const Icon = styled.div`
   border-radius: 50%;
 `;
 
+const WrapperInput = styled.div`
+  width: 100%;
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const Text = styled.div`
+  width: 40%;
+  height: 20px;
+  margin: auto auto auto 0;
+  border-radius: var(--radius-main);
+  animation: ${shimmer} 3s infinite linear;
+  background: linear-gradient(to right, #a3d1ff 4%, #8dc6ff 25%, #a3d1ff 36%);
+  background-size: 1000px 100%;
+`;
+
+const Input = styled.div`
+  width: 50%;
+  height: 10px;
+  margin: auto 0 auto auto;
+  border-radius: var(--radius-main);
+  animation: ${shimmer} 3s infinite linear;
+  background: linear-gradient(to right, #a3d1ff 4%, #8dc6ff 25%, #a3d1ff 36%);
+  background-size: 1000px 100%;
+`;
+
 const List = styled.div`
-  height: 100%;
-  margin: 0;
+  height: 281px;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -67,22 +94,26 @@ const List = styled.div`
 `;
 
 const Item = styled.div`
-  height: 2rem;
+  height: 1.6rem;
   border-radius: var(--radius-main);
-
   animation: ${shimmer} 3s infinite linear;
   background: linear-gradient(to right, #a3d1ff 4%, #8dc6ff 25%, #a3d1ff 36%);
   background-size: 1000px 100%;
 `;
 
-export default function LoaderDaily() {
+export default function LoaderAirPollution() {
   return (
     <LoaderContainer>
       <WrapperTitle>
         <Icon></Icon>
         <Title></Title>
       </WrapperTitle>
+      <WrapperInput>
+        <Text></Text>
+        <Input></Input>
+      </WrapperInput>
       <List>
+        <Item></Item>
         <Item></Item>
         <Item></Item>
         <Item></Item>

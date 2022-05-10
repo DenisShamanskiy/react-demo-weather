@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Container,
-  Title,
+  TitleAirPollution,
   Wrapper,
   Description,
   List,
@@ -77,7 +77,7 @@ export default function AirPollution({ airPollution }) {
 
   return (
     <Container>
-      <Title>ЗАГРЯЗНЕНИЕ ВОЗДУХА</Title>
+      <TitleAirPollution>ЗАГРЯЗНЕНИЕ ВОЗДУХА</TitleAirPollution>
       <Wrapper>
         <Description>{getDescriptionCAQI(aqi)}</Description>
         <Input

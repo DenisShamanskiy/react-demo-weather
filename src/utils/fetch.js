@@ -20,7 +20,7 @@ export async function OneCallAPI(latitude, longitude) {
 
 export async function airPollutionAPI(latitude, longitude) {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_API_KEY}`
   );
   const result = await response.json();
   return result;

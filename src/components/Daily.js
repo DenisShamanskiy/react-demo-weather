@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Container,
-  Title,
+  TitleDaily,
   List,
   Item,
   Day,
@@ -18,7 +18,7 @@ export default function CardDaily({ dataWeather }) {
 
   return (
     <Container>
-      <Title>ПРОГНОЗ НА 7 ДНЕЙ</Title>
+      <TitleDaily>ПРОГНОЗ НА 7 ДНЕЙ</TitleDaily>
 
       <List>
         {dataWeather.map(({ temp: { max, min }, weather, dt, pop }, index) => {

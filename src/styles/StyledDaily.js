@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import Calendar from "../images/svg/calendar.svg";
+import { TitleHourly } from "./StyledHourly";
 
 const Container = styled.article`
+  grid-column: 1 / 3;
   width: 398px;
-  padding: 0.9rem 0.9rem 0 0.9rem;
+  height: 398px;
+  padding: 0.9rem;
   display: flex;
   flex-direction: column;
+
   border-radius: var(--radius-main);
   background-color: var(--second);
-  grid-column: 1 / 3;
+
   background: rgba(255, 255, 255, 0.5);
   ${"" /* фон */}
   background-color: var(--background-color);
@@ -18,45 +22,26 @@ const Container = styled.article`
   border: var(--border);
 `;
 
-const Title = styled.h2`
-  height: 29px;
-  margin: 0;
-  padding-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 0.8rem;
-  font-weight: 500;
+const TitleDaily = styled(TitleHourly)`
   &::before {
     content: url(${Calendar});
-    width: 20px;
-    height: 20px;
-    margin-right: 0.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
   }
 `;
 
 const List = styled.ul`
+  height: 100%;
   margin: 0;
   padding: 0;
-  &:last-child {
-    border: none;
-  }
+  display: grid;
 `;
 
 const Item = styled.li`
-  height: 2.5rem;
   display: grid;
   grid-template-columns: 65px 40px 1fr 35px 35px;
   justify-content: center;
+  justify-self: stretch;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
-  &:last-child {
-    border: none;
-  }
 `;
 
 const Day = styled.p`
@@ -67,8 +52,7 @@ const Day = styled.p`
 `;
 
 const Icon = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 100%;
 `;
 
 const Wrapper = styled.div`
@@ -96,7 +80,7 @@ const Temperature = styled.p`
 
 export {
   Container,
-  Title,
+  TitleDaily,
   List,
   Item,
   Day,

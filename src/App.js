@@ -5,6 +5,7 @@ import Search from "./components/Search";
 import Alerts from "./components/Alerts";
 import Hourly from "./components/Hourly";
 import Daily from "./components/Daily";
+import AirPollution from "./components/AirPollution";
 import CurrentDetailed from "./components/CurrentDetailed";
 import Footer from "./components/Footer";
 // utils
@@ -17,8 +18,8 @@ import StyledApp from "./styles/StyledApp";
 import LoaderCurrent from "./styles/Loader/LoaderCurrent";
 import LoaderHourly from "./styles/Loader/LoaderHourly";
 import LoaderDaily from "./styles/Loader/LoaderDaily";
+import LoaderAirPollution from "./styles/Loader/LoaderAirPollution";
 import LoaderCurrentDetailed from "./styles/Loader/LoaderCurrentDetailed";
-import AirPollution from "./components/AirPollution";
 
 function App() {
   // const [latitude, setLatitude] = useState();
@@ -163,7 +164,7 @@ function App() {
         {airPollution ? (
           <AirPollution airPollution={airPollution} />
         ) : (
-          <p>Здесь скоро будет Loader</p>
+          <LoaderAirPollution />
         )}
 
         {currentWeather ? (

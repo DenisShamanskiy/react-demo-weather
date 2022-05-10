@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Clock from "../images/svg/clock.svg";
 
 const Container = styled.article`
-  width: 398px;
+  width: 100%;
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
@@ -17,8 +17,7 @@ const Container = styled.article`
   border: var(--border);
 `;
 
-const Title = styled.h2`
-  height: 29px;
+const TitleHourly = styled.h2`
   margin: 0;
   padding-bottom: 0.5rem;
   display: flex;
@@ -84,4 +83,4 @@ const Temperature = styled.p`
   font-size: 0.9rem;
 `;
 
-export { Container, Title, List, Item, Time, Icon, Temperature };
+export { Container, TitleHourly, List, Item, Time, Icon, Temperature };

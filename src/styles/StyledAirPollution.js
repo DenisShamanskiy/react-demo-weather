@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TitleHourly } from "./StyledHourly";
 import Air from "../images/svg/air-pollution.svg";
 
 const Container = styled.article`
@@ -20,29 +21,16 @@ const Container = styled.article`
   grid-column: 1 / 3;
 `;
 
-const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  font-size: 0.8rem;
-  font-weight: 500;
-
+const TitleAirPollution = styled(TitleHourly)`
   &::before {
     content: url(${Air});
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 0.3rem;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
+    display: block;
   }
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 1rem;
+  margin: auto 0;
 `;
 
 const Description = styled.p`
@@ -92,7 +80,7 @@ const Designation = styled(ChemicalFormula)`
 
 export {
   Container,
-  Title,
+  TitleAirPollution,
   Wrapper,
   Description,
   List,

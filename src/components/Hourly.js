@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Container,
-  Title,
+  TitleHourly,
   List,
   Item,
   Time,
@@ -16,7 +16,7 @@ export default function CardHourly({ hourlyWeather, timeZone }) {
 
   return (
     <Container>
-      <Title>ПОЧАСОВОЙ ПРОГНОЗ</Title>
+      <TitleHourly>ПОЧАСОВОЙ ПРОГНОЗ</TitleHourly>
       <ScrollHorizontal List={List}>
         {hourlyWeather.map(({ temp, weather, dt }, index) => {
           return (
