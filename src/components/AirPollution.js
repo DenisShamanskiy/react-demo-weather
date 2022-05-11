@@ -13,12 +13,10 @@ import {
 import { Input } from "../styles/StyledCurrentDetailed";
 
 export default function AirPollution({ airPollution }) {
-  const { list } = airPollution;
-
   const {
     components,
     main: { aqi },
-  } = list[0];
+  } = airPollution;
 
   const unit = (
     <span>
