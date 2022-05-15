@@ -1,7 +1,7 @@
 class Formate {
   constructor() {}
 
-  time(time, timeZone) {
+  time(time: number, timeZone: number) {
     const hours = new Date(
       (time + (timeZone !== 10800 ? timeZone - 10800 : 0)) * 1000
     ).getHours();
@@ -11,7 +11,7 @@ class Formate {
     }`;
   }
 
-  day(time, timeZone) {
+  day(time: number, timeZone: number) {
     const date = new Date(
       (time + (timeZone !== 10800 ? timeZone - 10800 : 0)) * 1000
     ).getDate();
@@ -29,16 +29,16 @@ class Formate {
       "ноября",
       "декабря",
     ];
-    const month = new Date(time * 1000).getMonth();
+    // const month = new Date(time * 1000).getMonth();
     return `${date} ${monthNames[new Date(time * 1000).getMonth()]}`;
   }
 
-  dayWeek(day) {
+  dayWeek(day: number) {
     const days = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
     return days[new Date(day * 1000).getDay()];
   }
   // Вероятность осадков для недельного прогноза
-  precipitation = (precipitation) => `${Math.round(precipitation * 100)}%`;
+  precipitation = (precipitation: number) => `${Math.round(precipitation * 100)}%`;
 }
 
 const formate = new Formate();

@@ -1,16 +1,21 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { StyledSearch, Input, Button } from "../styles/StyledSearch";
 
-export default function Search({ search }) {
+interface SearchProps {
+  getCityWeather(city: string): void
+}
+
+export const Search: React.FC<SearchProps> = (props) => {
   const [city, setCity] = useState("");
 
-  function handleChange(event) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setCity(event.target.value);
   }
-  function handleSubmit(event) {
+  function handleSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
-    search(city.trim());
+    props.getCityWeather(city.trim())
     setCity("");
+    
   }
 
   return (
@@ -20,7 +25,6 @@ export default function Search({ search }) {
           type="search"
           value={city}
           placeholder="В каком городе?"
-          autocomplete="on"
           onChange={handleChange}
           required
         />

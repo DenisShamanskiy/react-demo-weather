@@ -9,7 +9,15 @@ import Eye from "../images/svg/visibility.svg";
 import Atmosphere from "../images/svg/barometer.svg";
 import Arrow from "../images/svg/compass.svg";
 
-const spin = (props) => keyframes`
+interface TitleProps {
+  icon: "Uv" | "Sun" | "Wind" | "Fallout" | "Thermometer" | "Moisture" | "Eye" | "Atmosphere"
+}
+
+interface InputProps {
+  pollution: boolean
+}
+
+const spin = (props: any) => keyframes`
 0%{
   transform: rotate(${props.deg - 7}deg)
 }
@@ -35,7 +43,7 @@ const Card = styled.div`
   border: var(--border);
 `;
 
-const handleIconType = (icon) => {
+const handleIconType = (icon: string) => {
   switch (icon) {
     case "Uv":
       return `url(${Uv})`;
@@ -56,7 +64,7 @@ const handleIconType = (icon) => {
   }
 };
 
-const Title = styled.h2`
+const Title = styled.h2<TitleProps>`
   margin: 0;
   margin-bottom: 1rem;
   display: flex;
@@ -128,7 +136,7 @@ const South = styled(North)`
   grid-row: 3 / 4;
 `;
 
-const CompassArrow = styled.div`
+const CompassArrow = styled.div<{deg: number}>`
   width: 100%;
   height: 100%;
   grid-column: 2 / 3;
@@ -139,7 +147,7 @@ const CompassArrow = styled.div`
   animation: ${(props) => spin(props)} 2s alternate ease-out infinite;
 `;
 
-const Input = styled.input`
+const Input = styled.input<InputProps>`
   height: 11px;
   -webkit-appearance: none;
   margin: ${(props) => (props.pollution ? `0.5rem 0 0 auto` : `0.5rem 0 0 0`)};

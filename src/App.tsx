@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import Current from "./components/Current";
-import Search from "./components/Search";
-import Alerts from "./components/Alerts";
-import Hourly from "./components/Hourly";
-import Daily from "./components/Daily";
+import { CardWeather as Current} from "./components/Current";
+import {Search} from "./components/Search";
+import {Alerts} from "./components/Alerts";
+import { CardHourly as Hourly} from "./components/Hourly";
+import { CardDaily as  Daily} from "./components/Daily";
 import AirPollution from "./components/AirPollution";
-import CurrentDetailed from "./components/CurrentDetailed";
+import { CardWeatherInfo as CurrentDetailed } from "./components/CurrentDetailed";
 import Footer from "./components/Footer";
 // utils
 import getCurrentCoordinates from "./utils/getCurrentCoordinates";
@@ -26,7 +26,7 @@ import LoaderDaily from "./styles/Loader/LoaderDaily";
 import LoaderAirPollution from "./styles/Loader/LoaderAirPollution";
 import LoaderCurrentDetailed from "./styles/Loader/LoaderCurrentDetailed";
 
-function App() {
+const App: React.FC = () => {
   const [currentWeather, setCurrentWeather] = useState();
   const [alertsWeather, setAlertsWeather] = useState();
   const [hourlyWeather, setHourlyWeather] = useState();
@@ -50,11 +50,11 @@ function App() {
   }
 
   // Поиск погоды по городу
-  async function getCityWeather(city) {
-    const coordinates = await geocodingAPI(city);
-    const dataCurrentWeather = await сurrentWeatherAPI(...coordinates);
-    const dataOneCall = await oneCallAPI(...coordinates);
-    const dataAirPollution = await airPollutionAPI(...coordinates);
+  async function getCityWeather(city: string) {
+    const coordinates: any = await geocodingAPI(city);
+    const dataCurrentWeather = await сurrentWeatherAPI(coordinates[0], coordinates[1]);
+    const dataOneCall = await oneCallAPI(coordinates[0], coordinates[1]);
+    const dataAirPollution = await airPollutionAPI(coordinates[0], coordinates[1]);
     dataCurrentWeather.uvi = dataOneCall.current.uvi;
     setCurrentWeather(dataCurrentWeather);
     setAlertsWeather(dataOneCall.alerts);
@@ -78,10 +78,10 @@ function App() {
           <LoaderCurrent />
         )}
 
-        <Search search={getCityWeather} />
+        <Search getCityWeather={getCityWeather} />
 
         {alertsWeather ? (
-          <Alerts dataAlerts={alertsWeather} timeZone={timeZone} />
+          <Alerts dataAlerts={alertsWeather} /*timeZone={timeZone}*/ />
         ) : (
           ""
         )}

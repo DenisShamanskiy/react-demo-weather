@@ -12,7 +12,11 @@ import {
 } from "../styles/StyledAirPollution";
 import { Input } from "../styles/StyledCurrentDetailed";
 
-export default function AirPollution({ airPollution }) {
+type AirPollutionProps = {
+  airPollution: {components: any[], main: any},
+}
+
+export const AirPollution: React.FC<AirPollutionProps> = ({ airPollution }) => {
   const {
     components,
     main: { aqi },
@@ -58,7 +62,7 @@ export default function AirPollution({ airPollution }) {
     "Диоксид серы",
   ];
 
-  function getDescriptionCAQI(index) {
+  function getDescriptionCAQI(index: number) {
     switch (index) {
       case 1:
         return "Очень низкое";
@@ -103,3 +107,5 @@ export default function AirPollution({ airPollution }) {
     </Container>
   );
 }
+
+export default AirPollution

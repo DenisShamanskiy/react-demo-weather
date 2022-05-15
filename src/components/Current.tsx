@@ -6,7 +6,19 @@ import {
   Description,
 } from "../styles/StyledCurrent";
 
-export default function CardWeather({ currentWeather }) {
+type CardWeatherProps = {
+  currentWeather: {
+    name: any,
+    main: {
+      temp: any,
+      temp_max: any,
+      temp_min: any,
+    },
+    weather: any
+  },
+}
+
+  export const CardWeather: React.FC<CardWeatherProps> = ({ currentWeather }) => {
   const {
     name,
     main: { temp, temp_max, temp_min },

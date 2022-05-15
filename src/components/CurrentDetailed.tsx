@@ -15,7 +15,26 @@ import {
 } from "../styles/StyledCurrentDetailed";
 import formate from "../utils/formate";
 
-export default function CardWeatherInfo({ dataWeather }) {
+type CardWeatherInfoProps = {
+  dataWeather: {
+    uvi: number,
+    visibility: any,
+    timezone: any,
+    wind: { 
+      speed: any,
+      deg: any },
+    main: { 
+      humidity: any,
+      pressure: any,
+      feels_like: any },
+    sys: {
+      sunrise: any,
+      sunset: any },
+    rain: any,
+    snow: any,
+}}
+
+  export const CardWeatherInfo: React.FC<CardWeatherInfoProps> =  ({ dataWeather }) => {
   const {
     uvi,
     visibility,
@@ -30,7 +49,7 @@ export default function CardWeatherInfo({ dataWeather }) {
   const getPrecipitation = () =>
     rain ? `${rain["1h"]} мм` : snow ? `${snow["1h"]} мм` : "0 мм";
 
-  function getUviDescription(u) {
+  function getUviDescription(u: number) {
     if (u < 3) {
       return "Низкий";
     } else if (u >= 3 && u < 6) {
@@ -50,6 +69,7 @@ export default function CardWeatherInfo({ dataWeather }) {
         <Text>{uvi}</Text>
         <Description>{getUviDescription(uvi)}</Description>
         <Input
+          pollution
           readOnly={true}
           type="range"
           min="0"

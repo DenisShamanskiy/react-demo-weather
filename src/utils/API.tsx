@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 
-export async function сurrentWeatherAPI(latitude, longitude) {
+export async function сurrentWeatherAPI(latitude: number, longitude: number) {
   try {
     const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/weather",
@@ -18,7 +18,7 @@ export async function сurrentWeatherAPI(latitude, longitude) {
   }
 }
 
-export async function oneCallAPI(latitude, longitude) {
+export async function oneCallAPI(latitude: number, longitude: number) {
   try {
     const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/onecall",
@@ -37,7 +37,7 @@ export async function oneCallAPI(latitude, longitude) {
   }
 }
 
-export async function airPollutionAPI(latitude, longitude) {
+export async function airPollutionAPI(latitude: number, longitude: number) {
   try {
     const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/air_pollution",
@@ -53,7 +53,7 @@ export async function airPollutionAPI(latitude, longitude) {
   }
 }
 
-export async function geocodingAPI(city) {
+export async function geocodingAPI(city: string) {
   try {
     const response = await axios({
       url: "https://api.openweathermap.org/geo/1.0/direct",

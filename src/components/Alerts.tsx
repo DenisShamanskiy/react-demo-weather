@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import {
   StyledAlerts,
@@ -8,9 +9,14 @@ import {
   Event,
   Text,
 } from "../styles/StyledAlerts";
-import formate from "../utils/formate";
+// import formate from "../utils/formate";
 
-export default function Alerts({ dataAlerts, timeZone }) {
+type AlertsProps = {
+  dataAlerts: any[],
+  // timeZone: number
+}
+
+export const Alerts: React.FC<AlertsProps> = ({ dataAlerts, /*timeZone*/ }) => {
   // console.log(dataAlerts);
   const [open, setOpen] = useState(false);
   // const [alertsFilter, setAlertsFilter] = useState();
@@ -27,9 +33,9 @@ export default function Alerts({ dataAlerts, timeZone }) {
     "Пожарная опасность",
   ];
 
-  function confirmCountryAlerts(array) {
-    if (array.some((element) => element.sender_name === "")) {
-      return array.filter((alert) => alertEvents.includes(alert.event));
+  function confirmCountryAlerts(array: any) {
+    if (array.some((element: any) => element.sender_name === "")) {
+      return array.filter((alert: any) => alertEvents.includes(alert.event));
     } else {
       return array;
     }
@@ -45,7 +51,7 @@ export default function Alerts({ dataAlerts, timeZone }) {
 
       <Content open={open}>
         {confirmCountryAlerts(dataAlerts).map(
-          ({ description, start, end, event }, index) => {
+          ({ description, /*start, end,*/ event }: any, index: React.Key | null | undefined) => {
             return (
               <Item key={index}>
                 <Description>

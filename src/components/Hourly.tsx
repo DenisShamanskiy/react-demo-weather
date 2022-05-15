@@ -2,22 +2,28 @@ import React from "react";
 import {
   Container,
   TitleHourly,
-  List,
+  // List,
   Item,
   Time,
   Icon,
   Temperature,
 } from "../styles/StyledHourly";
-import ScrollHorizontal from "./ScrollHorizontal";
+// import ScrollHorizontal from "./ScrollHorizontal";
 import formate from "../utils/formate";
 
-export default function CardHourly({ hourlyWeather, timeZone }) {
+type CardHourlyProps = {
+  hourlyWeather: any[],
+  timeZone: any
+}
+
+export const CardHourly: React.FC<CardHourlyProps> = ({ hourlyWeather, timeZone }) => {
   // console.log(hourlyWeather);
 
   return (
     <Container>
       <TitleHourly>ПОЧАСОВОЙ ПРОГНОЗ</TitleHourly>
-      <ScrollHorizontal List={List}>
+      {/* <ScrollHorizontal List={List}> */}
+      <li>
         {hourlyWeather.map(({ temp, weather, dt }, index) => {
           return (
             <Item key={index}>
@@ -30,7 +36,8 @@ export default function CardHourly({ hourlyWeather, timeZone }) {
             </Item>
           );
         })}
-      </ScrollHorizontal>
+      </li>
+      {/* </ScrollHorizontal> */}
     </Container>
   );
 }

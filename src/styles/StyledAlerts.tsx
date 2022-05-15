@@ -4,6 +4,10 @@ import PlusCircle from "../images/svg/plus-circle.svg";
 import DashCircle from "../images/svg/dash-circle.svg";
 import InfoSquare from "../images/svg/info_square.svg";
 
+interface OpenProps {
+  open: boolean
+}
+
 const StyledAlerts = styled.article`
   width: 100%;
   border-radius: var(--radius-main);
@@ -16,7 +20,7 @@ const StyledAlerts = styled.article`
   border: var(--border);
 `;
 
-const Header = styled.h2`
+const Header = styled.h2<OpenProps>`
   margin: 0;
   padding: 0.9rem;
   display: flex;
@@ -52,7 +56,7 @@ const Header = styled.h2`
   }
 `;
 
-const Content = styled.ul`
+const Content = styled.ul<OpenProps>`
   max-height: ${(props) => (props.open ? `350px` : `0`)};
   margin: 0;
   padding: ${(props) => (props.open ? `0.9rem 0.9rem 0.9rem 1.1rem` : ``)};

@@ -13,7 +13,11 @@ import {
 } from "../styles/StyledDaily";
 import formate from "../utils/formate";
 
-export default function CardDaily({ dataWeather }) {
+type CardDailyProps = {
+  dataWeather: any[]
+}
+
+export const CardDaily: React.FC<CardDailyProps> = ( {dataWeather} ) => {
   // console.log(dataWeather);
 
   return (
