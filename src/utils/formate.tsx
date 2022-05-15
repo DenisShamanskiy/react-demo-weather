@@ -1,5 +1,4 @@
 class Formate {
-  constructor() {}
 
   time(time: number, timeZone: number) {
     const hours = new Date(

@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
 
+import GlobalStyles from "./styles/Global";
+import StyledApp from "./styles/StyledApp";
+
+import getCurrentCoordinates from "./utils/getCurrentCoordinates";
+import {
+  сurrentWeatherAPI,
+  oneCallAPI,
+  airPollutionAPI,
+  geocodingAPI,
+} from "./utils/API";
 import { CardWeather as Current} from "./components/Current";
 import {Search} from "./components/Search";
 import {Alerts} from "./components/Alerts";
@@ -8,18 +18,7 @@ import { CardDaily as  Daily} from "./components/Daily";
 import AirPollution from "./components/AirPollution";
 import { CardWeatherInfo as CurrentDetailed } from "./components/CurrentDetailed";
 import Footer from "./components/Footer";
-// utils
-import getCurrentCoordinates from "./utils/getCurrentCoordinates";
-import {
-  сurrentWeatherAPI,
-  oneCallAPI,
-  airPollutionAPI,
-  geocodingAPI,
-} from "./utils/API";
-// Styles
-import GlobalStyles from "./styles/Global";
-import StyledApp from "./styles/StyledApp";
-// Loader
+
 import LoaderCurrent from "./styles/Loader/LoaderCurrent";
 import LoaderHourly from "./styles/Loader/LoaderHourly";
 import LoaderDaily from "./styles/Loader/LoaderDaily";

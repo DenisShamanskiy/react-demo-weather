@@ -4,5 +4,5 @@ export default async function getCurrentCoordinates() {
   } = await new Promise((res, rej) => {
     navigator.geolocation.getCurrentPosition(res, rej);
   });
-  return new Array(latitude, longitude);
+  return [latitude, longitude];
 }

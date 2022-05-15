@@ -1,7 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function ScrollHorizontal(props) {
-  let ref = useRef();
+type CardProps = {
+  List: any,
+  children: any,
+};
+
+export const ScrollHorizontal: React.FC<CardProps> = (props) => {
+  // export default function ScrollHorizontal(props) {
+  let ref: any = useRef();
 
   const [state, setState] = useState({
     isScrolling: false,
@@ -10,9 +16,9 @@ export default function ScrollHorizontal(props) {
   });
 
   useEffect(() => {
-    const element = ref.current;
+    const element: any = ref.current;
     if (element) {
-      const onWheel = (event) => {
+      const onWheel = (event: React.WheelEvent) => {
         event.preventDefault();
         element.scrollTo({
           left: element.scrollLeft + event.deltaY,
@@ -24,7 +30,7 @@ export default function ScrollHorizontal(props) {
     }
   }, []);
 
-  const onMouseMove = (event) => {
+  const onMouseMove = (event: MouseEvent) => {
     if (ref && ref.current && !ref.current.contains(event.target)) {
       return;
     }
@@ -39,7 +45,7 @@ export default function ScrollHorizontal(props) {
       });
     }
   };
-  const onMouseUp = (event) => {
+  const onMouseUp = (event: MouseEvent) => {
     if (ref && ref.current && !ref.current.contains(event.target)) {
       return;
     }
@@ -49,7 +55,7 @@ export default function ScrollHorizontal(props) {
       isScrolling: false,
     });
   };
-  const onMouseDown = (event) => {
+  const onMouseDown = (event: MouseEvent) => {
     if (ref && ref.current && !ref.current.contains(event.target)) {
       return;
     }
@@ -84,4 +90,4 @@ export default function ScrollHorizontal(props) {
       {props.children}
     </props.List>
   );
-}
+};

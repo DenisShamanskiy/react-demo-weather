@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const shimmer = keyframes`
@@ -23,7 +23,7 @@ const LoaderContainer = styled.div`
   grid-column: 1 / 3;
 `;
 
-const Loader_1 = styled.div`
+const LoaderFirst = styled.div`
   width: 60%;
   height: 29px;
   margin: 0.7rem 0;
@@ -33,22 +33,22 @@ const Loader_1 = styled.div`
   background-size: 1000px 100%;
 `;
 
-const Loader_2 = styled(Loader_1)`
+const LoaderSecond = styled(LoaderFirst)`
   width: 25%;
   height: 4rem;
 `;
 
-const Loader_3 = styled(Loader_1)`
+const LoaderThird = styled(LoaderFirst)`
   height: 1.5rem;
 `;
 
 export default function LoaderCurrent() {
   return (
     <LoaderContainer>
-      <Loader_1></Loader_1>
-      <Loader_2></Loader_2>
-      <Loader_3></Loader_3>
-      <Loader_3></Loader_3>
+      <LoaderFirst></LoaderFirst>
+      <LoaderSecond></LoaderSecond>
+      <LoaderThird></LoaderThird>
+      <LoaderThird></LoaderThird>
     </LoaderContainer>
   );
 }
