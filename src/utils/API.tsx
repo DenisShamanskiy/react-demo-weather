@@ -1,5 +1,7 @@
 const axios = require("axios").default;
 
+const API_KEY: string = "308668a1e7aa8a2725ddb201e281ebeb"
+
 export async function сurrentWeatherAPI(latitude: number, longitude: number) {
   try {
     const response = await axios({
@@ -9,7 +11,7 @@ export async function сurrentWeatherAPI(latitude: number, longitude: number) {
         lon: longitude,
         units: "metric",
         lang: "ru",
-        appid: process.env.REACT_APP_API_KEY,
+        appid: API_KEY,
       },
     });
     return response.data;
@@ -28,7 +30,7 @@ export async function oneCallAPI(latitude: number, longitude: number) {
         exclude: "minutely",
         units: "metric",
         lang: "ru",
-        appid: process.env.REACT_APP_API_KEY,
+        appid: API_KEY,
       },
     });
     return response.data;
@@ -44,7 +46,7 @@ export async function airPollutionAPI(latitude: number, longitude: number) {
       params: {
         lat: latitude,
         lon: longitude,
-        appid: process.env.REACT_APP_API_KEY,
+        appid: API_KEY,
       },
     });
     return response.data.list[0];
@@ -60,7 +62,7 @@ export async function geocodingAPI(city: string) {
       params: {
         q: city,
         limit: 1,
-        appid: process.env.REACT_APP_API_KEY,
+        appid: API_KEY,
       },
     });
     const { lat, lon } = response.data[0];
@@ -68,4 +70,5 @@ export async function geocodingAPI(city: string) {
   } catch (error) {
     console.error(error);
   }
+  return undefined
 }

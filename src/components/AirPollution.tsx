@@ -17,6 +17,15 @@ type AirPollutionProps = {
 }
 
 export const AirPollution: React.FC<AirPollutionProps> = ({ airPollution }) => {
+
+  enum ListIndex {
+    VeryLow = "Очень низкое",
+    Low = "Низкое",
+    Medium = "Среднее",
+    High = "Высокое",
+    VeryHigh = "Очень высокое"
+  }
+
   const {
     components,
     main: { aqi },
@@ -65,16 +74,17 @@ export const AirPollution: React.FC<AirPollutionProps> = ({ airPollution }) => {
   function getDescriptionCAQI(index: number) {
     switch (index) {
       case 1:
-        return "Очень низкое";
+        return ListIndex.VeryLow;
       case 2:
-        return "Низкое";
+        return ListIndex.Low;
       case 3:
-        return "Среднее";
+        return ListIndex.Medium;
       case 4:
-        return "Высокое";
+        return ListIndex.High;
       case 5:
-        return "Очень высокое";
-    }
+        return ListIndex.VeryHigh;
+    } 
+    return "Нет информации"
   }
 
   return (

@@ -6,7 +6,6 @@ type CardProps = {
 };
 
 export const ScrollHorizontal: React.FC<CardProps> = (props) => {
-  // export default function ScrollHorizontal(props) {
   let ref: any = useRef();
 
   const [state, setState] = useState({
@@ -28,6 +27,7 @@ export const ScrollHorizontal: React.FC<CardProps> = (props) => {
       element.addEventListener("wheel", onWheel);
       return () => element.removeEventListener("wheel", onWheel);
     }
+    return undefined
   }, []);
 
   const onMouseMove = (event: MouseEvent) => {

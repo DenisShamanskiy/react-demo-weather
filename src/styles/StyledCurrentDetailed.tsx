@@ -62,6 +62,7 @@ const handleIconType = (icon: string) => {
     case "Atmosphere":
       return `url(${Atmosphere})`;
   }
+  return undefined
 };
 
 const Title = styled.h2<TitleProps>`
