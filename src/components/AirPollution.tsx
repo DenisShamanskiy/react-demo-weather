@@ -12,11 +12,11 @@ import {
 } from "../styles/StyledAirPollution";
 import { Input } from "../styles/StyledCurrentDetailed";
 
-type AirPollutionProps = {
-  airPollution: {components: any[], main: any},
+interface IAirPollutionProps {
+  airPollution: {components: {[key: string]: number}, main: {aqi: number}},
 }
 
-export const AirPollution: React.FC<AirPollutionProps> = ({ airPollution }) => {
+export const AirPollution: React.FC<IAirPollutionProps> = ({ airPollution }) => {
 
   enum ListIndex {
     VeryLow = "Очень низкое",
@@ -37,7 +37,7 @@ export const AirPollution: React.FC<AirPollutionProps> = ({ airPollution }) => {
     </span>
   );
 
-  const arrayChemicalFormula = [
+  const arrayChemicalFormula: JSX.Element[] = [
     <ChemicalFormula>CO</ChemicalFormula>,
     <ChemicalFormula>
       NH<sub>3</sub>
@@ -60,7 +60,7 @@ export const AirPollution: React.FC<AirPollutionProps> = ({ airPollution }) => {
     </ChemicalFormula>,
   ];
 
-  const arrayDesignation = [
+  const arrayDesignation: string[] = [
     "Монооксид углерода",
     "Аммиак",
     "Монооксид азота",
@@ -71,7 +71,7 @@ export const AirPollution: React.FC<AirPollutionProps> = ({ airPollution }) => {
     "Диоксид серы",
   ];
 
-  function getDescriptionCAQI(index: number) {
+  function getDescriptionCAQI(index: number): ListIndex | "Нет информации" {
     switch (index) {
       case 1:
         return ListIndex.VeryLow;

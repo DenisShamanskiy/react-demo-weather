@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 
-const API_KEY: string = "308668a1e7aa8a2725ddb201e281ebeb"
+const API_KEY = "308668a1e7aa8a2725ddb201e281ebeb"
 
 export async function сurrentWeatherAPI(latitude: number, longitude: number) {
   try {
@@ -55,7 +55,7 @@ export async function airPollutionAPI(latitude: number, longitude: number) {
   }
 }
 
-export async function geocodingAPI(city: string) {
+export async function geocodingAPI(city: string): Promise<Array<number>> {
   try {
     const response = await axios({
       url: "https://api.openweathermap.org/geo/1.0/direct",
@@ -70,5 +70,5 @@ export async function geocodingAPI(city: string) {
   } catch (error) {
     console.error(error);
   }
-  return undefined
+  return []
 }

@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 
-import GlobalStyles from "./styles/Global";
-import StyledApp from "./styles/StyledApp";
+import GlobalStyles from "styles/Global";
+import StyledApp from "styles/StyledApp";
 
-import getCurrentCoordinates from "./utils/getCurrentCoordinates";
+import getCurrentCoordinates from "utils/getCurrentCoordinates";
 import {
   сurrentWeatherAPI,
   oneCallAPI,
   airPollutionAPI,
   geocodingAPI,
-} from "./utils/API";
-import { CardWeather as Current} from "./components/Current";
-import {Search} from "./components/Search";
-import {Alerts} from "./components/Alerts";
-import { CardHourly as Hourly} from "./components/Hourly";
-import { CardDaily as  Daily} from "./components/Daily";
-import AirPollution from "./components/AirPollution";
-import { CardWeatherInfo as CurrentDetailed } from "./components/CurrentDetailed";
-import Footer from "./components/Footer";
+} from "utils/API";
+import { CardWeather as Current} from "components/Current";
+import {Search} from "components/Search";
+import {Alerts} from "components/Alerts";
+import { CardHourly as Hourly} from "components/Hourly";
+import { CardDaily as  Daily} from "components/Daily";
+import AirPollution from "components/AirPollution";
+import { CardWeatherInfo as CurrentDetailed } from "components/CurrentDetailed";
+import Footer from "components/Footer";
 
-import LoaderCurrent from "./styles/Loader/LoaderCurrent";
-import LoaderHourly from "./styles/Loader/LoaderHourly";
-import LoaderDaily from "./styles/Loader/LoaderDaily";
-import LoaderAirPollution from "./styles/Loader/LoaderAirPollution";
-import LoaderCurrentDetailed from "./styles/Loader/LoaderCurrentDetailed";
+import LoaderCurrent from "styles/Loader/LoaderCurrent";
+import LoaderHourly from "styles/Loader/LoaderHourly";
+import LoaderDaily from "styles/Loader/LoaderDaily";
+import LoaderAirPollution from "styles/Loader/LoaderAirPollution";
+import LoaderCurrentDetailed from "styles/Loader/LoaderCurrentDetailed";
 
 const App: React.FC = () => {
   const [currentWeather, setCurrentWeather] = useState();
@@ -50,10 +50,10 @@ const App: React.FC = () => {
 
   // Поиск погоды по городу
   async function getCityWeather(city: string) {
-    const coordinates: any = await geocodingAPI(city);
-    const dataCurrentWeather = await сurrentWeatherAPI(coordinates[0], coordinates[1]);
-    const dataOneCall = await oneCallAPI(coordinates[0], coordinates[1]);
-    const dataAirPollution = await airPollutionAPI(coordinates[0], coordinates[1]);
+    const coordinates = await geocodingAPI(city);
+    const dataCurrentWeather = await сurrentWeatherAPI(...coordinates as [number, number]);
+    const dataOneCall = await oneCallAPI(...coordinates as [number, number]);
+    const dataAirPollution = await airPollutionAPI(...coordinates as [number, number]);
     dataCurrentWeather.uvi = dataOneCall.current.uvi;
     setCurrentWeather(dataCurrentWeather);
     setAlertsWeather(dataOneCall.alerts);

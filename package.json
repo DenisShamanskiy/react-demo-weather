@@ -1,6 +1,6 @@
 {
   "name": "weather",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -26,10 +26,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build2": "tsc",
+    "tsc": "tsc",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build2",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "repository": {
@@ -41,7 +41,7 @@
   "bugs": {
     "url": "https://denisshamanskiy.github.io/react-demo-weather/issues"
   },
-
+  "homepage": "https://denisshamanskiy.github.io/react-demo-weather/",
   "eslintConfig": {
     "extends": [
       "react-app",
