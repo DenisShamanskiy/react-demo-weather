@@ -32,7 +32,8 @@ export default createGlobalStyle`
 }
 * {
     box-sizing: border-box;
-  }
+}
+
 
 *::before,
 *::after {
@@ -48,6 +49,6 @@ body {
     justify-content: center;
     font-family: var(--font-family-Jost);
     background-color: var(--first);
-    color: var(--third); 
+    color: var(--third);
   }
 `;

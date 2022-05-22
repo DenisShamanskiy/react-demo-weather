@@ -42,13 +42,8 @@ const List = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: row;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-  }
+  overflow: hidden;
+
 `;
 
 const Item = styled.li`

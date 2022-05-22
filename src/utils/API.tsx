@@ -1,10 +1,24 @@
 const axios = require("axios").default;
 
 const API_KEY = "308668a1e7aa8a2725ddb201e281ebeb"
+const MY_TIMEOUT = 10000
+
+function checkResponse(err: any) {
+  if (err.response) {
+    console.log("err.response", err.response);
+    return Promise.reject(err);
+  } else if (err.request) {
+    console.log("err.request", err.request);
+    return err.request.timeout === 10000 ? Promise.reject(err) : ""
+  } else {
+    console.log('Error', err.message);
+    return Promise.reject(err);
+  }
+}
 
 export async function сurrentWeatherAPI(latitude: number, longitude: number) {
-  try {
-    const response = await axios({
+    try {
+      const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/weather",
       params: {
         lat: latitude,
@@ -13,10 +27,11 @@ export async function сurrentWeatherAPI(latitude: number, longitude: number) {
         lang: "ru",
         appid: API_KEY,
       },
+      timeout: MY_TIMEOUT
     });
     return response.data;
-  } catch (error) {
-    console.error(error);
+  } catch(err) {
+    return checkResponse(err);
   }
 }
 
@@ -32,10 +47,11 @@ export async function oneCallAPI(latitude: number, longitude: number) {
         lang: "ru",
         appid: API_KEY,
       },
+      timeout: MY_TIMEOUT
     });
     return response.data;
-  } catch (error) {
-    console.error(error);
+  } catch(err) {
+    return checkResponse(err);
   }
 }
 
@@ -48,27 +64,24 @@ export async function airPollutionAPI(latitude: number, longitude: number) {
         lon: longitude,
         appid: API_KEY,
       },
+      timeout: MY_TIMEOUT
     });
     return response.data.list[0];
-  } catch (error) {
-    console.error(error);
+  } catch(err) {
+    return checkResponse(err);
   }
 }
 
 export async function geocodingAPI(city: string): Promise<Array<number>> {
-  try {
-    const response = await axios({
+  const response = await axios({
       url: "https://api.openweathermap.org/geo/1.0/direct",
       params: {
         q: city,
         limit: 1,
         appid: API_KEY,
       },
+      timeout: MY_TIMEOUT
     });
     const { lat, lon } = response.data[0];
     return [lat, lon];
-  } catch (error) {
-    console.error(error);
-  }
-  return []
 }

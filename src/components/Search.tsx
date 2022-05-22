@@ -5,13 +5,13 @@ interface SearchProps {
   getCityWeather(city: string): void
 }
 
-export const Search: React.FC<SearchProps> = (props) => {
+const Search: React.FC<SearchProps> = (props) => {
   const [city, setCity] = useState("");
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setCity(event.target.value);
   }
-  function handleSubmit(event: React.SyntheticEvent) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     props.getCityWeather(city.trim())
     setCity("");
@@ -20,7 +20,7 @@ export const Search: React.FC<SearchProps> = (props) => {
 
   return (
     <>
-      <StyledSearch role="search">
+      <StyledSearch role="search" onSubmit={handleSubmit}>
         <Input
           type="search"
           value={city}
@@ -28,8 +28,10 @@ export const Search: React.FC<SearchProps> = (props) => {
           onChange={handleChange}
           required
         />
-        <Button type="submit" onClick={handleSubmit}></Button>
+        <Button type="submit"></Button>
       </StyledSearch>
     </>
   );
 }
+
+export default Search

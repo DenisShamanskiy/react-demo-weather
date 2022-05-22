@@ -1,4 +1,4 @@
-export default async function getCurrentCoordinates() {
+export default async function getCurrentCoordinates(): Promise<Array<number>> {
   const {
     coords: { latitude, longitude },
   } = await new Promise((res, rej) => {

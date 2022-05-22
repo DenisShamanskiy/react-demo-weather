@@ -11,13 +11,14 @@ import {
   geocodingAPI,
 } from "utils/API";
 import { CardWeather as Current} from "components/Current";
-import {Search} from "components/Search";
-import {Alerts} from "components/Alerts";
+import Search from "components/Search";
+import Alerts from "components/Alerts";
 import { CardHourly as Hourly} from "components/Hourly";
 import { CardDaily as  Daily} from "components/Daily";
 import AirPollution from "components/AirPollution";
 import { CardWeatherInfo as CurrentDetailed } from "components/CurrentDetailed";
 import Footer from "components/Footer";
+import CustomPopup from "components/CustomPopup";
 
 import LoaderCurrent from "styles/Loader/LoaderCurrent";
 import LoaderHourly from "styles/Loader/LoaderHourly";
@@ -32,35 +33,43 @@ const App: React.FC = () => {
   const [dailyWeather, setDailyWeather] = useState();
   const [airPollution, setAirPollution] = useState();
   const [timeZone, setTimeZone] = useState();
+  
+  // Popup
+  const [visibility, setVisibility] = useState<boolean>(false);
 
+  const popupCloseHandler = () => {
+    setVisibility(false);
+  };
+
+  async function getData (lat: number, lon: number) {
+    try {
+      Promise.all([
+        await сurrentWeatherAPI(lat, lon),
+        await oneCallAPI(lat, lon),
+        await airPollutionAPI(lat, lon)])
+      .then(([dataCurrentWeather, dataOneCall, dataAirPollution]) => {
+        dataCurrentWeather.uvi = dataOneCall.current.uvi;
+        setCurrentWeather(dataCurrentWeather);
+        setAlertsWeather(dataOneCall.alerts);
+        setHourlyWeather(dataOneCall.hourly.slice(0, 25));
+        setDailyWeather(dataOneCall.daily);
+        setAirPollution(dataAirPollution);
+        setTimeZone(dataOneCall.timezone_offset) } ) 
+    } catch (err) {
+        setVisibility(true)
+    }
+  };
+  
   // Основной запрос
   async function getWeatherCurrentCoordinates() {
-    const [lat, lon] = await getCurrentCoordinates();
-    const dataCurrentWeather = await сurrentWeatherAPI(lat, lon);
-    const dataOneCall = await oneCallAPI(lat, lon);
-    const dataAirPollution = await airPollutionAPI(lat, lon);
-    dataCurrentWeather.uvi = dataOneCall.current.uvi;
-    setCurrentWeather(dataCurrentWeather);
-    setAlertsWeather(dataOneCall.alerts);
-    setHourlyWeather(dataOneCall.hourly.slice(0, 25));
-    setDailyWeather(dataOneCall.daily);
-    setAirPollution(dataAirPollution);
-    setTimeZone(dataOneCall.timezone_offset);
+    const coordinates = await getCurrentCoordinates();
+    getData(...coordinates as [number, number])
   }
 
   // Поиск погоды по городу
   async function getCityWeather(city: string) {
     const coordinates = await geocodingAPI(city);
-    const dataCurrentWeather = await сurrentWeatherAPI(...coordinates as [number, number]);
-    const dataOneCall = await oneCallAPI(...coordinates as [number, number]);
-    const dataAirPollution = await airPollutionAPI(...coordinates as [number, number]);
-    dataCurrentWeather.uvi = dataOneCall.current.uvi;
-    setCurrentWeather(dataCurrentWeather);
-    setAlertsWeather(dataOneCall.alerts);
-    setHourlyWeather(dataOneCall.hourly.slice(0, 25));
-    setDailyWeather(dataOneCall.daily);
-    setAirPollution(dataAirPollution);
-    setTimeZone(dataOneCall.timezone_offset);
+    getData(...coordinates as [number, number])
   }
 
   useEffect(() => {
@@ -70,6 +79,15 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
+      {visibility ? (
+          <CustomPopup
+          onClose={popupCloseHandler}
+          visibility={visibility}>
+        </CustomPopup>
+        ) : (
+          ""
+        )}
+      
       <StyledApp>
         {currentWeather ? (
           <Current currentWeather={currentWeather} />
