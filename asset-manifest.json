@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/react-demo-weather/static/js/main.84960f04.js",
+    "main.js": "/react-demo-weather/static/js/main.15842f2f.js",
     "static/media/air-pollution.svg": "/react-demo-weather/static/media/air-pollution.a25b8397cad053a6cddd51f168ccc1cf.svg",
     "static/media/barometer.svg": "/react-demo-weather/static/media/barometer.d458531a662777496af7add0567c0127.svg",
     "static/media/fallout.svg": "/react-demo-weather/static/media/fallout.ab298e8dd14a9e9455ae4142d5fae851.svg",
@@ -19,9 +19,9 @@
     "static/media/search.svg": "/react-demo-weather/static/media/search.60a61a8c9476ac944225fa032d8b8aa6.svg",
     "static/media/clock.svg": "/react-demo-weather/static/media/clock.f2a27ed069ff9dbe178fbc7f3834ff19.svg",
     "static/media/dash-circle.svg": "/react-demo-weather/static/media/dash-circle.4ba348147757cc03172220a22cac0818.svg",
-    "main.84960f04.js.map": "/react-demo-weather/static/js/main.84960f04.js.map"
+    "main.15842f2f.js.map": "/react-demo-weather/static/js/main.15842f2f.js.map"
   },
   "entrypoints": [
-    "static/js/main.84960f04.js"
+    "static/js/main.15842f2f.js"
   ]
 }
