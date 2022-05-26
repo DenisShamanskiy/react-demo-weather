@@ -6,7 +6,7 @@ import {
   Description,
 } from "../styles/StyledCurrent";
 
-interface CardWeatherProps {
+interface ICurrentProps {
   currentWeather: {
     name: string,
     main: {
@@ -18,7 +18,7 @@ interface CardWeatherProps {
   },
 }
 
-  export const CardWeather: React.FC<CardWeatherProps> = ({ currentWeather }) => {
+  const Current: React.FC<ICurrentProps> = ({ currentWeather }): React.ReactElement => {
     // console.log(currentWeather);
     
   const {
@@ -40,3 +40,5 @@ interface CardWeatherProps {
     </StyledCard>
   );
 }
+
+export default Current

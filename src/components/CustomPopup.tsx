@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import {
     Overlay,
     Popup,
@@ -6,39 +6,24 @@ import {
     Warning,
     Text
   } from "styles/StyledCustomPopup";
+import { PopupActionTypes } from "types/popup";
+import { usePopupSelector } from "../hooks/useTypedSelector";
 
-interface IPopupProps {
-    onClose: Function,
-    visibility: boolean,
-    text?: string
-    children?: any
-  }
+const CustomPopup: React.FC = (): React.ReactElement => {  
 
-const CustomPopup: React.FC<IPopupProps> = ({visibility, onClose, text}) => {
+const dispatch = useDispatch()
 
-  console.log(text);
-  
-  const [show, setShow] = useState(visibility);
-
-  const closeHandler = () => {
-    setShow(!show);
-    onClose(false);
-  };
-
-  useEffect(() => {
-    setShow(show);
-  }, [show]);
+const popup = usePopupSelector(state => state.popup)
 
   return (
-    <Overlay show={show}> 
-        <Popup show={show}>
+    <Overlay show={popup.popup}> 
+        <Popup show={popup.popup}>
             <Warning>Сервер не отвечает</Warning>
             <Text>Возможно необходимо использовать VPN</Text>
-            <Close onClick={closeHandler}>Хорошо</Close>
+            <Close onClick={() => dispatch({type: PopupActionTypes.HIDDEN})}>Хорошо</Close>
       </Popup>
     </Overlay>
   );
 };
-
 
 export default CustomPopup;

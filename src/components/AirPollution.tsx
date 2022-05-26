@@ -16,7 +16,7 @@ interface IAirPollutionProps {
   airPollution: {components: {[key: string]: number}, main: {aqi: number}},
 }
 
-export const AirPollution: React.FC<IAirPollutionProps> = ({ airPollution }) => {
+const AirPollution: React.FC<IAirPollutionProps> = ({ airPollution }): React.ReactElement => {
 
   enum ListIndex {
     VeryLow = "Очень низкое",

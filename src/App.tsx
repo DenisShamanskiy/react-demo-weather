@@ -10,13 +10,13 @@ import {
   airPollutionAPI,
   geocodingAPI,
 } from "utils/API";
-import { CardWeather as Current} from "components/Current";
+import Current from "components/Current";
 import Search from "components/Search";
 import Alerts from "components/Alerts";
-import { CardHourly as Hourly} from "components/Hourly";
-import { CardDaily as  Daily} from "components/Daily";
+import Hourly from "components/Hourly";
+import Daily from "components/Daily";
 import AirPollution from "components/AirPollution";
-import { CardWeatherInfo as CurrentDetailed } from "components/CurrentDetailed";
+import CurrentDetailed from "components/CurrentDetailed";
 import Footer from "components/Footer";
 import CustomPopup from "components/CustomPopup";
 
@@ -25,25 +25,30 @@ import LoaderHourly from "styles/Loader/LoaderHourly";
 import LoaderDaily from "styles/Loader/LoaderDaily";
 import LoaderAirPollution from "styles/Loader/LoaderAirPollution";
 import LoaderCurrentDetailed from "styles/Loader/LoaderCurrentDetailed";
+import { useDispatch } from "react-redux";
+import { PopupActionTypes } from "types/popup";
+import { usePopupSelector } from "hooks/useTypedSelector";
 
 const App: React.FC = () => {
-  const [currentWeather, setCurrentWeather] = useState();
-  const [alertsWeather, setAlertsWeather] = useState();
-  const [hourlyWeather, setHourlyWeather] = useState();
-  const [dailyWeather, setDailyWeather] = useState();
-  const [airPollution, setAirPollution] = useState();
-  const [timeZone, setTimeZone] = useState();
+
+const dispatch = useDispatch()
+const popup = usePopupSelector(state => state.popup)
+console.log(popup);
+
+
+
+const [currentWeather, setCurrentWeather] = useState();
+const [alertsWeather, setAlertsWeather] = useState();
+const [hourlyWeather, setHourlyWeather] = useState();
+const [dailyWeather, setDailyWeather] = useState();
+const [airPollution, setAirPollution] = useState();
+const [timeZone, setTimeZone] = useState();
   
-  // Popup
-  const [visibility, setVisibility] = useState<boolean>(false);
 
-  const popupCloseHandler = () => {
-    setVisibility(false);
-  };
 
-  async function getData (lat: number, lon: number) {
-    try {
-      Promise.all([
+async function getData (lat: number, lon: number): Promise<void> {
+  try {
+    Promise.all([
         await сurrentWeatherAPI(lat, lon),
         await oneCallAPI(lat, lon),
         await airPollutionAPI(lat, lon)])
@@ -56,20 +61,24 @@ const App: React.FC = () => {
         setAirPollution(dataAirPollution);
         setTimeZone(dataOneCall.timezone_offset) } ) 
     } catch (err) {
-        setVisibility(true)
+        dispatch({type: PopupActionTypes.VISIBILITY})
     }
   };
   
   // Основной запрос
-  async function getWeatherCurrentCoordinates() {
+  async function getWeatherCurrentCoordinates(): Promise<void> {
     const coordinates = await getCurrentCoordinates();
     getData(...coordinates as [number, number])
   }
 
   // Поиск погоды по городу
-  async function getCityWeather(city: string) {
-    const coordinates = await geocodingAPI(city);
-    getData(...coordinates as [number, number])
+  async function getCityWeather(city: string): Promise<void> {
+    try {
+      const coordinates = await geocodingAPI(city);
+      getData(...coordinates as [number, number])
+    } catch (err) {
+      dispatch({type: PopupActionTypes.VISIBILITY})}
+    
   }
 
   useEffect(() => {
@@ -79,14 +88,8 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
-      {visibility ? (
-          <CustomPopup
-          onClose={popupCloseHandler}
-          visibility={visibility}>
-        </CustomPopup>
-        ) : (
-          ""
-        )}
+
+      {popup ? <CustomPopup /> : "" }
       
       <StyledApp>
         {currentWeather ? (

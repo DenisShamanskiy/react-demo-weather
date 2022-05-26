@@ -8,15 +8,15 @@ import {
   Icon,
   Temperature,
 } from "../styles/StyledHourly";
-import {ScrollHorizontal} from "./ScrollHorizontal";
+import ScrollHorizontal from "./ScrollHorizontal";
 import formate from "../utils/formate";
 
-type CardHourlyProps = {
+interface IHourlyProps {
   hourlyWeather: any[],
   timeZone: any
 }
 
-export const CardHourly: React.FC<CardHourlyProps> = ({ hourlyWeather, timeZone }) => {
+const Hourly: React.FC<IHourlyProps> = ({ hourlyWeather, timeZone }): React.ReactElement => {
   // console.log(hourlyWeather);
 
   return (
@@ -39,3 +39,5 @@ export const CardHourly: React.FC<CardHourlyProps> = ({ hourlyWeather, timeZone 
     </Container>
   );
 }
+
+export default Hourly

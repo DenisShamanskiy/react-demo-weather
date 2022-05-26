@@ -5,8 +5,8 @@ type CardProps = {
   children: any,
 };
 
-export const ScrollHorizontal: React.FC<CardProps> = (props) => {
-  let ref: any = useRef();
+const ScrollHorizontal: React.FC<CardProps> = (props): React.ReactElement => {
+  const ref: any = useRef();
 
   const [state, setState] = useState({
     isScrolling: false,
@@ -91,3 +91,5 @@ export const ScrollHorizontal: React.FC<CardProps> = (props) => {
     </props.List>
   );
 };
+
+export default ScrollHorizontal

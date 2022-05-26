@@ -16,7 +16,7 @@ type AlertsProps = {
   // timeZone: number
 }
 
-const Alerts: React.FC<AlertsProps> = ({ dataAlerts, /*timeZone*/ }) => {
+const Alerts: React.FC<AlertsProps> = ({ dataAlerts, /*timeZone*/ }): React.ReactElement => {
   // console.log(dataAlerts);
   const [open, setOpen] = useState(false);
   // const [alertsFilter, setAlertsFilter] = useState();

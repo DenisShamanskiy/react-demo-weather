@@ -5,7 +5,7 @@ interface SearchProps {
   getCityWeather(city: string): void
 }
 
-const Search: React.FC<SearchProps> = (props) => {
+const Search: React.FC<SearchProps> = (props): React.ReactElement => {
   const [city, setCity] = useState("");
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {

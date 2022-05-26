@@ -17,7 +17,7 @@ type CardDailyProps = {
   dataWeather: any[]
 }
 
-export const CardDaily: React.FC<CardDailyProps> = ( {dataWeather} ) => {
+const Daily: React.FC<CardDailyProps> = ( {dataWeather} ): React.ReactElement => {
   // console.log(dataWeather);
 
   return (
@@ -61,3 +61,5 @@ export const CardDaily: React.FC<CardDailyProps> = ( {dataWeather} ) => {
     </Container>
   );
 }
+
+export default Daily

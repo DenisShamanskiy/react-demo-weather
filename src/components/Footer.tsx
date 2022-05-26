@@ -7,7 +7,7 @@ const StyledFooter: any = styled.footer`
   text-align: center;
 `;
 
-const Footer: React.FC = () => {
+const Footer: React.FC = (): React.ReactElement => {
  return <StyledFooter>© 2022 Денис Шаманский</StyledFooter>
 }
 

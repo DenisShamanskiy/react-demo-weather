@@ -15,7 +15,7 @@ import {
 } from "../styles/StyledCurrentDetailed";
 import formate from "../utils/formate";
 
-type CardWeatherInfoProps = {
+type ICurrentDetailedProps = {
   dataWeather: {
     uvi: number,
     visibility: any,
@@ -34,7 +34,7 @@ type CardWeatherInfoProps = {
     snow: any,
 }}
 
-  export const CardWeatherInfo: React.FC<CardWeatherInfoProps> =  ({ dataWeather }) => {
+const CurrentDetailed: React.FC<ICurrentDetailedProps> = ({ dataWeather }): React.ReactElement => {
   const {
     uvi,
     visibility,
@@ -126,3 +126,5 @@ type CardWeatherInfoProps = {
     </>
   );
 }
+
+export default CurrentDetailed
