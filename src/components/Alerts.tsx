@@ -21,6 +21,7 @@ const Alerts: React.FC<AlertsProps> = ({ dataAlerts, /*timeZone*/ }): React.Reac
   const [open, setOpen] = useState(false);
   // const [alertsFilter, setAlertsFilter] = useState();
   const alertEvents = [
+    "Гроза",
     "Ветер",
     "Наводнение",
     "Лавины",

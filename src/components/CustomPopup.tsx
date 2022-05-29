@@ -13,7 +13,7 @@ const CustomPopup: React.FC = (): React.ReactElement => {
 
 const dispatch = useDispatch()
 
-const popup = usePopupSelector(state => state.popup)
+const popup = usePopupSelector(state => state.popupReducer)
 
   return (
     <Overlay show={popup.popup}> 

@@ -28,14 +28,12 @@ import LoaderCurrentDetailed from "styles/Loader/LoaderCurrentDetailed";
 import { useDispatch } from "react-redux";
 import { PopupActionTypes } from "types/popup";
 import { usePopupSelector } from "hooks/useTypedSelector";
+import { getAirPollution } from "store/AirPollutionReducer";
 
 const App: React.FC = () => {
 
 const dispatch = useDispatch()
-const popup = usePopupSelector(state => state.popup)
-console.log(popup);
-
-
+const popup = usePopupSelector(state => state.popupReducer)
 
 const [currentWeather, setCurrentWeather] = useState();
 const [alertsWeather, setAlertsWeather] = useState();
@@ -43,8 +41,6 @@ const [hourlyWeather, setHourlyWeather] = useState();
 const [dailyWeather, setDailyWeather] = useState();
 const [airPollution, setAirPollution] = useState();
 const [timeZone, setTimeZone] = useState();
-  
-
 
 async function getData (lat: number, lon: number): Promise<void> {
   try {
@@ -59,6 +55,7 @@ async function getData (lat: number, lon: number): Promise<void> {
         setHourlyWeather(dataOneCall.hourly.slice(0, 25));
         setDailyWeather(dataOneCall.daily);
         setAirPollution(dataAirPollution);
+        dispatch(getAirPollution(dataAirPollution))
         setTimeZone(dataOneCall.timezone_offset) } ) 
     } catch (err) {
         dispatch({type: PopupActionTypes.VISIBILITY})
