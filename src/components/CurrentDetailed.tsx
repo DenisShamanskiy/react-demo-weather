@@ -1,4 +1,7 @@
 import React from "react";
+import { useAppSelector } from "redux/hooks/useTypedSelector";
+import { CurrentWeatherState } from "redux/types";
+import LoaderCurrentDetailed from "styles/Loader/LoaderCurrentDetailed";
 import {
   Card,
   Title,
@@ -15,28 +18,13 @@ import {
 } from "../styles/StyledCurrentDetailed";
 import formate from "../utils/formate";
 
-type ICurrentDetailedProps = {
-  dataWeather: {
-    uvi: number,
-    visibility: any,
-    timezone: any,
-    wind: { 
-      speed: any,
-      deg: any },
-    main: { 
-      humidity: any,
-      pressure: any,
-      feels_like: any },
-    sys: {
-      sunrise: any,
-      sunset: any },
-    rain: any,
-    snow: any,
-}}
+const CurrentDetailed: React.FC = (): React.ReactElement => {
 
-const CurrentDetailed: React.FC<ICurrentDetailedProps> = ({ dataWeather }): React.ReactElement => {
+  const { loading } = useAppSelector(state => state.appReducer)
+  const data: CurrentWeatherState = useAppSelector(state => state.currentWeatherReducer)
+  const { OneCall: { current: { uvi } } } = useAppSelector(state => state.oneCallReducer)
+
   const {
-    uvi,
     visibility,
     timezone,
     wind: { speed, deg },
@@ -44,7 +32,7 @@ const CurrentDetailed: React.FC<ICurrentDetailedProps> = ({ dataWeather }): Reac
     sys: { sunrise, sunset },
     rain,
     snow,
-  } = dataWeather;
+  } = data.currentWeather;
 
   const getPrecipitation = () =>
     rain ? `${rain["1h"]} мм` : snow ? `${snow["1h"]} мм` : "0 мм";
@@ -63,6 +51,10 @@ const CurrentDetailed: React.FC<ICurrentDetailedProps> = ({ dataWeather }): Reac
   }
 
   return (
+    loading ? 
+
+    <LoaderCurrentDetailed /> :
+
     <>
       <Card>
         <Title icon="Uv">УФ-ИНДЕКС</Title>

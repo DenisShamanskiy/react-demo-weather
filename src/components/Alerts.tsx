@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useAppSelector } from "redux/hooks/useTypedSelector";
+import { OneCallState } from "redux/types";
 import {
   StyledAlerts,
   Header,
@@ -9,65 +11,36 @@ import {
   Event,
   Text,
 } from "../styles/StyledAlerts";
-// import formate from "../utils/formate";
 
-type AlertsProps = {
-  dataAlerts: any[],
-  // timeZone: number
-}
-
-const Alerts: React.FC<AlertsProps> = ({ dataAlerts, /*timeZone*/ }): React.ReactElement => {
-  // console.log(dataAlerts);
+const Alerts: React.FC = (): React.ReactElement => {
   const [open, setOpen] = useState(false);
-  // const [alertsFilter, setAlertsFilter] = useState();
-  const alertEvents = [
-    "Гроза",
-    "Ветер",
-    "Наводнение",
-    "Лавины",
-    "Прочие опасности",
-    "Дождь",
-    "Снег",
-    "Гололедно - изморозевое отложение",
-    "Туман",
-    "Пыльная (песчаная) буря",
-    "Пожарная опасность",
-  ];
+  console.log(open);
+  
 
-  function confirmCountryAlerts(array: any) {
-    if (array.some((element: any) => element.sender_name === "")) {
-      return array.filter((alert: any) => alertEvents.includes(alert.event));
-    } else {
-      return array;
-    }
-  }
+  const data: OneCallState = useAppSelector(state => state.oneCallReducer)
+
+  const dataAlerts = data.OneCall.alerts
+  
+  const getData = (dataAlerts: any) =>
+    dataAlerts[0].sender_name
+    ?
+    dataAlerts
+    :
+    dataAlerts.filter((alerts: any) => /[а-я]/i.test(alerts.event))
 
   return (
     <StyledAlerts onClick={() => setOpen(!open)}>
       <Header open={open}>
-        {confirmCountryAlerts(dataAlerts)[0].sender_name
-          ? confirmCountryAlerts(dataAlerts)[0].sender_name
-          : "Росгидромет предупреждает:"}
+        {dataAlerts[0].sender_name ? dataAlerts[0].sender_name : "Росгидромет предупреждает:"}
       </Header>
 
       <Content open={open}>
-        {confirmCountryAlerts(dataAlerts).map(
-          ({ description, /*start, end,*/ event }: any, index: React.Key | null | undefined) => {
+        {getData(dataAlerts).map(
+          ({ description, event }: any, index: React.Key | null | undefined) => {
             return (
               <Item key={index}>
                 <Description>
                   <Event>{event}.</Event>
-                  {/* {!confirmCountryAlerts(dataAlerts)[0].sender_name ? (
-                    <Event>{`${formate.day(start, timeZone)} ${formate.time(
-                      start,
-                      timeZone
-                    )} - ${formate.day(end, timeZone)} ${formate.time(
-                      end,
-                      timeZone
-                    )}`}</Event>
-                  ) : (
-                    ""
-                  )} */}
                   <Text>
                     {description[0].toUpperCase() + description.slice(1)}
                   </Text>
@@ -76,6 +49,7 @@ const Alerts: React.FC<AlertsProps> = ({ dataAlerts, /*timeZone*/ }): React.Reac
             );
           }
         )}
+
       </Content>
     </StyledAlerts>
   );

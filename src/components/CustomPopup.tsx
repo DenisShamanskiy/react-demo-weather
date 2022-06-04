@@ -6,8 +6,8 @@ import {
     Warning,
     Text
   } from "styles/StyledCustomPopup";
-import { PopupActionTypes } from "types/popup";
-import { usePopupSelector } from "../hooks/useTypedSelector";
+import { PopupActionTypes } from "redux/types";
+import { usePopupSelector } from "../redux/hooks/useTypedSelector";
 
 const CustomPopup: React.FC = (): React.ReactElement => {  
 

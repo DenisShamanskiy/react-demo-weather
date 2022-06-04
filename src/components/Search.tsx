@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getCityWeather } from "redux/actions";
 import { StyledSearch, Input, Button } from "../styles/StyledSearch";
 
-interface SearchProps {
-  getCityWeather(city: string): void
-}
-
-const Search: React.FC<SearchProps> = (props): React.ReactElement => {
+const Search: React.FC = (): React.ReactElement => {
+  const dispatch = useDispatch()
+  
   const [city, setCity] = useState("");
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -13,9 +13,9 @@ const Search: React.FC<SearchProps> = (props): React.ReactElement => {
   }
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    props.getCityWeather(city.trim())
+    dispatch(getCityWeather(city.trim()));
+    // props.getCityWeather(city.trim())
     setCity("");
-    
   }
 
   return (

@@ -1,4 +1,4 @@
-import { PopupAction, PopupActionTypes, PopupState } from "types/popup"
+import { PopupAction, PopupActionTypes, PopupState } from "redux/types"
 
 const innitialState: PopupState = {
     popup: false

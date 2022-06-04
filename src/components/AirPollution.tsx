@@ -1,4 +1,6 @@
-import React from "react";
+// import { useAppSelector } from "redux/hooks/useTypedSelector";
+import { useAppSelector } from "redux/hooks/useTypedSelector";
+import LoaderAirPollution from "styles/Loader/LoaderAirPollution";
 import {
   Container,
   TitleAirPollution,
@@ -12,30 +14,26 @@ import {
 } from "../styles/StyledAirPollution";
 import { Input } from "../styles/StyledCurrentDetailed";
 
-interface IAirPollutionProps {
-  airPollution: {components: {[key: string]: number}, main: {aqi: number}},
+const AirPollution: React.FC = (): React.ReactElement => {
+
+const { loading } = useAppSelector(state => state.appReducer)
+
+const data = useAppSelector(state => state.airPollutionReducer)
+
+enum ListIndex {
+  VeryLow = "Очень низкое",
+  Low = "Низкое",
+  Medium = "Среднее",
+  High = "Высокое",
+  VeryHigh = "Очень высокое"
 }
 
-const AirPollution: React.FC<IAirPollutionProps> = ({ airPollution }): React.ReactElement => {
+const {
+  components,
+  main: { aqi },
+} = data.airPollution;
 
-  enum ListIndex {
-    VeryLow = "Очень низкое",
-    Low = "Низкое",
-    Medium = "Среднее",
-    High = "Высокое",
-    VeryHigh = "Очень высокое"
-  }
-
-  const {
-    components,
-    main: { aqi },
-  } = airPollution;
-
-  const unit = (
-    <span>
-      мкг/м<sup>3</sup>
-    </span>
-  );
+const unit = (<span>мкг/м<sup>3</sup></span>);
 
   const arrayChemicalFormula: JSX.Element[] = [
     <ChemicalFormula>CO</ChemicalFormula>,
@@ -87,7 +85,13 @@ const AirPollution: React.FC<IAirPollutionProps> = ({ airPollution }): React.Rea
     return "Нет информации"
   }
 
+  console.log("AirPollution");
+
   return (
+    loading ? 
+
+    <LoaderAirPollution/> :
+    
     <Container>
       <TitleAirPollution>ЗАГРЯЗНЕНИЕ ВОЗДУХА</TitleAirPollution>
       <Wrapper>
@@ -98,8 +102,8 @@ const AirPollution: React.FC<IAirPollutionProps> = ({ airPollution }): React.Rea
           type="range"
           min="1"
           max="5"
-          value={aqi}
-        ></Input>
+          value={aqi}>
+        </Input>
       </Wrapper>
       <List>
         {Object.values(components).map((value, index) => {

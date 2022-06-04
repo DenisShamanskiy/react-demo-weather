@@ -10,23 +10,35 @@ import {
 } from "../styles/StyledHourly";
 import ScrollHorizontal from "./ScrollHorizontal";
 import formate from "../utils/formate";
+import { useAppSelector } from "redux/hooks/useTypedSelector";
+import { OneCallState } from "redux/types";
+import LoaderHourly from "styles/Loader/LoaderHourly";
 
-interface IHourlyProps {
-  hourlyWeather: any[],
-  timeZone: any
-}
+// interface IHourlyProps {
+//   hourlyWeather: any[],
+//   timeZone: any
+// }
 
-const Hourly: React.FC<IHourlyProps> = ({ hourlyWeather, timeZone }): React.ReactElement => {
+const Hourly: React.FC = (): React.ReactElement => {
   // console.log(hourlyWeather);
 
+  const { loading } = useAppSelector(state => state.appReducer)
+  const data: OneCallState = useAppSelector(state => state.oneCallReducer)
+
+  const hourlyWeather = data.OneCall.hourly.slice(0, 25)
+
   return (
+    loading ? 
+
+    <LoaderHourly /> :
+    
     <Container>
       <TitleHourly>ПОЧАСОВОЙ ПРОГНОЗ</TitleHourly>
       <ScrollHorizontal List={List}>
         {hourlyWeather.map(({ temp, weather, dt }, index) => {
           return (
             <Item key={index}>
-              <Time>{index === 0 ? "Сейчас" : formate.time(dt, timeZone)}</Time>
+              <Time>{index === 0 ? "Сейчас" : formate.time(dt, data.OneCall.timezone_offset)}</Time>
               <Icon
                 src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
                 alt="Иконка погоды"
