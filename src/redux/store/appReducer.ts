@@ -1,16 +1,18 @@
-import { ActionTypesApp, AppState, TypeActionApp } from "redux/types"
+import { HIDE_LOADING, SHOW_LOADING } from "redux/constants"
+import { ActionApp, StateAppLoading } from "redux/types"
 
-const innitialState: AppState = {
+const innitialState: StateAppLoading = {
     loading: true
 }
 
-export const appReducer = (state = innitialState, action: TypeActionApp): AppState => {
+export const appReducer = (state = innitialState, action: ActionApp): StateAppLoading => {
+  
     switch (action.type) {
         
-      case ActionTypesApp.SHOW_LOADING:
+      case SHOW_LOADING:
         return {...state, loading: true}
   
-      case ActionTypesApp.HIDE_LOADING:
+      case HIDE_LOADING:
         return {...state, loading: false}
 
       default:

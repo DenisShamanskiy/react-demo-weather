@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
-import { CurrentWeatherState } from "redux/types";
+import { StateCurrentWeather } from "redux/types";
 import LoaderCurrent from "styles/Loader/LoaderCurrent";
 import {
   StyledCard,
@@ -12,15 +12,15 @@ import {
 
   const Current: React.FC = (): React.ReactElement => {
 
-  const { loading } = useAppSelector(state => state.appReducer)
-  const data: CurrentWeatherState = useAppSelector(state => state.currentWeatherReducer)
-  // console.log(data.currentWeather);
+  const { loading } = useAppSelector(state => state.loading)
+  const data: StateCurrentWeather = useAppSelector(state => state.currentWeather)
 
   const {
     name,
     main: { temp, temp_max, temp_min },
     weather: [{description}],
-  } = data.currentWeather;
+  } = data;
+
 
   return (
     loading ? 

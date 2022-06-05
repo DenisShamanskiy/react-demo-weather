@@ -1,7 +1,7 @@
-import { AirPollutionState, SetAirPollition } from "redux/types"
+import { SET_AIR_POLLITION } from "redux/constants"
+import { StateAirPollution, ActionSetAirPollition } from "redux/types"
 
-const innitialState: AirPollutionState = {
-  airPollution: {
+const innitialState: StateAirPollution = {
     components: {
       co: 0,
       nh3: 0,
@@ -15,20 +15,20 @@ const innitialState: AirPollutionState = {
     main: {
       aqi: 0
     }
-  }
 }
 
 
-export const airPollutionReducer = (state = innitialState, action: SetAirPollition): AirPollutionState => {
+export const airPollutionReducer = (state = innitialState, action: ActionSetAirPollition): StateAirPollution => {
+
     switch (action.type) {
 
-        case 'SET_AIR_POLLITION':
-        return {...state, airPollution: action.payload}
+        case SET_AIR_POLLITION:
+        return {...state, components: action.payload.components, main: action.payload.main }
   
       default:
         return state
+        
     }
-  
 }
 
 

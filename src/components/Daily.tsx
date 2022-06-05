@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
-import { OneCallState } from "redux/types";
+import { StateOneCall } from "redux/types";
 import LoaderDaily from "styles/Loader/LoaderDaily";
 import {
   Container,
@@ -16,17 +16,13 @@ import {
 } from "../styles/StyledDaily";
 import formate from "../utils/formate";
 
-// type CardDailyProps = {
-//   dataWeather: any[]
-// }
-
 const Daily: React.FC = (): React.ReactElement => {
   
-  const { loading } = useAppSelector(state => state.appReducer)
-  const data: OneCallState = useAppSelector(state => state.oneCallReducer)
+  const { loading } = useAppSelector(state => state.loading)
+  const data: StateOneCall = useAppSelector(state => state.oneCall)
 
-  const dataWeather = data.OneCall.daily
-
+  const dataWeather = data.daily
+  
   return (
     loading ? 
 
@@ -73,4 +69,4 @@ const Daily: React.FC = (): React.ReactElement => {
   );
 }
 
-export default Daily
+export default (Daily)

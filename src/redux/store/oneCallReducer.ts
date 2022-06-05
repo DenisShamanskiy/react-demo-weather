@@ -1,25 +1,29 @@
-// import { AirPollutionState, SetAirPollition } from "redux/types/airPollution"
+import { SET_ONE_CALL } from "redux/constants"
+import { StateOneCall, ActionOneCall } from "redux/types"
 
-import { OneCallState, SetOneCall } from "redux/types"
-
-const innitialState: OneCallState = {
-  OneCall: {
-    alerts: [],
-    current: {
-      uvi: 0
-    },
-    daily: [],
-    hourly: [],
-    timezone_offset: 0
-  }
+const innitialState: StateOneCall = {
+  alerts: [],
+  current: {
+    uvi: 0
+  },
+  daily: [],
+  hourly: [],
+  timezone_offset: 0
 }
 
 
-export const oneCallReducer = (state = innitialState, action: SetOneCall): OneCallState => {
+export const oneCallReducer = (state = innitialState, action: ActionOneCall): StateOneCall => {
+    
     switch (action.type) {
 
-        case "SET_ONE_CALL":
-        return {...state, OneCall: action.payload}
+        case SET_ONE_CALL:
+        return {
+          ...state,
+          alerts: action.payload.alerts,
+          current: action.payload.current,
+          daily: action.payload.daily,
+          hourly: action.payload.hourly,
+          timezone_offset: action.payload.timezone_offset}
   
       default:
         return state

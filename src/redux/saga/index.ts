@@ -1,17 +1,7 @@
-import { /*all*/ takeLeading } from "redux-saga/effects"
-import { getCityWeather, getLocalWeather } from "redux/actions";
-import { workerCityWeather } from "./cityWeather";
-import { workerLocalWeather } from "./localWeather";
-// import { watcherCityWeather } from "./cityWeather";
-// import { watcherLocalWeather } from "./localWeather";
+import { all, AllEffect, ForkEffect } from "redux-saga/effects"
+import { watcherCityWeather } from "./cityWeatherSaga"
+import { watcherLocalWeather } from "./localWeatherSaga"
 
-export default function* rootWatcher() {
-    yield takeLeading(getLocalWeather, workerLocalWeather);
-    yield takeLeading(getCityWeather, workerCityWeather);
-    // yield all(
-    //     [
-    //         watcherLocalWeather(),
-    //         watcherCityWeather()
-    //     ]
-    // )
+export default function* rootWatcher(): Generator<AllEffect<Generator<ForkEffect<never>, void, unknown>>, void, unknown> {
+    yield all([watcherLocalWeather(), watcherCityWeather()])
 }

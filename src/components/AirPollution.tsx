@@ -16,9 +16,9 @@ import { Input } from "../styles/StyledCurrentDetailed";
 
 const AirPollution: React.FC = (): React.ReactElement => {
 
-const { loading } = useAppSelector(state => state.appReducer)
+const { loading } = useAppSelector(state => state.loading)
 
-const data = useAppSelector(state => state.airPollutionReducer)
+const data = useAppSelector(state => state.airPollution)
 
 enum ListIndex {
   VeryLow = "Очень низкое",
@@ -31,7 +31,7 @@ enum ListIndex {
 const {
   components,
   main: { aqi },
-} = data.airPollution;
+} = data;
 
 const unit = (<span>мкг/м<sup>3</sup></span>);
 
@@ -85,7 +85,7 @@ const unit = (<span>мкг/м<sup>3</sup></span>);
     return "Нет информации"
   }
 
-  console.log("AirPollution");
+  // console.log("AirPollution");
 
   return (
     loading ? 

@@ -1,4 +1,4 @@
-import { AirPollutionState } from "redux/types";
+import { StateAirPollution } from "redux/types";
 import { Coordinates } from "redux/types";
 
 const axios = require("axios").default;
@@ -58,9 +58,7 @@ export async function oneCallAPI(coord: Coordinates) {
   }
 }
 
-export async function airPollutionAPI({latitude, longitude}: Coordinates): Promise<AirPollutionState> {
-  
-  // console.log(latitude, longitude);
+export async function airPollutionAPI({latitude, longitude}: Coordinates): Promise<StateAirPollution> {
   
     const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/air_pollution",
@@ -71,17 +69,17 @@ export async function airPollutionAPI({latitude, longitude}: Coordinates): Promi
       },
       timeout: MY_TIMEOUT
     });
+    
     return response.data.list[0];
 }
 
 export async function getCityCoordinates(city: string): Promise<Coordinates> {
-  console.log(city);
-  
+
   try {
     const response = await axios({
     url: "https://api.openweathermap.org/data/2.5/weather",
     params: {
-      q: "чита",
+      q: city,
       units: "metric",
       lang: "ru",
       appid: API_KEY,
@@ -95,22 +93,4 @@ export async function getCityCoordinates(city: string): Promise<Coordinates> {
 } catch(err) {
   return checkResponse(err);
 }
-}
-
-export async function geocodingAPI(city: string): Promise<Array<number>> {
-  try {
-    const response = await axios({
-      url: "https://api.openweathermap.org/geo/1.0/direct",
-      params: {
-        q: city,
-        limit: 1,
-        appid: API_KEY,
-      },
-      timeout: MY_TIMEOUT
-    });
-    const { lat, lon } = response.data[0];
-    return [lat, lon];
-  } catch(err) {
-    return checkResponse(err);
-  } 
 }

@@ -18,6 +18,8 @@ const Search: React.FC = (): React.ReactElement => {
     setCity("");
   }
 
+  // console.log("Search");
+
   return (
     <>
       <StyledSearch role="search" onSubmit={handleSubmit}>

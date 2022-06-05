@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
-import { CurrentWeatherState } from "redux/types";
+import { StateCurrentWeather } from "redux/types";
 import LoaderCurrentDetailed from "styles/Loader/LoaderCurrentDetailed";
 import {
   Card,
@@ -20,9 +20,9 @@ import formate from "../utils/formate";
 
 const CurrentDetailed: React.FC = (): React.ReactElement => {
 
-  const { loading } = useAppSelector(state => state.appReducer)
-  const data: CurrentWeatherState = useAppSelector(state => state.currentWeatherReducer)
-  const { OneCall: { current: { uvi } } } = useAppSelector(state => state.oneCallReducer)
+  const { loading } = useAppSelector(state => state.loading)
+  const data: StateCurrentWeather = useAppSelector(state => state.currentWeather)
+  const { current: { uvi } } = useAppSelector(state => state.oneCall)
 
   const {
     visibility,
@@ -32,7 +32,7 @@ const CurrentDetailed: React.FC = (): React.ReactElement => {
     sys: { sunrise, sunset },
     rain,
     snow,
-  } = data.currentWeather;
+  } = data;
 
   const getPrecipitation = () =>
     rain ? `${rain["1h"]} мм` : snow ? `${snow["1h"]} мм` : "0 мм";

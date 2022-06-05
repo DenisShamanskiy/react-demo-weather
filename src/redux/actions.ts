@@ -1,15 +1,16 @@
-import { ActionTypesApp, AirPollutionState, CurrentWeatherState, OneCallState } from "redux/types"
+import { StateAirPollution, StateCurrentWeather, StateOneCall } from "redux/types"
+import { ACTION_CITY_WEATHER, ACTION_LOCAL_WEATHER, HIDE_LOADING, SET_AIR_POLLITION, SET_CURRENT_WEATHER, SET_ONE_CALL, SHOW_LOADING } from "./constants"
 
-export const showLoading = () => ( { type: ActionTypesApp.SHOW_LOADING } )
+export const showLoading = () => ( { type: SHOW_LOADING } )
 
-export const hideLoading = () => ( { type: ActionTypesApp.HIDE_LOADING } )
+export const hideLoading = () => ( { type: HIDE_LOADING } )
 
-export const getLocalWeather = () => ( { type: "ACTION_LOCAL_WEATHER" } )
+export const getLocalWeather = () => ( { type: ACTION_LOCAL_WEATHER } )
 
-export const getCityWeather = (payload: string) => ( { type: "ACTION_CITY_WEATHER", payload } )
+export const getCityWeather = (payload: string) => ( { type: ACTION_CITY_WEATHER, payload } )
 
-export const setAirPollution = (payload: AirPollutionState) => ({ type: "SET_AIR_POLLITION", payload })
+export const setAirPollution = (payload: StateAirPollution) => ({ type: SET_AIR_POLLITION, payload })
 
-export const setCurrentWeather = (payload: CurrentWeatherState) => ({ type: "SET_CURRENT_WEATHER", payload })
+export const setCurrentWeather = (payload: StateCurrentWeather) => ({ type: SET_CURRENT_WEATHER, payload })
 
-export const setOneCall = (payload: OneCallState) => ({ type: "SET_ONE_CALL", payload })
+export const setOneCall = (payload: StateOneCall) => ({ type: SET_ONE_CALL, payload })

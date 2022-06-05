@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
-import { OneCallState } from "redux/types";
 import {
   StyledAlerts,
   Header,
@@ -13,29 +12,26 @@ import {
 } from "../styles/StyledAlerts";
 
 const Alerts: React.FC = (): React.ReactElement => {
+
   const [open, setOpen] = useState(false);
-  console.log(open);
   
+  const data = useAppSelector(state => state.oneCall.alerts)
 
-  const data: OneCallState = useAppSelector(state => state.oneCallReducer)
-
-  const dataAlerts = data.OneCall.alerts
-  
-  const getData = (dataAlerts: any) =>
-    dataAlerts[0].sender_name
+  const handleData = (data: any) =>
+    data[0].sender_name
     ?
-    dataAlerts
+    data
     :
-    dataAlerts.filter((alerts: any) => /[а-я]/i.test(alerts.event))
+    data.filter((alerts: any) => /[а-я]/i.test(alerts.event))
 
   return (
     <StyledAlerts onClick={() => setOpen(!open)}>
       <Header open={open}>
-        {dataAlerts[0].sender_name ? dataAlerts[0].sender_name : "Росгидромет предупреждает:"}
+        {data[0].sender_name ? data[0].sender_name : "Росгидромет предупреждает:"}
       </Header>
 
       <Content open={open}>
-        {getData(dataAlerts).map(
+        {handleData(data).map(
           ({ description, event }: any, index: React.Key | null | undefined) => {
             return (
               <Item key={index}>

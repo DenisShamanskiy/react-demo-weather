@@ -6,21 +6,21 @@ import {
     Warning,
     Text
   } from "styles/StyledCustomPopup";
-import { PopupActionTypes } from "redux/types";
-import { usePopupSelector } from "../redux/hooks/useTypedSelector";
+import { useAppSelector} from "../redux/hooks/useTypedSelector";
+import { POPUP_ALERT_HIDDEN } from "redux/constants";
 
 const CustomPopup: React.FC = (): React.ReactElement => {  
 
 const dispatch = useDispatch()
 
-const popup = usePopupSelector(state => state.popupReducer)
+const show = useAppSelector(state => state.popupAlert)
 
   return (
-    <Overlay show={popup.popup}> 
-        <Popup show={popup.popup}>
+    <Overlay show={show.popupAlert}> 
+        <Popup show={show.popupAlert}>
             <Warning>Сервер не отвечает</Warning>
             <Text>Возможно необходимо использовать VPN</Text>
-            <Close onClick={() => dispatch({type: PopupActionTypes.HIDDEN})}>Хорошо</Close>
+            <Close onClick={() => dispatch({type: POPUP_ALERT_HIDDEN})}>Хорошо</Close>
       </Popup>
     </Overlay>
   );
