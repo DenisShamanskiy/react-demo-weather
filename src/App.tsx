@@ -16,16 +16,22 @@ import CustomPopup from "components/CustomPopup";
 import { useDispatch } from "react-redux";
 import { getLocalWeather } from "redux/actions";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
+// import LoaderCurrent from "components/Loader/LoaderCurrent";
 
 const App: React.FC = () => {
 
   const dispatch = useDispatch()
   
   const show = useAppSelector(state => state.popupAlert)
+  
+  const sw = useAppSelector(state => state.errors)
+  console.log(sw);
+  
   const alerts = useAppSelector(state => state.oneCall.alerts)
   
   useEffect(() => {
     dispatch(getLocalWeather())
+    // dispatch(showPopupAlert())
   }, []);  
   
   return (
@@ -36,6 +42,8 @@ const App: React.FC = () => {
       
       <StyledApp>
 
+      {/* <LoaderCurrent /> */}
+      
       <Current />
 
       <Search />
@@ -51,7 +59,7 @@ const App: React.FC = () => {
       <CurrentDetailed />
         
       <Footer />
-      
+
       </StyledApp>
     </>
   );

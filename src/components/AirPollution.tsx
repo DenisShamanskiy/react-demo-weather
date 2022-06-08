@@ -1,6 +1,7 @@
 // import { useAppSelector } from "redux/hooks/useTypedSelector";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
-import LoaderAirPollution from "styles/Loader/LoaderAirPollution";
+import LoaderAirPollution from "components/Loader/LoaderAirPollution";
+import { ErrorBlock } from "styles/StyledDaily";
 import {
   Container,
   TitleAirPollution,
@@ -20,6 +21,8 @@ const { loading } = useAppSelector(state => state.loading)
 
 const data = useAppSelector(state => state.airPollution)
 
+const error = useAppSelector(state => state.errors.errorAirPollution)
+
 enum ListIndex {
   VeryLow = "Очень низкое",
   Low = "Низкое",
@@ -32,8 +35,6 @@ const {
   components,
   main: { aqi },
 } = data;
-
-const unit = (<span>мкг/м<sup>3</sup></span>);
 
   const arrayChemicalFormula: JSX.Element[] = [
     <ChemicalFormula>CO</ChemicalFormula>,
@@ -69,7 +70,9 @@ const unit = (<span>мкг/м<sup>3</sup></span>);
     "Диоксид серы",
   ];
 
-  function getDescriptionCAQI(index: number): ListIndex | "Нет информации" {
+  const setValue = (num: number) => error ? "Нет данных" : <span>{num} мкг/м<sup>3</sup></span>
+
+  function getDescriptionCAQI(index: number): ListIndex | "Нет данных" {
     switch (index) {
       case 1:
         return ListIndex.VeryLow;
@@ -82,10 +85,8 @@ const unit = (<span>мкг/м<sup>3</sup></span>);
       case 5:
         return ListIndex.VeryHigh;
     } 
-    return "Нет информации"
+    return "Нет данных"
   }
-
-  // console.log("AirPollution");
 
   return (
     loading ? 
@@ -94,6 +95,7 @@ const unit = (<span>мкг/м<sup>3</sup></span>);
     
     <Container>
       <TitleAirPollution>ЗАГРЯЗНЕНИЕ ВОЗДУХА</TitleAirPollution>
+      {error ? "" :
       <Wrapper>
         <Description>{getDescriptionCAQI(aqi)}</Description>
         <Input
@@ -104,7 +106,8 @@ const unit = (<span>мкг/м<sup>3</sup></span>);
           max="5"
           value={aqi}>
         </Input>
-      </Wrapper>
+      </Wrapper>}
+      {error ? <ErrorBlock/> :
       <List>
         {Object.values(components).map((value, index) => {
           return (
@@ -112,12 +115,12 @@ const unit = (<span>мкг/м<sup>3</sup></span>);
               {arrayChemicalFormula[index]}
               <Designation>{arrayDesignation[index]}</Designation>
               <Value>
-                {value} {unit}
+                {setValue(value)}
               </Value>
             </Item>
           );
         })}
-      </List>
+      </List>}
     </Container>
   );
 }

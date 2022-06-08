@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
 import { StateOneCall } from "redux/types";
-import LoaderDaily from "styles/Loader/LoaderDaily";
+import LoaderDaily from "components/Loader/LoaderDaily";
 import {
   Container,
   TitleDaily,
@@ -13,6 +13,7 @@ import {
   Description,
   Precipitation,
   Temperature,
+  ErrorBlock,
 } from "../styles/StyledDaily";
 import formate from "../utils/formate";
 
@@ -20,16 +21,20 @@ const Daily: React.FC = (): React.ReactElement => {
   
   const { loading } = useAppSelector(state => state.loading)
   const data: StateOneCall = useAppSelector(state => state.oneCall)
+  const error = useAppSelector(state => state.errors.errorOneCall)
 
   const dataWeather = data.daily
-  
+ 
   return (
     loading ? 
 
     <LoaderDaily /> :
     
     <Container>
+      <>
       <TitleDaily>ПРОГНОЗ НА 7 ДНЕЙ</TitleDaily>
+
+      {error ? <ErrorBlock/> : 
 
       <List>
         {dataWeather.map(({ temp: { max, min }, weather, dt, pop }, index) => {
@@ -64,7 +69,8 @@ const Daily: React.FC = (): React.ReactElement => {
             </Item>
           );
         })}
-      </List>
+      </List>}
+    </>
     </Container>
   );
 }

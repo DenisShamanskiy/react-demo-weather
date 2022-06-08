@@ -40,7 +40,7 @@ export interface StateCurrentWeather {
 export interface StateAirPollution {
     components: {
         co: number
-        nh3: number
+        nh3: number 
         no: number
         no2: number
         o3: number
@@ -105,4 +105,32 @@ interface ActionPopupAlertVisibility {
 interface ActionPopupAlertHidden {
     type: "POPUP_ALERT_HIDDEN";
 }
+
+// ERROR //
+
+export interface StateError {
+    errorAirPollution: any,
+    errorCurrentWeather: any,
+    errorOneCall: any
+};
+
+export type ActionError = ActionErrorAirPollution | ActionErrorCurrentWeather | ActionErrorOneCall
+
+interface ActionErrorAirPollution {
+    type: "ERROR_AIR_POLLITION";
+    payload: StateError
+}
+
+interface ActionErrorCurrentWeather {
+    type: "ERROR_CURRENT_WEATHER";
+    payload: StateError
+}
+
+interface ActionErrorOneCall {
+    type: "ERROR_ONE_CALL";
+    payload: StateError
+}
+
+
+
 

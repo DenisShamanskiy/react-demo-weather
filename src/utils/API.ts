@@ -1,4 +1,4 @@
-import { StateAirPollution } from "redux/types";
+import { StateAirPollution, StateCurrentWeather, StateOneCall } from "redux/types";
 import { Coordinates } from "redux/types";
 
 const axios = require("axios").default;
@@ -6,22 +6,8 @@ const axios = require("axios").default;
 export const API_KEY = "308668a1e7aa8a2725ddb201e281ebeb"
 export const MY_TIMEOUT = 10000
 
-function checkResponse(err: any): Promise<never>{
-  if (err.response) {
-    console.log("err.response", err.response);
-    return Promise.reject(err);
-  } else if (err.request) {
-    console.log("err.request", err.request);
-    return Promise.reject(err)
-  } else {
-    console.log('Error', err.message);
-    return Promise.reject(err);
-  }
-}
-
-export async function сurrentWeatherAPI({latitude, longitude}: Coordinates): Promise<any> {
-    try {
-      const response = await axios({
+export async function сurrentWeatherAPI({latitude, longitude}: Coordinates): Promise<StateCurrentWeather> {
+    const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/weather",
       params: {
         lat: latitude,
@@ -33,18 +19,14 @@ export async function сurrentWeatherAPI({latitude, longitude}: Coordinates): Pr
       timeout: MY_TIMEOUT
     });
     return response.data;
-  } catch(err) {
-    return checkResponse(err);
-  }
 }
 
-export async function oneCallAPI(coord: Coordinates) {
-  try {
+export async function oneCallAPI({latitude, longitude}: Coordinates): Promise<StateOneCall> {
     const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/onecall",
       params: {
-        lat: coord.latitude,
-        lon: coord.longitude,
+        lat: latitude,
+        lon: longitude,
         exclude: "minutely",
         units: "metric",
         lang: "ru",
@@ -53,13 +35,9 @@ export async function oneCallAPI(coord: Coordinates) {
       timeout: MY_TIMEOUT
     });
     return response.data;
-  } catch(err) {
-    return checkResponse(err);
-  }
 }
 
 export async function airPollutionAPI({latitude, longitude}: Coordinates): Promise<StateAirPollution> {
-  
     const response = await axios({
       url: "https://api.openweathermap.org/data/2.5/air_pollution",
       params: {
@@ -69,13 +47,10 @@ export async function airPollutionAPI({latitude, longitude}: Coordinates): Promi
       },
       timeout: MY_TIMEOUT
     });
-    
     return response.data.list[0];
 }
 
 export async function getCityCoordinates(city: string): Promise<Coordinates> {
-
-  try {
     const response = await axios({
     url: "https://api.openweathermap.org/data/2.5/weather",
     params: {
@@ -89,8 +64,4 @@ export async function getCityCoordinates(city: string): Promise<Coordinates> {
   const latitude: number = response.data.coord.lat
   const longitude: number = response.data.coord.lon
   return {latitude, longitude};
-  
-} catch(err) {
-  return checkResponse(err);
-}
 }

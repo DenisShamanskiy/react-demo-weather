@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Calendar from "../images/svg/calendar.svg";
+import fff from "../images/svg/No-Cloud-Security.svg";
 import { TitleHourly } from "./StyledHourly";
 
 const Container = styled.article`
@@ -44,6 +45,19 @@ const Item = styled.li`
   border-bottom: 1px solid var(--border-color);
 `;
 
+const ErrorBlock = styled.div`
+  width: 200px;
+  min-height: 200px;
+  /* border: 1px solid red; */
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${fff});
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
 const Day = styled.p`
   margin: 0;
   padding: 0;
@@ -83,6 +97,7 @@ export {
   TitleDaily,
   List,
   Item,
+  ErrorBlock,
   Day,
   Icon,
   Wrapper,

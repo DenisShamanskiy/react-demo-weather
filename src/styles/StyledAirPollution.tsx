@@ -53,7 +53,7 @@ const List = styled.ul`
 const Item = styled.li`
   height: 2.2rem;
   display: grid;
-  grid-template-columns: 60px 1fr 115px;
+  grid-template-columns: 60px 1fr 125px;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid var(--border-color);

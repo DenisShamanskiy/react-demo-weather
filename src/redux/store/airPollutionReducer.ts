@@ -17,7 +17,6 @@ const innitialState: StateAirPollution = {
     }
 }
 
-
 export const airPollutionReducer = (state = innitialState, action: ActionSetAirPollition): StateAirPollution => {
 
     switch (action.type) {

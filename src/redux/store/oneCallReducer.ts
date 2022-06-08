@@ -11,7 +11,6 @@ const innitialState: StateOneCall = {
   timezone_offset: 0
 }
 
-
 export const oneCallReducer = (state = innitialState, action: ActionOneCall): StateOneCall => {
     
     switch (action.type) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
 import { StateCurrentWeather } from "redux/types";
-import LoaderCurrentDetailed from "styles/Loader/LoaderCurrentDetailed";
+import LoaderCurrentDetailed from "components/Loader/LoaderCurrentDetailed";
 import {
   Card,
   Title,

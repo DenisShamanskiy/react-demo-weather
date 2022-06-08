@@ -12,7 +12,7 @@ import ScrollHorizontal from "./ScrollHorizontal";
 import formate from "../utils/formate";
 import { useAppSelector } from "redux/hooks/useTypedSelector";
 import { StateOneCall } from "redux/types";
-import LoaderHourly from "styles/Loader/LoaderHourly";
+import LoaderHourly from "components/Loader/LoaderHourly";
 
 // interface IHourlyProps {
 //   hourlyWeather: any[],

@@ -6,6 +6,7 @@ import { airPollutionReducer } from "./airPollutionReducer";
 import { appReducer } from "./appReducer";
 import { currentWeatherReducer } from "./currentWeatherReducer";
 import { oneCallReducer } from "./oneCallReducer";
+import { errorsReducer } from "./errorsReducer";
 import rootWatcher from "redux/saga";
 
 const sagaMiddleware = createSagaMiddleware()
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     airPollution: airPollutionReducer,
     currentWeather: currentWeatherReducer,
     oneCall: oneCallReducer,
+    errors: errorsReducer
 })
 
 export const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware), composeWithDevTools()))
