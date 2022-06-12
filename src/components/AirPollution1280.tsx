@@ -4,20 +4,21 @@ import LoaderAirPollution from "components/Loader/LoaderAirPollution";
 import { ErrorBlock } from "styles/StyledDaily";
 import {
   Container,
-  TitleAirPollution,
+  TitleAir,
   Wrapper,
   Description,
   List,
   Item,
   ChemicalFormula,
   Value,
-  Designation,
-} from "../styles/StyledAirPollution";
+  Wrapper2,
+  // Designation,
+} from "../styles/StyledAirPollution1280";
 import { Input } from "../styles/StyledCurrentDetailed";
 
-const AirPollution: React.FC = (): React.ReactElement => {
+const AirPollution1280: React.FC = (): React.ReactElement => {
 
-const { loading } = useAppSelector((state: { loading: any; }) => state.loading)
+const { loading } = useAppSelector(state => state.loading)
 
 const data = useAppSelector(state => state.airPollution)
 
@@ -59,18 +60,18 @@ const {
     </ChemicalFormula>,
   ];
 
-  const arrayDesignation: string[] = [
-    "Монооксид углерода",
-    "Аммиак",
-    "Монооксид азота",
-    "Диоксид азота",
-    "Озон",
-    "Мелкодисперсные частицы",
-    "Грубые твердые частицы",
-    "Диоксид серы",
-  ];
+  // const arrayDesignation: string[] = [
+  //   "Монооксид углерода",
+  //   "Аммиак",
+  //   "Монооксид азота",
+  //   "Диоксид азота",
+  //   "Озон",
+  //   "Мелкодисперсные частицы",
+  //   "Грубые твердые частицы",
+  //   "Диоксид серы",
+  // ];
 
-  const setValue = (num: number) => error ? "Нет данных" : <span>{num} мкг/м<sup>3</sup></span>
+  const setValue = (num: number) => error ? "Нет данных" : <span>{num}</span>
 
   function getDescriptionCAQI(index: number): ListIndex | "Нет данных" {
     switch (index) {
@@ -94,8 +95,10 @@ const {
     <LoaderAirPollution/> :
     
     <Container>
-      <TitleAirPollution>ЗАГРЯЗНЕНИЕ ВОЗДУХА</TitleAirPollution>
+      <TitleAir>ЗАГРЯЗНЕНИЕ ВОЗДУХА</TitleAir>
+      <Wrapper2>
       {error ? "" :
+      
       <Wrapper>
         <Description>{getDescriptionCAQI(aqi)}</Description>
         <Input
@@ -112,17 +115,18 @@ const {
         {Object.values(components).map((value, index) => {
           return (
             <Item key={index}>
-              {arrayChemicalFormula[index]}
-              <Designation>{arrayDesignation[index]}</Designation>
               <Value>
                 {setValue(value)}
               </Value>
+              {arrayChemicalFormula[index]}
+              {/* <Designation>{arrayDesignation[index]}</Designation> */}
             </Item>
           );
         })}
       </List>}
+      </Wrapper2>
     </Container>
   );
 }
 
-export default AirPollution
+export default AirPollution1280

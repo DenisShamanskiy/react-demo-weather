@@ -16,6 +16,11 @@ export default createGlobalStyle`
   --second: #9eefff;
   --third: #404969;
   --fourth: #dc552c;
+
+  --first1280: #defcf9;
+  --second1280: #cadefc;
+  --third1280: #c3bef0;
+  --fourth1280: #cca8e9; 
   /* Размеры */
   --width-min: 376px;
   --width-max: 376px;
