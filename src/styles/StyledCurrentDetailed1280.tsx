@@ -52,21 +52,27 @@ const Card1280 = styled.div`
   background-color: var(--second);
   backdrop-filter: blur(7px);
   ${"" /* фон */}
-  background-color: var(--background-color);
+  /* background-color: var(--background-color);
   box-shadow: var(--box-shadow);
   backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--webkit-bf);
-  border: var(--border);
+  -webkit-backdrop-filter: var(--webkit-bf); */
+  /* border: var(--border); */
 `
 
 const CardUi = styled(Card1280)`
-  grid-column: 5 / 7;
-  grid-row: 2 / 4;
+  grid-column: 4 / 6;
+  grid-row: 7 / 9;
+  margin: 0;
+  border-radius: var(--br-20);
+  background-color: #ecf2f9;
 `;
 
 const CardFallout = styled(Card1280)`
-  grid-column: 5 / 7;
-  grid-row: 4 / 6;
+  grid-column: 7 / 9;
+  grid-row: 5 / 7;
+  margin: 0;
+  border-radius: var(--br-20);
+  background-color: #ecf2f9;
 `;
 
 const CardFeels = styled(Card1280)`
@@ -90,13 +96,19 @@ const CardPressure = styled(Card1280)`
 `;
 
 const CardSunrise = styled(Card1280)`
-  grid-column: 9 / 13;
-  grid-row: 6 / 8;
+  grid-column: 1 / 4;
+  grid-row: 7 / 9;
+  margin: 0;
+  border-radius: var(--br-20);
+  background-color: var(--orange);
 `;
 
 const CardWind = styled(Card1280)`
-  grid-column: 9 / 13;
-  grid-row: 8 / 10;
+  grid-column: 6 / 9;
+  grid-row: 7 / 9;
+  margin: 0;
+  border-radius: var(--br-20);
+  background-color: #ecf2f9;
 `;
 
 

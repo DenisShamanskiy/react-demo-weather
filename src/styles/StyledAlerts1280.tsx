@@ -10,9 +10,12 @@ interface OpenProps {
 
 const StyledAlerts = styled.article`
   position: absolute;
+  width: 415px;
+  top: 30px;
+  right: 30px;
   border-radius: 25px;
-  grid-column: 9 / 13;
-  grid-row: 7 / 8;
+  /* grid-column: 6 / 9;
+  grid-row: 1 / 2; */
   ${"" /* фон */}
   background-color: var(--background-color);
   box-shadow: var(--box-shadow);

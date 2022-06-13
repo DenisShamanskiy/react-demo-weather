@@ -11,7 +11,6 @@ import {
   Item,
   ChemicalFormula,
   Value,
-  Wrapper2,
   // Designation,
 } from "../styles/StyledAirPollution1280";
 import { Input } from "../styles/StyledCurrentDetailed";
@@ -95,8 +94,8 @@ const {
     <LoaderAirPollution/> :
     
     <Container>
-      <TitleAir>ЗАГРЯЗНЕНИЕ ВОЗДУХА</TitleAir>
-      <Wrapper2>
+      <TitleAir>Загрязнение воздуха</TitleAir>
+      
       {error ? "" :
       
       <Wrapper>
@@ -124,7 +123,6 @@ const {
           );
         })}
       </List>}
-      </Wrapper2>
     </Container>
   );
 }

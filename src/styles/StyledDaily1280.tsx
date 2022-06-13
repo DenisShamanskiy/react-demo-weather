@@ -4,43 +4,38 @@ import fff from "../images/svg/No-Cloud-Security.svg";
 // import { TitleHourly } from "./StyledHourly";
 
 const Container = styled.article`
-  grid-column: 1 / 5;
-  grid-row: 1 / 13;
+  grid-column: 1 / 9;
+  grid-row: 3 / 5;
   width: 100%;
-  display: grid;
-  grid-template-rows: 50px repeat(8, 70px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
  `;
 
-const TitleDaily = styled.h2`
-font-size: 1.5rem;
-margin: 0;
-  
-`;
+// const TitleDaily = styled.h2`
+// font-size: 1.5rem;
+// margin: 0;
+// `;
 
 const List = styled.ul`
   height: 100%;
   margin: 0;
   padding: 0;
   display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  /* display: flex;
+  justify-content: space-between; */
 `;
 
 const Item = styled.li`
-  min-height: 70px;
-  border: 1px solid red;
-  border-radius: 15px;
-  margin: 5px;
-  display: grid;
-  grid-template-columns: 70px 1fr 110px;
-  justify-content: center;
-  justify-self: stretch;
-  align-items: center;
-
-  background-color: var(--background-color);
-  box-shadow: var(--box-shadow);
-  backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--webkit-bf);
-  border: var(--border);
-  /* border-bottom: 1px solid var(--border-color); */
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: var(--br-20);
+  display: flex;
+  flex-direction: column;
+  background-color: #ecf2f9;
 `;
 
 const ErrorBlock = styled.div`
@@ -57,19 +52,18 @@ const ErrorBlock = styled.div`
 `;
 
 const Day = styled.p`
+  
   margin: auto;
   padding: 0;
-  font-size: 1rem;
-  font-weight: 400;
-  grid-column: 2 / 3;
+  font-size: 1.2rem;
+  font-weight: 600;
 `;
 
 const Icon = styled.img`
-  width: 85%;
-  margin: auto;
-  background-color: gray;
-  border-radius: 15px;
-  grid-column: 1 / 2;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #ffd6d6;
+  border-radius: var(--br-20);
 `;
 
 const Wrapper = styled.div`
@@ -81,7 +75,8 @@ const Wrapper = styled.div`
 `;
 
 const Description = styled.p`
-  margin: 0;
+  //margin: 0;
+  margin: auto 0;
   font-size: var(--f-s-n-small);
   text-align: center;
 `;
@@ -92,22 +87,21 @@ const Precipitation = styled(Description)`
 `;
 
 const Temperature = styled.p`
-  margin: 0;
+  margin: auto 0;
   width: 100%;
   height: 100%;
+  font-size: 1.3rem;
+  font-weight: 600;
   /* text-align: center; */
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-column: 3 / 4;
-  background-color: #8dc6ff;
-  border-radius: 0 15px 15px 0;
 
 `;
 
 export {
   Container,
-  TitleDaily,
+  // TitleDaily,
   List,
   Item,
   ErrorBlock,

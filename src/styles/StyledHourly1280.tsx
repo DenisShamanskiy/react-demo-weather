@@ -3,18 +3,19 @@ import Clock from "../images/svg/clock.svg";
 
 const Container = styled.article`
   width: 100%;
+  margin: 0;
   padding: 0.9rem;
   display: flex;
   flex-direction: column;
-  border-radius: 25px;
-  background-color: var(--second);
-  grid-column: 7 / 13;
-  grid-row: 3 / 6;
+  border-radius: var(--br-20);
+  background-color: var(--pink);
+  grid-column: 1 / 2;
+  grid-row: 7 / 8;
   ${"" /* фон */}
-  background-color: var(--background-color);
+  /* background-color: var(--background-color);
   box-shadow: var(--box-shadow);
   backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--webkit-bf);
+  -webkit-backdrop-filter: var(--webkit-bf); */
   border: var(--border);
 `;
 

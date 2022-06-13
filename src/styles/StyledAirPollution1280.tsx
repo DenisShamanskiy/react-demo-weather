@@ -4,34 +4,21 @@ import styled from "styled-components";
 
 const Container = styled.article`
   width: 100%;
-  margin: 5px;
-  /* margin-top: 20px; */
-  /* max-height: 200px; */
-  /* height: 398px; */
-  /* padding: 0.9rem; */
-  /* display: flex;
-  flex-direction: column; */
-  /* justify-content: space-between; */
-  border-radius: var(--radius-main);
-  /* background-color: var(--second);
-  backdrop-filter: blur(7px); */
-  ${"" /* фон */}
-  /* background-color: var(--background-color);
-  box-shadow: var(--box-shadow);
-  backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--webkit-bf);
-  border: var(--border); */
-  grid-column: 7 / 13;
-  grid-row: 1 / 4;
-  display: grid;
-  grid-template-rows: 50px 80px 80px;
+  height: 200px;
+  padding: 15px;
+  border-radius: var(--br-20);
+  background-color: #ecf2f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* grid-template-rows: 50px 1fr 80px; */
+  grid-column: 1 / 7;
+  grid-row: 5 / 7;
 `;
 
 const TitleAir = styled.h2`
-
 font-size: 1.5rem;
 margin: 0;
-  
 `;
 
 const Wrapper = styled.div`
@@ -39,20 +26,20 @@ const Wrapper = styled.div`
   /* margin: auto 0; */
   
 `;
-const Wrapper2 = styled.div`
-border-radius: 15px;
-/* min-height: 160px; */
-justify-content: space-between;
-grid-row: 2 / 4;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--background-color);
-  box-shadow: var(--box-shadow);
-  backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--webkit-bf);
-  border: var(--border);
+// const Wrapper2 = styled.div`
+// border-radius: 15px;
+// /* min-height: 160px; */
+// justify-content: space-between;
+// /* grid-row: 2 / 4; */
+//   display: flex;
+//   flex-direction: column;
+//   background-color: var(--background-color);
+//   box-shadow: var(--box-shadow);
+//   backdrop-filter: var(--backdrop-filter);
+//   -webkit-backdrop-filter: var(--webkit-bf);
+//   border: var(--border);
   
-`;
+// `;
 
 const Description = styled.p`
   margin: 0;
@@ -64,23 +51,21 @@ const List = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 `;
 
 const Item = styled.li`
-width: 70px;
-height: 70px;
-  /* height: 2.2rem; */
-  /* display: grid;
-  grid-template-columns: 60px 1fr 125px; */
+  width: 60px;
+  height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border-bottom: 1px solid var(--border-color); */
   font-size: 0.7rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   border-radius: 15px;
+  background-color: #a1f480;
 `;
 
 const ChemicalFormula = styled.p`
@@ -101,7 +86,7 @@ export {
   Container,
   TitleAir,
   Wrapper,
-  Wrapper2,
+  // Wrapper2,
   Description,
   List,
   Item,

@@ -4,28 +4,30 @@ import SearchImg from "../images/svg/search.svg";
 const StyledSearch = styled.form`
   width: 100%;
   display: flex;
-  padding: 0.5rem;
+  margin-bottom: 30px;
+  padding: 10px;
   border-radius: 25px;
   box-sizing: border-box;
   color: var(--third);
-  background-color: var(--second);
+  background-color: #dee8f3;
   transition: 0.3s ease-in-out;
-  grid-column: 9 / 13;
+  grid-column: 1 / 2;
   grid-row: 1 / 2;
   ${"" /* фон */}
-  background-color: var(--background-color);
+  /* background-color: var(--background-color);
   box-shadow: var(--box-shadow);
   backdrop-filter: var(--backdrop-filter);
   -webkit-backdrop-filter: var(--webkit-bf);
-  border: var(--border);
+  border: var(--border); */
   &:focus-within {
-    background: #f3f9ff;
+    background: orange;
     transition: 0.3s ease-in-out;
   }
 `;
 
 const Input = styled.input`
   width: 100%;
+  height: 30px;
   border: none;
   box-sizing: border-box;
   border: none;

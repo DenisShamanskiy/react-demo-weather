@@ -4,14 +4,14 @@ import { StateOneCall } from "redux/types";
 import LoaderDaily from "components/Loader/LoaderDaily";
 import {
   Container,
-  TitleDaily,
+  // TitleDaily,
   List,
   Item,
   Day,
   Icon,
-  Wrapper,
-  Description,
-  Precipitation,
+  // Wrapper,
+  // Description,
+  // Precipitation,
   Temperature,
   ErrorBlock,
 } from "../styles/StyledDaily1280";
@@ -32,28 +32,29 @@ const Daily1280: React.FC = (): React.ReactElement => {
     
     <Container>
       <>
-      <TitleDaily>ПРОГНОЗ НА 7 ДНЕЙ</TitleDaily>
+      {/* <TitleDaily>ПРОГНОЗ НА 7 ДНЕЙ</TitleDaily> */}
 
       {error ? <ErrorBlock/> : 
 
       <List>
-        {dataWeather.map(({ temp: { max, min }, weather, dt, pop }, index) => {
+        {dataWeather/*.slice(1, dataWeather.length)*/.map(({ temp: { max, min }, weather, dt, /*pop*/ }, index) => { 
           return (
             <Item key={index}>
               <Icon
                 src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
                 alt="Иконка погоды"
               />
-              <>
-              <Wrapper>
               <Day>
                 {index === 0
-                  ? "Сегодня"
-                  : index === 1
+                  ? "Сегодня" :
+                  index === 1
                   ? "Завтра"
-                  : formate.dayWeek(dt)}
+                  : formate.dayWeek(dt + 1)}
               </Day>
-                <Description>
+              <>
+              {/* <Wrapper> */}
+              
+                {/* <Description>
                   {weather[0].description[0].toUpperCase() +
                     weather[0].description.slice(1)}
                 </Description>
@@ -63,10 +64,10 @@ const Daily1280: React.FC = (): React.ReactElement => {
                   )}`}</Precipitation>
                 ) : (
                   ""
-                )}
-              </Wrapper>
+                )} */}
+              {/* </Wrapper> */}
               </>
-              <Temperature>{Math.round(min)} - {Math.round(max)}°C</Temperature>
+              <Temperature>{Math.round(min)} - {Math.round(max)}°</Temperature>
               {/* <Temperature>{Math.round(max)}°</Temperature> */}
             </Item>
           );

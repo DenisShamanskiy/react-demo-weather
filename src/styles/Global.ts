@@ -6,6 +6,7 @@ export default createGlobalStyle`
 :root {
   /* Шрифт */
   --font-family-Jost: 'Jost', sans-serif;
+  --Comfortaa: 'Comfortaa', cursive;
   --f-s-x-small: 0.5rem;
   --f-s-n-small: 0.7rem;
   --f-s-b-small: 0.8rem;
@@ -20,12 +21,18 @@ export default createGlobalStyle`
   --first1280: #defcf9;
   --second1280: #cadefc;
   --third1280: #c3bef0;
-  --fourth1280: #cca8e9; 
+  --fourth1280: #cca8e9;
+
+  --pink: #f1c6de;
+  --orange: #fecea8;
+  --green: #c2fcd9;
+  --green-text: #c2fcd9;
   /* Размеры */
   --width-min: 376px;
   --width-max: 376px;
   --width-mobile: 376px;
   /* Border */
+  --br-20: 20px;
   --radius-main: 10px;
   --border-color: #b1bed5;
   /* Фон */
@@ -53,7 +60,11 @@ body {
     display: flex;
     justify-content: center;
     font-family: var(--font-family-Jost);
-    background-color: var(--first);
+    background-color: #c8d9eb;
     color: var(--third);
+    @media(min-width: 1280px) {
+    align-items: center;
+    font-family: var(--Comfortaa);
+  }
   }
 `;
